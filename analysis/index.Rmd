@@ -8,4 +8,27 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+# Introduction 
+
+Sanfilippo syndrome childhood dementia (Mucopolysaccharidosis Type III; MPS III) is a lysosomal storage disorder caused by dysfunction of the endo-lysosomal pathway in cells. There are four subtypes of MPSIII: A, B C and D, caused by loss enzymatic function in one of four genes: *SGSH*, *NAGLU*, *HGNSAT* and *GNS* respectively. These genes encode enzymes involved in the stepwise breakdown of the polysaccharide heparan sulfate (HS) in lysosomes. Mutations in these MPSIII genes cause accumulation of incomplete degradation products of HS in the brains of affected children.
+
+We have recently generated novel zebrafish models of MPSIII A, B and C:
+```{r}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+```{r}
+library(pander)
+library(magrittr)
+library(tidyverse)
+tibble(
+  `MPS-III subtype` = c("A", "B", "C"),
+  Gene = c("sgsh", "naglu", "hgsnat"), 
+  Mutation = c("I388*", "A603fs", "G577fs")
+) %>% 
+  pander()
+```
+
+In this analysis, we will test whether fish homozygous for the mutations listed above show changes to spatial working memory. To test this, we will use the free-movement pattern Y-Maze task ([Cleal et al. 2021](https://link.springer.com/article/10.3758/s13428-020-01452-x)). It involves the assessment of movement patterns of zebrafish freely exploring a Y-maze in a 1 hour time period. A series of frequencies of “tetragrams” (four consecutive arm entries ranging from LLLL to RRRR) are calculated, and differences in frequencies of the alternation tetragrams (LRLR and RLRL, the dominant search strategy used in vertebrates) are indicative of changes to spatial working memory. We will analyse our zebrafish in families generated from in-crossess of heterozygous mutants, across three ages (3, 6 and 9 months of age). 
+
+For each analysis (mutation and age) the raw data was processed using a batch script obtained from https://github.com/clay-j/ZANTIKS_YMaze_Analysis_Script. This script converts the raw data into a series of frequencies of tetragrams. Then, I performed the statistical analysis. 

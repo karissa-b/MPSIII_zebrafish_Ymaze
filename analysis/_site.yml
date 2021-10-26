@@ -5,13 +5,16 @@ navbar:
   left:
   - text: Home
     href: index.html
-  - text: About
-    href: about.html
-  - text: License
-    href: license.html
+  - text: sgsh_3m
+    href: sgsh3m.html
+  - text: naglu_3m
+    href: naglu3m.html
+  - text: naglu_6m
+    href: naglu6m.html
 output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: cosmo
+    theme: yeti
     highlight: textmate
+    code_folding: hide
