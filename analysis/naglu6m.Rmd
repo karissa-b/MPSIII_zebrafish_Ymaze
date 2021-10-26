@@ -365,7 +365,15 @@ an <- Anova(glm) %>%
 an %>%   
   kable() %>%
   kable_styling()
+```
 
+
+# Visualisation of effects
+
+## Genotype
+Below shows the GLM-predicted probability of zebrafish performing an alternation tetragram overall in 1 hour in a Y-maze according to genotype (and controlling for Day, Time of day, Tank of origin, whether fish show a left or right turn bias). The homozygous fish show similar probability of perform an alternation tetragram as the WT siblings. However, at 3 months of age, these fish showed *increased* probability of performing an alternation. So it appears that the spatial working memory of these fish is on the way down. 
+
+```{r}
 print(emmeans(glm, specs = "Genotype"), type = "response") %>%
   as_tibble() %>%
   mutate(Genotype = case_when(Genotype == "wt" ~ "+/+",
@@ -385,12 +393,19 @@ print(emmeans(glm, specs = "Genotype"), type = "response") %>%
                                angle = 45)) +
   scale_y_continuous(limits = c(0,0.35)) +
   scale_color_viridis_d(end = 0.8, option = "inferno") +
-  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram at 3 months of age",
+  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram at 6 months of age",
           subtitle = paste0("Effect of Genotype from GLM: ",
                             signif(an["Genotype","pval"], digits = 2)
           )
   )
+```
 
+## Time interval by genotype (interaction)
+
+This effect was found to be significant in the GLM. So the homozygous *naglu* mutants show mostly the same probability of performing an alternation. However, how they get there is different to the WTs. 
+
+In the plot below, the time intervals is shown on the x-axis. Where the hour the fish spent in the maze is dividied up into 6 x 10 minute intervals. 
+```{r}
 print(emmeans(glm, specs = "bin", by = "Genotype"), type = "response") %>%
   as_tibble() %>%
   ggplot(aes(bin, prob, colour = Genotype)) +
@@ -415,8 +430,13 @@ print(emmeans(glm, specs = "bin", by = "Genotype"), type = "response") %>%
                             signif(an["bin:Genotype","pval"], digits = 2)
           )
   )
+```
 
+## LR Bias
 
+If zebrafish have a preference for L or R turns, they will likely perform less alternations without the use of spatial working memory. This indeed is what is obserevd. Fish who were classified as showing a turn bias do have a lesser probability of performing an alternation. 
+
+```{r}
 print(emmeans(glm, specs = "L_R_bias"), type = "response") %>%
   as_tibble() %>%
   ggplot(aes(L_R_bias, prob, colour = L_R_bias)) +
@@ -442,7 +462,13 @@ print(emmeans(glm, specs = "L_R_bias"), type = "response") %>%
                             signif(an["L_R_bias","pval"], digits = 2)
           )
   )
+```
 
+## Tank
+
+We also need to control for which tank the zebrafish were raised in. The fish analysed are all siblings. However, they came from four mating events, and are approx. 1 week of age apart. In the plot below, we can see that fish in Tank 4 appear to show slightly more alternations. However, the effect of Tank only just reaches statistical significance. This supports our inclusion of the effect of tank in the GLM. 
+
+```{r}
 print(emmeans(glm, specs = "Tank"), type = "response") %>%
   as_tibble() %>%
   ggplot(aes(Tank, prob, colour = Tank)) +
@@ -459,7 +485,7 @@ print(emmeans(glm, specs = "Tank"), type = "response") %>%
                                angle = 45)) +
   scale_y_continuous(limits = c(0,0.4)) +
   scale_color_viridis_d(end = 0.8, option = "plasma") +
-  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram at 3 months of age",
+  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram at 6 months of age",
           subtitle = paste0("Effect of Tank from GLM: ",
                             signif(an["Tank","pval"], digits = 2)
           )
@@ -468,5 +494,5 @@ print(emmeans(glm, specs = "Tank"), type = "response") %>%
 
 # Conclusion
 
-6 month old zebrafish homozygous for the *naglu* ^A603fs^ mutation perform more alternations than their wild type siblings. This is indicative of improved spatial working memory. Perhaps we are picking up a hyperactivity phenotype consistent with the observed behaviour of human children living with this disease. 
+6 month old zebrafish homozygous for the *naglu* ^A603fs^ mutation appear to perform the same amount of alternations to their wild type siblings. This is indicative of decreasing spatial working memory compared the to 3 month old analysis. We will repeat the analysis at 9 months of age to determine whether the spatial working memory is decreased. 
 

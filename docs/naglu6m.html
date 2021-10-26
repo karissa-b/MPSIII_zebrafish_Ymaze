@@ -373,7 +373,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -382,7 +382,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -391,10 +391,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-10-26
+<strong>Last updated:</strong> 2021-10-27
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>MPSIII_zebrafish_Ymaze/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -410,12 +410,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -482,24 +482,28 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree273d4420255f3f4070f68d9cb2065e56522f7fdetargetblank273d442a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/273d4420255f3f4070f68d9cb2065e56522f7fde" target="_blank">273d442</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree0f9d87a4e91c32f3b3dfd62af69525e5717af16dtargetblank0f9d87aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/0f9d87a4e91c32f3b3dfd62af69525e5717af16d" target="_blank">0f9d87a</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree273d4420255f3f4070f68d9cb2065e56522f7fdetargetblank273d442a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree0f9d87a4e91c32f3b3dfd62af69525e5717af16dtargetblank0f9d87aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/273d4420255f3f4070f68d9cb2065e56522f7fde" target="_blank">273d442</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/0f9d87a4e91c32f3b3dfd62af69525e5717af16d" target="_blank">0f9d87a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .Rapp.history
     Ignored:    .Rproj.user/
     Ignored:    data/.DS_Store
+
+Unstaged changes:
+    Modified:   analysis/naglu6m.Rmd
 
 </code></pre>
 <p>
@@ -538,6 +542,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/karissa-b/MPSIII_zebrafish_Ymaze/0f9d87a4e91c32f3b3dfd62af69525e5717af16d/docs/naglu6m.html" target="_blank">0f9d87a</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2021-10-26
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1714,6 +1735,12 @@ bin:Genotype
 </tr>
 </tbody>
 </table>
+</div>
+<div id="visualisation-of-effects" class="section level1">
+<h1>Visualisation of effects</h1>
+<div id="genotype" class="section level2">
+<h2>Genotype</h2>
+<p>Below shows the GLM-predicted probability of zebrafish performing an alternation tetragram overall in 1 hour in a Y-maze according to genotype (and controlling for Day, Time of day, Tank of origin, whether fish show a left or right turn bias). The homozygous fish show similar probability of perform an alternation tetragram as the WT siblings. However, at 3 months of age, these fish showed <em>increased</em> probability of performing an alternation. So it appears that the spatial working memory of these fish is on the way down.</p>
 <pre class="r"><code>print(emmeans(glm, specs = &quot;Genotype&quot;), type = &quot;response&quot;) %&gt;%
   as_tibble() %&gt;%
   mutate(Genotype = case_when(Genotype == &quot;wt&quot; ~ &quot;+/+&quot;,
@@ -1733,7 +1760,7 @@ bin:Genotype
                                angle = 45)) +
   scale_y_continuous(limits = c(0,0.35)) +
   scale_color_viridis_d(end = 0.8, option = &quot;inferno&quot;) +
-  ggtitle(&quot;GLM predicted probability of zebrafish performing an alternation\ntetragram at 3 months of age&quot;,
+  ggtitle(&quot;GLM predicted probability of zebrafish performing an alternation\ntetragram at 6 months of age&quot;,
           subtitle = paste0(&quot;Effect of Genotype from GLM: &quot;,
                             signif(an[&quot;Genotype&quot;,&quot;pval&quot;], digits = 2)
           )
@@ -1746,44 +1773,12 @@ bin:Genotype
 Results are averaged over the levels of: bin, Time, Tank, Sex, L_R_bias 
 Confidence level used: 0.95 
 Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/naglu6m.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-1">
-Past versions of unnamed-chunk-10-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-10-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-10-1.png" target="_blank">273d442</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-26
-</td>
-</tr>
-</tbody>
-</table>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-</div>
+<div id="time-interval-by-genotype-interaction" class="section level2">
+<h2>Time interval by genotype (interaction)</h2>
+<p>This effect was found to be significant in the GLM. So the homozygous <em>naglu</em> mutants show mostly the same probability of performing an alternation. However, how they get there is different to the WTs.</p>
+<p>In the plot below, the time intervals is shown on the x-axis. Where the hour the fish spent in the maze is dividied up into 6 x 10 minute intervals.</p>
 <pre class="r"><code>print(emmeans(glm, specs = &quot;bin&quot;, by = &quot;Genotype&quot;), type = &quot;response&quot;) %&gt;%
   as_tibble() %&gt;%
   ggplot(aes(bin, prob, colour = Genotype)) +
@@ -1838,44 +1833,11 @@ Genotype = hom:
 Results are averaged over the levels of: Time, Tank, Sex, L_R_bias 
 Confidence level used: 0.95 
 Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/naglu6m.Rmd/unnamed-chunk-10-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-2">
-Past versions of unnamed-chunk-10-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-10-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-10-2.png" target="_blank">273d442</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-26
-</td>
-</tr>
-</tbody>
-</table>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-</div>
+<div id="lr-bias" class="section level2">
+<h2>LR Bias</h2>
+<p>If zebrafish have a preference for L or R turns, they will likely perform less alternations without the use of spatial working memory. This indeed is what is obserevd. Fish who were classified as showing a turn bias do have a lesser probability of performing an alternation.</p>
 <pre class="r"><code>print(emmeans(glm, specs = &quot;L_R_bias&quot;), type = &quot;response&quot;) %&gt;%
   as_tibble() %&gt;%
   ggplot(aes(L_R_bias, prob, colour = L_R_bias)) +
@@ -1909,44 +1871,11 @@ Karissa Barthelson
 Results are averaged over the levels of: bin, Genotype, Time, Tank, Sex 
 Confidence level used: 0.95 
 Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/naglu6m.Rmd/unnamed-chunk-10-3.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-3">
-Past versions of unnamed-chunk-10-3.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-10-3" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-10-3.png" target="_blank">273d442</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-26
-</td>
-</tr>
-</tbody>
-</table>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-</div>
+<div id="tank" class="section level2">
+<h2>Tank</h2>
+<p>We also need to control for which tank the zebrafish were raised in. The fish analysed are all siblings. However, they came from four mating events, and are approx. 1 week of age apart. In the plot below, we can see that fish in Tank 4 appear to show slightly more alternations. However, the effect of Tank only just reaches statistical significance. This supports our inclusion of the effect of tank in the GLM.</p>
 <pre class="r"><code>print(emmeans(glm, specs = &quot;Tank&quot;), type = &quot;response&quot;) %&gt;%
   as_tibble() %&gt;%
   ggplot(aes(Tank, prob, colour = Tank)) +
@@ -1963,7 +1892,7 @@ Karissa Barthelson
                                angle = 45)) +
   scale_y_continuous(limits = c(0,0.4)) +
   scale_color_viridis_d(end = 0.8, option = &quot;plasma&quot;) +
-  ggtitle(&quot;GLM predicted probability of zebrafish performing an alternation\ntetragram at 3 months of age&quot;,
+  ggtitle(&quot;GLM predicted probability of zebrafish performing an alternation\ntetragram at 6 months of age&quot;,
           subtitle = paste0(&quot;Effect of Tank from GLM: &quot;,
                             signif(an[&quot;Tank&quot;,&quot;pval&quot;], digits = 2)
           )
@@ -1977,48 +1906,12 @@ Karissa Barthelson
 Results are averaged over the levels of: bin, Genotype, Time, Sex, L_R_bias 
 Confidence level used: 0.95 
 Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/naglu6m.Rmd/unnamed-chunk-10-4.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-4">
-Past versions of unnamed-chunk-10-4.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-10-4" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-10-4.png" target="_blank">273d442</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-26
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
-<p>6 month old zebrafish homozygous for the <em>naglu</em> <sup>A603fs</sup> mutation perform more alternations than their wild type siblings. This is indicative of improved spatial working memory. Perhaps we are picking up a hyperactivity phenotype consistent with the observed behaviour of human children living with this disease.</p>
+<p>6 month old zebrafish homozygous for the <em>naglu</em> <sup>A603fs</sup> mutation appear to perform the same amount of alternations to their wild type siblings. This is indicative of decreasing spatial working memory compared the to 3 month old analysis. We will repeat the analysis at 9 months of age to determine whether the spatial working memory is decreased.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -2049,7 +1942,6 @@ other attached packages:
 [17] here_1.0.1        readxl_1.3.1      magrittr_2.0.1    forcats_0.5.1    
 [21] stringr_1.4.0     dplyr_1.0.7       purrr_0.3.4       readr_1.4.0      
 [25] tidyr_1.1.3       tibble_3.1.2      ggplot2_3.3.5     tidyverse_1.3.1  
-[29] workflowr_1.6.2  
 
 loaded via a namespace (and not attached):
  [1] TH.data_1.0-10      minqa_1.2.4         colorspace_2.0-2   
@@ -2058,32 +1950,33 @@ loaded via a namespace (and not attached):
 [10] rstudioapi_0.13     farver_2.1.0        fansi_0.5.0        
 [13] mvtnorm_1.1-2       lubridate_1.7.10    xml2_1.3.2         
 [16] codetools_0.2-18    splines_4.0.2       knitr_1.33         
-[19] polyclip_1.10-0     jsonlite_1.7.2      nloptr_1.2.2.2     
-[22] dbplyr_2.1.1        compiler_4.0.2      httr_1.4.2         
-[25] backports_1.2.1     assertthat_0.2.1    cli_3.0.0          
-[28] later_1.2.0         tweenr_1.0.2        htmltools_0.5.1.1  
-[31] tools_4.0.2         coda_0.19-4         gtable_0.3.0       
-[34] glue_1.4.2          Rcpp_1.0.7          cellranger_1.1.0   
-[37] jquerylib_0.1.4     vctrs_0.3.8         svglite_2.0.0      
-[40] nlme_3.1-152        insight_0.14.2      xfun_0.24          
-[43] openxlsx_4.2.4      rvest_1.0.0         lifecycle_1.0.0    
-[46] rstatix_0.7.0       zoo_1.8-9           hms_1.1.0          
-[49] promises_1.2.0.1    sandwich_3.0-1      TMB_1.7.20         
-[52] yaml_2.2.1          curl_4.3.2          gridExtra_2.3      
-[55] sass_0.4.0          stringi_1.6.2       highr_0.9          
-[58] boot_1.3-28         zip_2.2.0           rlang_0.4.11       
-[61] pkgconfig_2.0.3     systemfonts_1.0.2   evaluate_0.14      
-[64] lattice_0.20-44     labeling_0.4.2      tidyselect_1.1.1   
-[67] plyr_1.8.6          R6_2.5.0            generics_0.1.0     
-[70] multcomp_1.4-17     DBI_1.1.1           pillar_1.6.1       
-[73] haven_2.4.1         whisker_0.4         foreign_0.8-81     
-[76] withr_2.4.2         survival_3.2-11     abind_1.4-5        
-[79] modelr_0.1.8        crayon_1.4.1        utf8_1.2.1         
-[82] rmarkdown_2.9       grid_4.0.2          data.table_1.14.0  
-[85] git2r_0.28.0        reprex_2.0.0        digest_0.6.27      
-[88] webshot_0.5.2       xtable_1.8-4        numDeriv_2016.8-1.1
-[91] httpuv_1.6.1        munsell_0.5.0       beeswarm_0.4.0     
-[94] viridisLite_0.4.0   vipor_0.4.5         bslib_0.2.5.1      </code></pre>
+[19] polyclip_1.10-0     jsonlite_1.7.2      workflowr_1.6.2    
+[22] nloptr_1.2.2.2      dbplyr_2.1.1        compiler_4.0.2     
+[25] httr_1.4.2          backports_1.2.1     assertthat_0.2.1   
+[28] cli_3.0.0           later_1.2.0         tweenr_1.0.2       
+[31] htmltools_0.5.1.1   tools_4.0.2         coda_0.19-4        
+[34] gtable_0.3.0        glue_1.4.2          Rcpp_1.0.7         
+[37] cellranger_1.1.0    jquerylib_0.1.4     vctrs_0.3.8        
+[40] svglite_2.0.0       nlme_3.1-152        insight_0.14.2     
+[43] xfun_0.24           openxlsx_4.2.4      rvest_1.0.0        
+[46] lifecycle_1.0.0     rstatix_0.7.0       zoo_1.8-9          
+[49] hms_1.1.0           promises_1.2.0.1    sandwich_3.0-1     
+[52] TMB_1.7.20          yaml_2.2.1          curl_4.3.2         
+[55] gridExtra_2.3       sass_0.4.0          stringi_1.6.2      
+[58] highr_0.9           boot_1.3-28         zip_2.2.0          
+[61] rlang_0.4.11        pkgconfig_2.0.3     systemfonts_1.0.2  
+[64] evaluate_0.14       lattice_0.20-44     labeling_0.4.2     
+[67] tidyselect_1.1.1    plyr_1.8.6          R6_2.5.0           
+[70] generics_0.1.0      multcomp_1.4-17     DBI_1.1.1          
+[73] pillar_1.6.1        haven_2.4.1         whisker_0.4        
+[76] foreign_0.8-81      withr_2.4.2         survival_3.2-11    
+[79] abind_1.4-5         modelr_0.1.8        crayon_1.4.1       
+[82] utf8_1.2.1          rmarkdown_2.9       grid_4.0.2         
+[85] data.table_1.14.0   git2r_0.28.0        reprex_2.0.0       
+[88] digest_0.6.27       webshot_0.5.2       xtable_1.8-4       
+[91] numDeriv_2016.8-1.1 httpuv_1.6.1        munsell_0.5.0      
+[94] beeswarm_0.4.0      viridisLite_0.4.0   vipor_0.4.5        
+[97] bslib_0.2.5.1      </code></pre>
 </div>
 </div>
 
