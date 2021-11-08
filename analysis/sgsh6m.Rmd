@@ -89,7 +89,7 @@ In this analysis, I will analyse Ewans raw data generated for zebrafish arising 
 Briefly, zebrafish are raised from this cross together in the same tank, across `r meta$Tank %>% unique %>% length` lays. Each lay has come from the same parents are approx. 1 week apart in age. Each tank contained fish either WT, heterozygous or homozgous for the mutation in a 1:2:1 ratio. A summary of the fish used in this experiment can be found in the plot below.
 
 ```{r}
-meta %>%
+ggarrange(meta %>%
   group_by(Tank, Genotype) %>%
   summarise(n = n()) %>%
   ggplot(aes(x = Genotype, y = n, fill = Genotype)) +
@@ -97,35 +97,33 @@ meta %>%
   facet_wrap(~Tank) +
   scale_fill_viridis_d() +
   labs(y = "Number of fish") +
-  ggtitle("Number of fish per genotype per tank (3 tanks total)")
+  ggtitle("Number of fish per genotype per tank (3 tanks total)"), 
+  
+  meta %>%
+    ggplot(aes(Genotype, fill = Genotype)) +
+    geom_bar(colour = "black") +
+    scale_fill_viridis_d() +
+    labs(y = "Number of fish") +
+    ggtitle("Total Number of fish per genotype in the study"), 
+  common.legend = T
+)
 ```
 
 Fish were isolated for 30 mins two at a time, then placed in the maze for 1 hour. Raw data was collected, and metadata was recorded (i.e. sex, time, day). These raw data spreadsheets were batch processed in the sgsh 3m, BatchProcess R script to produce the `final_data` object. This object contains the tetragram frequencies (see below). Note that fish were genotyped after data collection so that we are blinded from any observer bias until after raw data collection. Addiotianlly, the videos were manually observed to ensure proper tracking. Any fish where the tracking was not perfect was omitted.
 
 ```{r}
 final_data %>%
-  head %>%
-  kable(caption = "Example of the processed data") %>%
-  kable_styling()
+  kable(caption = "Processed data") %>%
+  kable_styling() %>% 
+  scroll_box(width = "1000px", height = "200px")
 ```
 
-# check genotype proportions
-
-First, I will check that genotype proportions are as expected. A few less homozygous fish are observed than expected. However, this is partly due to that they were omitted because the software did not track properly.
-
-```{r}
-meta %>%
-  ggplot(aes(Genotype, fill = Genotype)) +
-  geom_bar(colour = "black") +
-  scale_fill_viridis_d() +
-  ggtitle("Number of fish per genotype in the study")
-```
 
 # Visualisation of raw data
 
 The plots below show the raw counts of each of the possible tetragrams. We can see some fish were quite inactive, wih low total number of tetragrams. The plot below show fish 1-3 for vis purposes. To see all fish, remove the `dplyr::filter` line of code.
 
-```{r fig.height = 40, fig.width = 20}
+```{r fig.height = 20, fig.width = 20}
 final_data_summedoverbins %>%
   dplyr::filter(fish_id %in% c(seq(1,3))) %>%
   ggplot(aes(x = tetras, y = sum_tetras, fill = tetras)) +
@@ -150,7 +148,7 @@ final_data_summedoverbins %>%
                # aes(fill = Genotype)
                fill = NA
                ) +
-  scale_fill_viridis_d() +
+  scale_fill_viridis_d(alpha = 0.5) +
   coord_cartesian(ylim = c(0,200)) + # zoom in
   labs(y = "Number of tetragrams",
        colour = "Tetragram",
@@ -159,7 +157,7 @@ final_data_summedoverbins %>%
   ggtitle("Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period")
 ```
 
-We can also overlay the genotype boxplots as shown below. Looks like the heterozyous and homozygous fish perform more alternations than the WT fish. I will look into this more later in the analysis.
+We can also overlay the genotype boxplots as shown below. Looks like the heterozyous and homozygous fish perform more alternations than the WT fish. However, I will look into this more later in the analysis.
 
 
 ```{r}
@@ -171,7 +169,7 @@ final_data_summedoverbins %>%
   geom_boxplot(outlier.shape = NA,
                aes(fill = Genotype) # fill the boxplots by genotype
                ) +
-  scale_fill_viridis_d() +
+  scale_fill_viridis_d(alpha = 0.5) +
   coord_cartesian(ylim = c(0,200)) + # zoom in
   labs(y = "Number of tetragrams",
        colour = "Tetragram",
@@ -192,7 +190,7 @@ final_data_long %>%
   theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1)) +
   ylab("Frequency of alternation tetragrams (LRLR + RLRL)") +
   coord_cartesian(ylim = c(0, 100)) + # zoom in
-  scale_fill_viridis_d()
+  scale_fill_viridis_d(alpha = 0.5)
 ```
 
 We can also display this as the *relative* amount of alternation tetragrams performed by zebrafish in a 1 hour search period. This will control for how active each fish is.
@@ -206,7 +204,7 @@ final_data_long %>%
   facet_wrap(~bin, nrow = 1) +
   ylab("Relative alteration frequency (LRLR + RLRL)") +
   theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1))  +
-  scale_fill_viridis_d()
+  scale_fill_viridis_d(alpha = 0.5)
 ```
 
 # Locomotor defect
@@ -244,7 +242,7 @@ final_data_summedoverbins %>%
          data = .) %>%
   summary %>%
   .$coef %>%
-  kable(caption = "Negative binomial GLM model coefficients. Fish which were in Tank 3 appeared to be more active" ) %>%
+  kable(caption = "Negative binomial GLM model coefficients." ) %>%
   kable_styling()
 ```
 
@@ -396,7 +394,7 @@ print(emmeans(glm, specs = "Genotype"), type = "response") %>%
                                angle = 45)) +
   scale_y_continuous(limits = c(0,0.35)) +
   scale_color_viridis_d(end = 0.8, option = "inferno") +
-  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram at 3 months of age",
+  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram at 6 months of age",
           subtitle = paste0("Effect of Genotype from GLM: ",
                             signif(an["Genotype","pval"], digits = 2)
           )
@@ -418,7 +416,7 @@ print(emmeans(glm, specs = "Tank"), type = "response") %>%
                                angle = 45)) +
   scale_y_continuous(limits = c(0,0.35)) +
   scale_color_viridis_d(end = 0.8, option = "plasma") +
-  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram at 3 months of age",
+  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram at 6 months of age",
           subtitle = paste0("Effect of Tank from GLM: ",
                             signif(an["Tank","pval"], digits = 2)
           )
@@ -481,6 +479,6 @@ print(emmeans(glm, specs = "bin", by = "Genotype"), type = "response") %>%
 
 # Conclusion
 
-No statistically significant differences are observed for *sgsh* ^I388*^ mutant zebrafish for alterations to  spatial working memory. 
+No statistically significant differences are observed for *sgsh* ^I388*^ mutant zebrafish for alterations to spatial working memory at 6m of age. 
 
 

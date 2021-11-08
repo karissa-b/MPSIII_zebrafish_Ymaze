@@ -14,7 +14,8 @@ output <- here("data/processed_data/sgsh/6m")
 setwd(input)
 file_list <- list.files(pattern = "*.csv", recursive = TRUE) #Create a list of files from ./data directory.
 
-df <- tibble(file_list = file_list) %>% #Import data as a tibble with nested lists
+df <-
+  tibble(file_list = file_list) %>% #Import data as a tibble with nested lists
   mutate(tail = map(file_list, ~ read_csv(.x, col_names = F, skip = 4)), #tail = data
          head = map(file_list, ~ read_csv(.x, col_names = F, n_max = 4))) # head = demographic info
 
@@ -35,7 +36,7 @@ df <- #convert df from a tibble w/ nested lists to a basic tibble
 
 # DATA WANGLING -----------------------------------------------------------
 ## STEP 1 - select variables that we are intrested in
-df<-
+df <-
   df %>%
   dplyr::select(file_list, Apparatus, `Unit ID`,X1, X4, X5, X6, fish1, fish2) %>% #select the vars we're intrested in
   rename(file_id = file_list, #renames vars
