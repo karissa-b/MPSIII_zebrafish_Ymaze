@@ -11,6 +11,8 @@ navbar:
     href: naglu3m.html
   - text: naglu_6m
     href: naglu6m.html
+  - text: sgsh_6m
+    href: sgsh6m.html
 output:
   workflowr::wflow_html:
     toc: yes

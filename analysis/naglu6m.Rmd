@@ -119,7 +119,7 @@ The plots below show the raw counts of each of the possible tetragrams. We can s
 
 ```{r fig.height = 40, fig.width = 20}
 final_data_summedoverbins %>% 
-  dplyr::filter(fish_id %in% c(seq(1,10))) %>% 
+  dplyr::filter(fish_id %in% c(seq(1,5))) %>% 
   ggplot(aes(x = tetras, y = x, fill = tetras)) + 
   geom_col() +
   facet_wrap(~fish_id, ncol = 1) +
@@ -151,7 +151,7 @@ final_data_summedoverbins %>%
   ggtitle("Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period") 
 ```
 
-We can also overlay the genotype boxplots as shown below. Looks like the heterozyous and homozygous fish perform more alternations than the WT fish. I will look into this more later in the analysis 
+We can also overlay the genotype boxplots as shown below. Looks like the homozygous fish perform less alternations than the WT fish. I will look into this more later in the analysis 
 
 ```{r}
 final_data_summedoverbins %>%
