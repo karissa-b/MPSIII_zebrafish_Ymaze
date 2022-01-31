@@ -1,0 +1,483 @@
+---
+title: "hgsnat3m"
+author: "Karissa Barthelson"
+date: "2021-11-10"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## setup
+```{r}
+library(tidyverse)
+library(readxl)
+library(here)
+library(magrittr)
+library(scales)
+library(readxl)
+library(ggpubr)
+library(ggeasy)
+library(ggfortify)
+library(ggbeeswarm)
+library(ggforce)
+library(kableExtra)
+
+# stat analysis
+library(broom)
+library(lme4)
+library(performance)
+library(car)
+library(emmeans)
+library(glmmTMB)
+library(MASS)
+
+# set the default theme for ggplot as theme_bw
+theme_set(theme_bw())
+```
+
+
+```{r}
+# read in Ewans metadata speadsheet. make all the metadata as factors as well
+meta <-
+  read_excel("data/metadata/hgsnat 3-month behavioural metadata.xlsx") %>%
+  mutate(
+    fish_id = as.factor(fish_id),
+    Day = as.factor(Day),
+    Time = as.factor(Time),
+    Tank = as.factor(Tank),
+    Sex = as.factor(Sex),
+    Genotype = factor(Genotype, levels = c("wt", "het", "hom"))
+  ) %>% 
+  dplyr::filter(Genotype %in%  c("wt", "het", "hom")) # omit fish without genotype info. 
+# prepare the final data object which contains genotype
+final_data <- read_csv("data/processed_data/hgsnat/3m/final_output.csv") %>%
+  dplyr::select(-1) %>%
+  mutate(fish_id = factor(fish_id)) %>%
+  left_join(meta) %>%
+  dplyr::filter(Keep == "Y") %>% 
+  dplyr::filter(Genotype %in%  c("wt", "het", "hom")) # omit fish without genotype info. 
+
+# make an object which converts the final data to long format. for easier plotting in ggplot
+final_data_long <- final_data %>%
+  dplyr::filter(Keep == "Y") %>%
+  gather(key = "tetras", value = "Count", # convert to long format
+         grep("[L|R]{4}",
+              colnames(.))
+         )
+
+# also make an object which sums the tetragrams over the hour
+final_data_summedoverbins <- final_data %>%
+  dplyr::filter(Keep == "Y") %>%
+  gather(key = "tetras", value = "Count", # convert to long format
+         grep("[L|R]{4}", # select the columns which contain a L or a R four times
+              colnames(.))
+         ) %>%
+  group_by(fish_id, tetras) %>%
+  mutate(sum_tetras = sum(Count)) %>% # sum the tetragram counts per fish_id
+  dplyr::select(colnames(meta), tetras, sum_tetras) %>%
+  unique
+```
+
+# Introduction
+
+In this analysis, I will analyse Ewans raw data generated for zebrafish arising from a lay from the same *sgsh* I388* het x het parents in the Zantiks Y-maze.
+
+Briefly, zebrafish are raised from this cross together in the same tank, across `r meta$Tank %>% unique %>% length` lays. Each lay has come from the same parents are approx. 1 week apart in age. Each tank contained fish either WT, heterozygous or homozgous for the mutation in a 1:2:1 ratio. A summary of the fish used in this experiment can be found in the plot below.
+
+```{r}
+meta %>%
+  group_by(Tank, Genotype) %>%
+  summarise(n = n()) %>%
+  ggplot(aes(x = Genotype, y = n, fill = Genotype)) +
+  geom_col(colour = "black") +
+  facet_wrap(~Tank) +
+  scale_fill_viridis_d() +
+  labs(y = "Number of fish") +
+  ggtitle("Number of fish per genotype per tank (3 tanks total)")
+```
+
+Fish were isolated for 30 mins two at a time, then placed in the maze for 1 hour. Raw data was collected, and metadata was recorded (i.e. sex, time, day). These raw data spreadsheets were batch processed in the sgsh 3m, BatchProcess R script to produce the `final_data` object. This object contains the tetragram frequencies (see below). Note that fish were genotyped after data collection so that we are blinded from any observer bias until after raw data collection. Addiotianlly, the videos were manually observed to ensure proper tracking. Any fish where the tracking was not perfect was omitted.
+
+```{r}
+final_data %>%
+  head %>%
+  kable(caption = "Example of the processed data") %>%
+  kable_styling()
+```
+
+# check genotype proportions
+
+First, I will check that genotype proportions are as expected. A few less homozygous fish are observed than expected. However, this is partly due to that they were omitted because the software did not track properly.
+
+```{r}
+meta %>%
+  ggplot(aes(Genotype, fill = Genotype)) +
+  geom_bar(colour = "black") +
+  scale_fill_viridis_d() +
+  ggtitle("Number of fish per genotype in the study")
+```
+
+# Visualisation of raw data
+
+The plots below show the raw counts of each of the possible tetragrams. We can see some fish were quite inactive, wih low total number of tetragrams. The plot below show fish 1-10 for vis purposes. To see all fish, remove the `dplyr::filter` line of code.
+
+```{r fig.height = 40, fig.width = 20}
+final_data_summedoverbins %>%
+  dplyr::filter(fish_id %in% c(seq(10,20))) %>%
+  ggplot(aes(x = tetras, y = sum_tetras, fill = tetras)) +
+  geom_col() +
+  facet_wrap(~fish_id, ncol = 1) +
+  labs(y = "Counts of each tetragram",
+       fill = "Tetragram") +
+  theme(axis.text.x = element_blank(),
+        legend.position = "bottom") +
+  ggtitle("Distribution of memory patterns per fish")
+```
+
+Cleal et al. showed that zebrafish naturally perform more of the alternation tetragrams (LRLR and RLRL) in a Y-maze. This is also obsevred in our data here.
+
+```{r}
+final_data_summedoverbins %>%
+  dplyr::distinct(sum_tetras, .keep_all = T) %>%
+  ggplot(aes(x = tetras, y = sum_tetras)) +
+  geom_jitter(aes(colour = tetras,
+                  shape = Sex)) +
+  geom_boxplot(outlier.shape = NA,
+               # aes(fill = Genotype)
+               fill = NA
+               ) +
+  scale_fill_viridis_d() +
+  coord_cartesian(ylim = c(0,200)) + # zoom in
+  labs(y = "Number of tetragrams",
+       colour = "Tetragram",
+       x = "Tetragram")+
+  theme(legend.position = "bottom")  +
+  ggtitle("Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period")
+```
+
+We can also overlay the genotype boxplots as shown below. Looks like the heterozyous and homozygous fish perform more alternations than the WT fish. I will look into this more later in the analysis.
+
+
+```{r}
+final_data_summedoverbins %>%
+  dplyr::distinct(sum_tetras, .keep_all = T) %>%
+  ggplot(aes(x = tetras, y = sum_tetras)) +
+  geom_jitter(aes(colour = tetras,
+                  shape = Sex)) +
+  geom_boxplot(outlier.shape = NA,
+               aes(fill = Genotype) # fill the boxplots by genotype
+               ) +
+  scale_fill_viridis_d() +
+  coord_cartesian(ylim = c(0,200)) + # zoom in
+  labs(y = "Number of tetragrams",
+       colour = "Tetragram",
+       x = "Tetragram")+
+  theme(legend.position = "bottom")  +
+  ggtitle("Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period")
+```
+
+The alternation tetragrams are the tetragram of interest (the measure of working memory). Below indicates the number of tetragrams performed by zerbafish across the 6 x 10 min blocks of the hour they spent in the maze.
+
+```{r}
+final_data_long %>%
+  dplyr::distinct(rel_alts, .keep_all = T) %>%
+  ggplot(aes(x = Genotype, y = alts, fill = Genotype)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(aes(shape = Sex)) +
+  facet_wrap(~bin, nrow = 1) +
+  theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  ylab("Frequency of alternation tetragrams (LRLR + RLRL)") +
+  coord_cartesian(ylim = c(0, 100)) + # zoom in
+  scale_fill_viridis_d()
+```
+
+We can also display this as the *relative* amount of alternation tetragrams performed by zebrafish in a 1 hour search period. This will control for how active each fish is.
+
+```{r}
+final_data_long %>%
+  dplyr::distinct(rel_alts, .keep_all = T) %>%
+  ggplot(aes(x = Genotype, y = rel_alts, fill = Genotype)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(aes(shape = Sex)) +
+  facet_wrap(~bin, nrow = 1) +
+  ylab("Relative alteration frequency (LRLR + RLRL)") +
+  theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1))  +
+  scale_fill_viridis_d()
+```
+
+# Locomotor defect
+
+Alteration to locomotor activity could be a confounding effect with genotype to alternation (LRLR + RLRL) frequency. If the mutant fish had some form of locomotor change, they could be performing more or less alternation tetragrams not due to impairment of spatial working memory. To account for this, I will test whether the genotype of the fish had a significant effect on 1) the total number of turns the fish performed in the hour spent in the maze or 2) the average time spent in each zone of the maze.
+## total number of turns
+```{r}
+final_data_summedoverbins %>%
+  ungroup() %>%
+  group_by(fish_id) %>%
+  mutate(total_turns = sum(sum_tetras)) %>%
+  dplyr::select(colnames(meta), total_turns) %>%
+  unique %>%
+  dplyr::filter(total_turns < 1000) %>%
+  ggplot(aes(x = Genotype,y = total_turns)) +
+  geom_violin(aes(fill = Genotype),
+               alpha = 0.5) +
+  geom_boxplot(aes(colour = Genotype),
+               fill = NA,
+               width = 0.25,
+               colour= "black") +
+  geom_quasirandom(aes(shape = Sex)) +
+  scale_fill_viridis_d(option = "viridis") +
+  scale_colour_viridis_d(option = "viridis") +
+  ylab("Total number of turns") +
+  ggtitle("Total number of turns performed by fish in the Y-maze in 1 hour")
+
+final_data_summedoverbins %>%
+  ungroup() %>%
+  group_by(fish_id) %>%
+  mutate(total_turns = sum(sum_tetras)) %>%
+  dplyr::select(colnames(meta), total_turns) %>%
+  unique %>%
+  glm.nb(total_turns ~ Genotype + Sex + Tank,
+         data = .) %>%
+  summary %>%
+  .$coef %>%
+  kable(caption = "Negative binomial GLM model coefficients. Fish which were in Tank 3 appeared to be more active" ) %>%
+  kable_styling()
+```
+
+### time spent in each zone of the Y-maze
+
+```{r}
+read_csv("data/processed_data/sgsh/3m/time_in_zone.csv") %>% 
+  mutate(fish_id = as.character(fish_id)) %>%
+  dplyr::select(fish_id, bin, zone, time_in_zone) %>%
+  left_join(meta) %>%
+  dplyr::filter(Keep == "Y") %>%
+  group_by(fish_id, zone) %>%
+  mutate(total_timeInZone = sum(time_in_zone)) %>%
+  dplyr::distinct(total_timeInZone, .keep_all = TRUE) %>%
+  ggplot(aes(x = Genotype, y = total_timeInZone/60)) +
+  geom_quasirandom(aes(shape=Sex)
+                  ) +
+  geom_boxplot(aes(fill = Genotype),
+               outlier.shape = NA,
+                alpha = 0.5) +
+  facet_wrap(~zone, nrow = 1) +
+  scale_y_log10() +
+  ylab("Total time spent in each zone (mins, log scale)") +
+  scale_fill_viridis_d() +
+  ggtitle("Total time spent in each zone")
+
+
+read_csv("data/processed_data/sgsh/3m/time_in_zone.csv") %>% 
+  mutate(fish_id = as.character(fish_id)) %>%
+  dplyr::select(fish_id, bin, zone, time_in_zone) %>%
+  left_join(meta) %>%
+  dplyr::filter(Keep == "Y") %>%
+  group_by(fish_id, zone) %>%
+  mutate(aveTimeInZone = mean(time_in_zone)) %>%
+  dplyr::distinct(aveTimeInZone, .keep_all = TRUE) %>%
+  ggplot(aes(x = Genotype, y = aveTimeInZone)) +
+  geom_quasirandom(aes(shape=Sex)
+                  ) +
+  geom_boxplot(aes(fill = Genotype),
+               outlier.shape = NA,
+                alpha = 0.5) +
+  facet_wrap(~zone, nrow = 1) +
+  scale_fill_viridis_d() +
+  scale_y_log10() +
+  ylab("Average time spent in each zone (seconds, log scale") +
+  ggtitle("Average time spent in each zone")
+
+read_csv("data/processed_data/sgsh/3m/time_in_zone.csv") %>% 
+  mutate(fish_id = as.character(fish_id)) %>%
+  dplyr::select(fish_id, bin, zone, time_in_zone) %>%
+  left_join(meta) %>%
+  dplyr::filter(Keep == "Y") %>%
+  group_by(fish_id, zone) %>%
+  mutate(aveTimeInZone = mean(time_in_zone)) %>%
+  dplyr::distinct(aveTimeInZone, .keep_all = TRUE) %>%
+  lm(log(aveTimeInZone) ~ (Genotype + zone)^2 + Sex,
+    data = .) %>%
+  summary %>%
+  .$coef %>%
+  kable(caption = "linear model: log(aveTimeInZone) ~ (Genotype + zone)^2 + Sex") %>%
+  kable_styling()
+```
+
+# check for handedness
+[Fontana et al. 2019](https://doi.org/10.1007/s10071-019-01296-9) showed that fish sometimes show a behavioral lateralisation (i.e. handedness). If fish show this, then they would perform less alternation tetragrams not due to working memory.  Here, we defne zebrafish as showing a laterality if they perform left or right turns more than 60% of the total turns.  Indeed, some zebrafish show a preference for L or R turns. However, it does not appear to be related to genotype. 
+
+```{r}
+# make the LR bias object
+LR_Bias <- final_data %>%
+  dplyr::select(L, R, total_turns, fish_id) %>%
+  group_by(fish_id) %>%
+  mutate(L = sum(L),
+         R = sum(R),
+         total_turns = sum(total_turns),
+         L_R_bias = case_when( #consider more than 60% of the time performing a left or right turn to be a bias
+           L/total_turns > 0.6 ~ "Left",
+           R/total_turns > 0.6 ~ "Right",
+           TRUE ~ "Neither"
+         )) %>%
+  dplyr::select(fish_id, L_R_bias) %>%
+  unique() %>%
+  mutate(L_R_bias = factor(L_R_bias,
+                           levels = c("Neither", "Left", "Right"))
+  )
+
+final_data %>%
+  left_join(LR_Bias) %>%
+  group_by(fish_id) %>%
+  mutate(L = sum(L),
+         R = sum(R),
+         total_turns = sum(total_turns)
+  ) %>%
+  ggplot(aes(L, R, shape = Genotype)) +
+  geom_point(aes(colour = L_R_bias),
+             size = 3) +
+  geom_abline(slope = 1) +
+  scale_color_manual(values = c(viridis_pal(end=0.75)(3), 
+                               rep("black", 3))
+  )
+```
+
+
+# test for changes to alternation
+Finally, I will now test for alternation changes using a generlatised linear mixed effect model (beta-binomial distribution). We use this because it is count data which is over-dispersed, and fixed and random effects are included. The link function is logit.
+
+```{r}
+glm <-
+  final_data %>%
+  dplyr::filter(Keep == "Y") %>%
+  left_join(LR_Bias) %>%
+  mutate(
+    dayTime = interaction(Day, Time, drop = T),
+    non_alts = total_turns - alts,
+    bin = as.factor(bin)
+  ) %>%
+  glmmTMB(
+    cbind(alts, non_alts) ~ (bin + Genotype)^2 + Time + Tank + Sex + L_R_bias + (1|Day) + (1|fish_id) + (1|dayTime),
+    family = betabinomial(),
+    data = .
+  )
+
+an <- Anova(glm) %>%
+  as.data.frame() %>% 
+  dplyr::rename(pval = `Pr(>Chisq)`) 
+
+an %>%  
+  kable() %>%
+  kable_styling()
+
+print(emmeans(glm, specs = "Genotype"), type = "response") %>%
+  as_tibble() %>%
+  mutate(Genotype = case_when(Genotype == "wt" ~ "+/+",
+                              Genotype == "het" ~ "G577fs/+",
+                              Genotype == "hom" ~ "G577fs/G577fs")) %>%
+  ggplot(aes(Genotype, prob, colour = Genotype)) +
+  geom_point(size  = 5,
+             position = position_dodge(width = 0.5)) +
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL),
+                width = 0.25,
+                size = 1,
+                position = position_dodge(width = 0.5)) +
+  labs(y = "Estimated probability of alternation",
+       x = "Time interval") +
+  theme(axis.text.x = element_text(hjust = 1,
+                               vjust = 1,
+                               angle = 45)) +
+  scale_y_continuous(limits = c(0,0.35)) +
+  scale_color_viridis_d(end = 0.8, option = "inferno") +
+  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram at 3 months of age",
+          subtitle = paste0("Effect of Genotype from GLM: ",
+                            signif(an["Genotype","pval"], digits = 2)
+          )
+  )
+
+print(emmeans(glm, specs = "Tank"), type = "response") %>%
+  as_tibble() %>%
+  ggplot(aes(Tank, prob, colour = Tank)) +
+  geom_point(size  = 5,
+             position = position_dodge(width = 0.5)) +
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL),
+                width = 0.25,
+                size = 1,
+                position = position_dodge(width = 0.5)) +
+  labs(y = "Estimated probability of alternation",
+       x = "Tank") +
+  theme(axis.text.x = element_text(hjust = 1,
+                               vjust = 1,
+                               angle = 45)) +
+  scale_y_continuous(limits = c(0,0.35)) +
+  scale_color_viridis_d(end = 0.8, option = "plasma") +
+  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram at 3 months of age",
+          subtitle = paste0("Effect of Tank from GLM: ",
+                            signif(an["Tank","pval"], digits = 2)
+          )
+  )
+
+print(emmeans(glm, specs = "L_R_bias"), type = "response") %>%
+  as_tibble() %>%
+  ggplot(aes(L_R_bias, prob, colour = L_R_bias)) +
+  geom_point(size = 5,
+             position = position_dodge(width = 0.5)) +
+  geom_errorbar(
+    aes(ymin = lower.CL, ymax = upper.CL),
+    width = 0.25,
+    size = 1,
+    position = position_dodge(width = 0.25)
+    ) +
+  ylab("Estimated probability of alternation") +
+  xlab("Time interval") +
+  theme(
+    axis.text.x = element_text(hjust = 1,
+                               vjust = 1,
+                               angle = 45)
+    ) +
+  scale_y_continuous(limits = c(0,0.35)) +
+  scale_color_viridis_d(end = 0.8, option = "viridis") +
+  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram due to having a left or right turn bias",
+          subtitle = paste0("Effect of L_R_bias from GLM: ",
+                            signif(an["L_R_bias","pval"], digits = 2)
+          )
+  )
+
+print(emmeans(glm, specs = "bin", by = "Genotype"), type = "response") %>%
+  as_tibble() %>%
+  mutate(Genotype = case_when(Genotype == "wt" ~ "+/+",
+                              Genotype == "het" ~ "G577fs/+",
+                              Genotype == "hom" ~ "G577fs/G577fs")) %>%
+  ggplot(aes(bin, prob, colour = Genotype)) +
+  geom_point(size = 2,
+             position = position_dodge(width = 0.5)) +
+  geom_errorbar(
+    aes(ymin = lower.CL, ymax = upper.CL),
+    width = 0.5,
+    position = position_dodge(width = 0.5)
+  ) +
+  scale_y_continuous(limits = c(0, 0.4)) +
+  ylab("Estimated probability of \nalternation") +
+  xlab("Time interval") +
+  theme(
+    axis.text.x = element_text(hjust = 1,
+                               vjust = 1,
+                               angle = 45)
+  ) + 
+  scale_color_viridis_d(end = 0.8, option = "inferno") +
+  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram across the 6x10 min bins",
+          subtitle = paste0("Effect of bin:Genotype from GLM: ",
+                            signif(an["bin:Genotype","pval"], digits = 2)
+          )
+  )
+```
+
+# Conclusion
+
+No statistically significant differeces are observed for *sgsh* ^I388*^ mutant zebrafish for alterations to  spatial working memory. 
+
+

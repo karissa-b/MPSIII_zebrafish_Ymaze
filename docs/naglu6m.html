@@ -376,7 +376,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -385,7 +385,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -394,10 +394,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-11-08
+<strong>Last updated:</strong> 2022-01-31
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>MPSIII_zebrafish_Ymaze/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -413,12 +413,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -485,16 +485,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree6eb387bcf98d93fe075c1517890f1e1556660bb7targetblank6eb387ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/6eb387bcf98d93fe075c1517890f1e1556660bb7" target="_blank">6eb387b</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree77460cd871927ac9225b7aa20cbcba36b7d88cebtargetblank77460cda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/77460cd871927ac9225b7aa20cbcba36b7d88ceb" target="_blank">77460cd</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree6eb387bcf98d93fe075c1517890f1e1556660bb7targetblank6eb387ba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree77460cd871927ac9225b7aa20cbcba36b7d88cebtargetblank77460cda" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/6eb387bcf98d93fe075c1517890f1e1556660bb7" target="_blank">6eb387b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/77460cd871927ac9225b7aa20cbcba36b7d88ceb" target="_blank">77460cd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -506,13 +506,29 @@ Ignored files:
     Ignored:    .Rproj.user/
     Ignored:    data/.DS_Store
     Ignored:    data/metadata/.DS_Store
+    Ignored:    data/processed_data/.DS_Store
+    Ignored:    data/processed_data/naglu/.DS_Store
+    Ignored:    data/raw_data/.DS_Store
+    Ignored:    data/raw_data/naglu/.DS_Store
     Ignored:    data/raw_data/sgsh/.DS_Store
     Ignored:    data/raw_data/sgsh/6m/.DS_Store
 
+Untracked files:
+    Untracked:  analysis/hgsnat3m.Rmd
+    Untracked:  analysis/naglu9m.Rmd
+    Untracked:  code/hgsnat_3m_BatchProcess.R
+    Untracked:  code/naglu_9m_BatchProcess.R
+    Untracked:  data/R objects/
+    Untracked:  data/metadata/hgsnat 3-month behavioural metadata.xlsx
+    Untracked:  data/metadata/naglu 9 month behavioural metadata.xlsx
+    Untracked:  data/processed_data/hgsnat/
+    Untracked:  data/processed_data/naglu/9m/
+    Untracked:  data/raw_data/hgsnat/
+    Untracked:  data/raw_data/naglu/9m/
+
 Unstaged changes:
-    Modified:   analysis/sgsh6m.Rmd
-    Modified:   code/sgsh_6m_BatchProcess.R
-    Modified:   data/metadata/sgsh 6 month behavioural metadata.xlsx
+    Modified:   analysis/naglu3m.Rmd
+    Modified:   analysis/naglu6m.Rmd
 
 </code></pre>
 <p>
@@ -551,6 +567,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/karissa-b/MPSIII_zebrafish_Ymaze/4cba25d03ddb9cf2b8155f229ef3442d26682011/docs/naglu6m.html" target="_blank">4cba25d</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2021-11-08
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -669,6 +702,7 @@ library(here)
 library(scales)
 library(readxl)
 library(ggpubr)
+library(ggrepel)
 library(ggeasy)
 library(ggfortify)
 library(ggbeeswarm)
@@ -697,20 +731,29 @@ meta &lt;-
     Sex = as.factor(Sex), 
     Genotype = factor(Genotype, levels = c(&quot;wt&quot;, &quot;het&quot;, &quot;hom&quot;))
   ) %&gt;% 
-  dplyr::filter(Genotype %in% c(&quot;wt&quot;, &quot;het&quot;, &quot;hom&quot;))
+  na.omit
 # prepare the final data object which contains genotype
 final_data &lt;- read_csv(&quot;data/processed_data/naglu/6m/final_output.csv&quot;) %&gt;% 
   dplyr::select(-1) %&gt;% 
   mutate(fish_id = factor(fish_id)) %&gt;% 
   left_join(meta) %&gt;% 
-  dplyr::filter(Keep == &quot;Y&quot;) %&gt;% 
-  dplyr::filter(Genotype %in% c(&quot;wt&quot;, &quot;het&quot;, &quot;hom&quot;))
+  dplyr::filter(Keep == &quot;Y&quot;) 
+
+final_data %&lt;&gt;% 
+  mutate(timeinterval = case_when(
+    bin == 1 ~ &quot;0_10&quot;, 
+    bin == 2 ~ &quot;10_20&quot;, 
+    bin == 3 ~ &quot;20_30&quot;, 
+    bin == 4 ~ &quot;30_40&quot;, 
+    bin == 5 ~ &quot;40_50&quot;, 
+    bin == 6 ~ &quot;50_60&quot;
+  ))
 
 # make an object which converts the final data to long format. for easier plotting in ggplot
 final_data_long &lt;- final_data %&gt;%
   dplyr::filter(Keep == &quot;Y&quot;) %&gt;% 
   gather(key = &quot;tetras&quot;, value = &quot;Count&quot;, # convert to long format
-         grep(&quot;[L|R]{4}&quot;, 
+         grep(&quot;[L|R]{4}&quot;, # select the columns by name. i.e. columns which contain a L or a R four times
               colnames(.))
          )
 
@@ -728,64 +771,18 @@ final_data_summedoverbins &lt;- final_data %&gt;%
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>In this analysis, I will analyse Ewans raw data generated for zebrafish arising from a lay from the same <em>naglu</em> A603fs het x het parents in the Zantiks Y-maze which was tested at 3 months of age.</p>
-<p>Briefly, zebrafish are raised from this cross together in the same tank, across 4 lays. Each lay has come from the same parents are approx. 1 week apart in age. Each tank contained fish either WT, heterozygous or homozgous for the mutation in a 1:2:1 ratio. A summary of the fish used in this experiment can be found in the plot below.</p>
-<pre class="r"><code>meta %&gt;% 
-  group_by(Tank, Genotype) %&gt;% 
-  summarise(n = n()) %&gt;% 
-  ggplot(aes(x = Genotype, y = n, fill = Genotype)) +
-  geom_col(colour = &quot;black&quot;) +
-  facet_wrap(~Tank) +
-  scale_fill_viridis_d() +
-  labs(y = &quot;Number of fish&quot;) +
-  ggtitle(&quot;Number of fish per genotype per tank (4 tanks total)&quot;)</code></pre>
-<p><img src="figure/naglu6m.Rmd/numFish-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-numFish-1">
-Past versions of numFish-1.png
-</button>
-</p>
-<div id="fig-numFish-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/numFish-1.png" target="_blank">273d442</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-26
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p>Briefly, zebrafish are raised from this cross together in the same tank, across 4 lays. Each lay has come from the same parents are approx. 1 week apart in age. Each tank contained fish which should contain the WT, heterozygous or homozgous for the mutation in a 1:2:1 ratio (following Mendelian ratios.</p>
 <p>Fish were isolated for 30 mins two at a time, then placed in the maze for 1 hour. Raw data was collected, and metadata was recorded (i.e. sex, time, day). These raw data spreadsheets were batch processed in the naglu 3, BatchProcess R script to produce the <code>final_data</code> object. This object contains the tetragram frequencies (see below). Note that fish were genotyped after data collection so that we are blinded from any observer bias until after raw data collection. Addiotianlly, the videos were manually observed to ensure proper tracking. Any fish where the tracking was not perfect was omitted.</p>
 </div>
 <div id="check-genotype-proportions" class="section level1">
 <h1>check genotype proportions</h1>
-<p>First, I will check that genotype proportions are as expected. A few less homozygous fish are observed than expected. However, this is partly due to that they were omitted because the software did not track properly.</p>
+<p>First, I will check that genotype proportions are as expected. A few less homozygous fish are observed than expected. However, this is partly due to that they were omitted because the software did not track properly. The bar chart here is filled by Tank, to show how the fish were distributed over the four tanks.</p>
 <pre class="r"><code>meta %&gt;% 
-  ggplot(aes(Genotype, fill = Genotype)) +
-  geom_bar(colour = &quot;black&quot;) +
+  ggplot(aes(Genotype)) +
+  geom_bar(colour = &quot;black&quot;, 
+           aes(fill = Tank)) +
   scale_fill_viridis_d() +
-  ggtitle(&quot;Number of fish per genotype in the study&quot;) </code></pre>
+  ggtitle(&quot;Total number of fish per genotype in the study&quot;) </code></pre>
 <p><img src="figure/naglu6m.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-1">
@@ -827,18 +824,18 @@ Karissa Barthelson
 </div>
 <div id="visualisation-of-raw-data" class="section level1">
 <h1>Visualisation of raw data</h1>
-<p>The plots below show the raw counts of each of the possible tetragrams. We can see some fish were quite inactive, wih low total number of tetragrams. The plot below show fish 1-10 for vis purposes.</p>
+<p>The plot below shows the raw counts of each of the possible tetragrams for fish 1 and 2.</p>
 <pre class="r"><code>final_data_summedoverbins %&gt;% 
-  dplyr::filter(fish_id %in% c(seq(1,5))) %&gt;% 
+  dplyr::filter(fish_id %in% c(1,2)) %&gt;% 
   ggplot(aes(x = tetras, y = x, fill = tetras)) + 
   geom_col() +
   facet_wrap(~fish_id, ncol = 1) +
   labs(y = &quot;Counts of each tetragram&quot;, 
        fill = &quot;Tetragram&quot;) +
-  theme(axis.text.x = element_blank(), 
-        legend.position = &quot;bottom&quot;) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+        legend.position = &quot;none&quot;) +
   ggtitle(&quot;Distribution of memory patterns per fish&quot;)</code></pre>
-<p><img src="figure/naglu6m.Rmd/unnamed-chunk-2-1.png" width="1920" style="display: block; margin: auto;" /></p>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
 Past versions of unnamed-chunk-2-1.png
@@ -863,6 +860,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/4cba25d03ddb9cf2b8155f229ef3442d26682011/docs/figure/naglu6m.Rmd/unnamed-chunk-2-1.png" target="_blank">4cba25d</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2021-11-08
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-2-1.png" target="_blank">273d442</a>
 </td>
 <td>
@@ -876,9 +884,8 @@ Karissa Barthelson
 </table>
 </div>
 </div>
-<p>Cleal et al. showed that zebrafish naturally perform more of the alternation tetragrams (LRLR and RLRL) in a Y-maze. This is also obsevred in our data here.</p>
+<p>Cleal et al. showed that zebrafish naturally perform more of the alternation tetragrams (LRLR and RLRL) in a Y-maze. This is also observed in our data here. Data points are labelled if the total number of a particular tetragranw was over 200. Fish 64 and 33 may be outliers. Need to double check the videos to ensure proper tracking.</p>
 <pre class="r"><code>final_data_summedoverbins %&gt;%
-  dplyr::distinct(x, .keep_all = T) %&gt;%
   ggplot(aes(x = tetras, y = x)) +
   geom_jitter(aes(colour = tetras,
                   shape = Sex)) +
@@ -886,8 +893,10 @@ Karissa Barthelson
                # aes(fill = Genotype)
                fill = NA
                ) +
+  geom_label_repel(aes(label = fish_id), # only label the points if the number of tetragrams was over 200
+                   data = . %&gt;% 
+                     dplyr::filter(x &gt; 200)) +
   scale_fill_viridis_d() +
-  coord_cartesian(ylim = c(0,200)) + # zoom in
   labs(y = &quot;Number of tetragrams&quot;,
        colour = &quot;Tetragram&quot;,
        x = &quot;Tetragram&quot;)+
@@ -931,21 +940,23 @@ Karissa Barthelson
 </table>
 </div>
 </div>
-<p>We can also overlay the genotype boxplots as shown below. Looks like the homozygous fish perform less alternations than the WT fish. I will look into this more later in the analysis</p>
+<p>The following plot now shows the distribution of each tetragras by genotype in boxplots. From an initial look, the homozygous ones appear to perform a bit less alternations.</p>
 <pre class="r"><code>final_data_summedoverbins %&gt;%
-  dplyr::distinct(x, .keep_all = T) %&gt;%
   ggplot(aes(x = tetras, y = x)) +
   geom_jitter(aes(colour = tetras,
                   shape = Sex)) +
   geom_boxplot(outlier.shape = NA,
                aes(fill = Genotype) # fill the boxplots by genotype
                ) +
+  geom_label_repel(aes(label = fish_id), # only label the points if the number of tetragrams was over 200
+                   data = . %&gt;% 
+                     dplyr::filter(x &gt; 200)) +
   scale_fill_viridis_d() +
-  coord_cartesian(ylim = c(0,200)) + # zoom in
   labs(y = &quot;Number of tetragrams&quot;,
        colour = &quot;Tetragram&quot;,
        x = &quot;Tetragram&quot;)+
-  theme(legend.position = &quot;bottom&quot;)  +
+  theme(legend.position = &quot;bottom&quot;, 
+        axis.text.x = element_text(angle = 45, hjust = 1))  +
   ggtitle(&quot;Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period&quot;) </code></pre>
 <p><img src="figure/naglu6m.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
@@ -985,17 +996,40 @@ Karissa Barthelson
 </table>
 </div>
 </div>
-<p>The alternation tetragrams are the tetragram of interest (the measure of working memory). Below indicates the number of tetragrams performed by zebrafish across the 6 x 10 min blocks of the hour they spent in the maze.</p>
-<pre class="r"><code>final_data_long %&gt;%
-  dplyr::distinct(rel_alts, .keep_all = T) %&gt;%
+<p>The alternation tetragrams are the tetragram of interest (the measure of working memory). Below indicates the number of tetragrams performed by zebrafish across the 6 x 10 min blocks of the hour they spent in the maze. Fish 33 appears to be problematic here (and it also appeared to be problematic in the previous plot)</p>
+<pre class="r"><code>ggarrange(
+final_data_long %&gt;%
+  dplyr::distinct(fish_id, bin, .keep_all = T) %&gt;%
   ggplot(aes(x = Genotype, y = alts, fill = Genotype)) +
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(aes(shape = Sex)) +
-  facet_wrap(~bin, nrow = 1) +
+  geom_label_repel(aes(label = fish_id),
+                   fill = NA,
+                   data = . %&gt;% 
+                     dplyr::filter(alts &gt; 200)) +
+  facet_wrap(~timeinterval, nrow = 1) +
   theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1)) +
-  ylab(&quot;Frequency of alternation tetragrams (LRLR + RLRL)&quot;) +
-  coord_cartesian(ylim = c(0, 100)) + # zoom in
-  scale_fill_viridis_d()</code></pre>
+  ylab(&quot;Total number of alternation tetragrams (LRLR + RLRL)&quot;) +
+  scale_fill_viridis_d() +
+  ggtitle(&quot;Including fish 33&quot;), 
+
+final_data_long %&gt;%
+  dplyr::distinct(fish_id, bin, .keep_all = T) %&gt;%
+  dplyr::filter(fish_id != 33) %&gt;% 
+  ggplot(aes(x = Genotype, y = alts, fill = Genotype)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(aes(shape = Sex)) +
+  geom_label_repel(aes(label = fish_id),
+                   fill = NA,
+                   data = . %&gt;% 
+                     dplyr::filter(alts &gt; 200)) +
+  facet_wrap(~timeinterval, nrow = 1) +
+  theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  ylab(&quot;Total number of alternation tetragrams (LRLR + RLRL)&quot;) +
+  scale_fill_viridis_d() +
+  ggtitle(&quot;Omitting fish 33&quot;), 
+
+common.legend = TRUE)</code></pre>
 <p><img src="figure/naglu6m.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-5-1">
@@ -1035,15 +1069,31 @@ Karissa Barthelson
 </div>
 </div>
 <p>We can also display this as the <em>relative</em> amount of alternation tetragrams performed by zebrafish in a 1 hour search period. This will control for how active each fish is.</p>
-<pre class="r"><code>final_data_long %&gt;%
-  dplyr::distinct(rel_alts, .keep_all = T) %&gt;%
+<pre class="r"><code>ggarrange(
+final_data_long %&gt;%
+  dplyr::distinct(fish_id, bin, .keep_all = T) %&gt;%
   ggplot(aes(x = Genotype, y = rel_alts, fill = Genotype)) +
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(aes(shape = Sex)) +
   facet_wrap(~bin, nrow = 1) +
-  ylab(&quot;Relative alteration frequency (LRLR + RLRL)&quot;) +
-  theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1))  +
-  scale_fill_viridis_d()</code></pre>
+  theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  ylab(&quot;Total number of alternation tetragrams (LRLR + RLRL)&quot;) +
+  scale_fill_viridis_d() +
+  ggtitle(&quot;Including fish 33&quot;), 
+
+final_data_long %&gt;%
+  dplyr::distinct(fish_id, bin, .keep_all = T) %&gt;%
+  dplyr::filter(fish_id != 33) %&gt;% 
+  ggplot(aes(x = Genotype, y = rel_alts, fill = Genotype)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(aes(shape = Sex)) +
+  facet_wrap(~bin, nrow = 1) +
+  theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  ylab(&quot;Total number of alternation tetragrams (LRLR + RLRL)&quot;) +
+  scale_fill_viridis_d() +
+  ggtitle(&quot;Omitting fish 33&quot;), 
+
+common.legend = TRUE)</code></pre>
 <p><img src="figure/naglu6m.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-1">
@@ -1094,13 +1144,13 @@ Karissa Barthelson
   mutate(total_turns = sum(x)) %&gt;%
   dplyr::select(colnames(meta), total_turns) %&gt;%
   unique %&gt;%
-  dplyr::filter(total_turns &lt; 1000) %&gt;%
   ggplot(aes(x = Genotype,y = total_turns)) +
   geom_violin(aes(fill = Genotype),
                alpha = 0.5) +
   geom_boxplot(aes(colour = Genotype),
                fill = NA,
                width = 0.25,
+               outlier.shape = NA,
                colour= &quot;black&quot;) +
   geom_quasirandom(aes(shape = Sex)) +
   scale_fill_viridis_d(option = &quot;viridis&quot;) +
@@ -1145,6 +1195,115 @@ Karissa Barthelson
 </table>
 </div>
 </div>
+<pre class="r"><code>final_data %&gt;% 
+  ggplot(aes(x = Genotype, y = total_turns)) +
+  geom_violin(aes(fill = Genotype),
+              alpha = 0.5) +
+  geom_boxplot(aes(colour = Genotype),
+               fill = NA,
+               width = 0.25,
+               outlier.shape = NA,
+               colour= &quot;black&quot;) +
+  geom_quasirandom(aes(shape = Sex)) +
+  geom_label_repel(aes(label = fish_id), 
+                   data = . %&gt;% 
+                     dplyr::filter(total_turns &gt; 300)) +
+  facet_wrap(~timeinterval, nrow = 1) +
+  scale_fill_viridis_d(option = &quot;viridis&quot;) +
+  scale_colour_viridis_d(option = &quot;viridis&quot;) +
+  ylab(&quot;Total number of turns&quot;) +
+  ggtitle(&quot;Total number of turns performed by fish in the Y-maze in 1 hour&quot;)</code></pre>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-7-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Fish 33 again appears to be an outlier. I checked the saved video and indeed, the tracking has gone haywire. Therefore, fish 33 is omitted from the rest of the analysis. Replotting these total turns shows</p>
+<pre class="r"><code># omit fish 33 from rest of analysis. 
+final_data %&lt;&gt;% 
+  dplyr::filter(fish_id != &quot;33&quot;)
+
+final_data_long  %&lt;&gt;% 
+  dplyr::filter(fish_id != &quot;33&quot;)
+
+final_data_summedoverbins %&lt;&gt;% 
+  dplyr::filter(fish_id != &quot;33&quot;)</code></pre>
+<pre class="r"><code>final_data_summedoverbins %&gt;%
+  ungroup() %&gt;%
+  group_by(fish_id) %&gt;%
+  mutate(total_turns = sum(x)) %&gt;%
+  dplyr::select(colnames(meta), total_turns) %&gt;%
+  unique %&gt;%
+  ggplot(aes(x = Genotype,y = total_turns)) +
+  geom_violin(aes(fill = Genotype),
+               alpha = 0.5) +
+  geom_boxplot(aes(colour = Genotype),
+               fill = NA,
+               width = 0.25,
+               outlier.shape = NA,
+               colour= &quot;black&quot;) +
+  geom_quasirandom(aes(shape = Sex)) +
+  scale_fill_viridis_d(option = &quot;viridis&quot;) +
+  scale_colour_viridis_d(option = &quot;viridis&quot;) +
+  ylab(&quot;Total number of turns&quot;) +
+  ggtitle(&quot;Total number of turns performed by fish in the Y-maze in 1 hour&quot;)</code></pre>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
+Past versions of unnamed-chunk-9-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-9-1.png" target="_blank">273d442</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2021-10-26
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>final_data %&gt;% 
+  ggplot(aes(x = Genotype, y = total_turns)) +
+  geom_violin(aes(fill = Genotype),
+              alpha = 0.5) +
+  geom_boxplot(aes(colour = Genotype),
+               fill = NA,
+               width = 0.25,
+               outlier.shape = NA,
+               colour= &quot;black&quot;) +
+  geom_quasirandom(aes(shape = Sex)) +
+  geom_label_repel(aes(label = fish_id), 
+                   data = . %&gt;% 
+                     dplyr::filter(total_turns &gt; 300)) +
+  facet_wrap(~timeinterval, nrow = 1) +
+  scale_fill_viridis_d(option = &quot;viridis&quot;) +
+  scale_colour_viridis_d(option = &quot;viridis&quot;) +
+  ylab(&quot;Total number of turns&quot;) +
+  ggtitle(&quot;Total number of turns performed by fish in the Y-maze in 1 hour&quot;)</code></pre>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-9-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="fit-models." class="section level2">
+<h2>fit models.</h2>
+<p>There is no significant effect of genotype overall on the total number of turns performed by zebrafish.</p>
 <pre class="r"><code>final_data_summedoverbins %&gt;%
   ungroup() %&gt;%
   group_by(fish_id) %&gt;%
@@ -1157,7 +1316,8 @@ Karissa Barthelson
   .$coef %&gt;%
   kable(caption = &quot;Negative binomial GLM model coefficients.
         None of the factors have a significant effect on the total number of turns&quot; ) %&gt;%
-  kable_styling()</code></pre>
+  kable_styling() %&gt;% 
+  row_spec(row = c(2,3), bold = T, color = &quot;black&quot;, background = &quot;lightblue&quot;)</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 Negative binomial GLM model coefficients. None of the factors have a significant effect on the total number of turns
@@ -1186,50 +1346,50 @@ Pr(&gt;|z|)
 (Intercept)
 </td>
 <td style="text-align:right;">
-6.5130387
+6.5098563
 </td>
 <td style="text-align:right;">
-0.1545497
+0.1551492
 </td>
 <td style="text-align:right;">
-42.1420431
+41.9586948
 </td>
 <td style="text-align:right;">
 0.0000000
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
 Genotypehet
 </td>
-<td style="text-align:right;">
--0.1384597
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.1449332
 </td>
-<td style="text-align:right;">
-0.1280207
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.1286778
 </td>
-<td style="text-align:right;">
--1.0815416
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-1.1263262
 </td>
-<td style="text-align:right;">
-0.2794563
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.2600275
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
 Genotypehom
 </td>
-<td style="text-align:right;">
--0.1212897
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.1205542
 </td>
-<td style="text-align:right;">
-0.1555668
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.1561177
 </td>
-<td style="text-align:right;">
--0.7796629
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.7722011
 </td>
-<td style="text-align:right;">
-0.4355893
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.4399953
 </td>
 </tr>
 <tr>
@@ -1237,16 +1397,16 @@ Genotypehom
 SexM
 </td>
 <td style="text-align:right;">
-0.1518294
+0.1469646
 </td>
 <td style="text-align:right;">
-0.1066429
+0.1072276
 </td>
 <td style="text-align:right;">
-1.4237179
+1.3705857
 </td>
 <td style="text-align:right;">
-0.1545281
+0.1705041
 </td>
 </tr>
 <tr>
@@ -1254,16 +1414,16 @@ SexM
 Tank2
 </td>
 <td style="text-align:right;">
--0.0806882
+-0.0719377
 </td>
 <td style="text-align:right;">
-0.1415449
+0.1425459
 </td>
 <td style="text-align:right;">
--0.5700539
+-0.5046634
 </td>
 <td style="text-align:right;">
-0.5686411
+0.6137953
 </td>
 </tr>
 <tr>
@@ -1271,16 +1431,16 @@ Tank2
 Tank3
 </td>
 <td style="text-align:right;">
--0.1183031
+-0.1087610
 </td>
 <td style="text-align:right;">
-0.1210594
+0.1219946
 </td>
 <td style="text-align:right;">
--0.9772320
+-0.8915224
 </td>
 <td style="text-align:right;">
-0.3284543
+0.3726490
 </td>
 </tr>
 <tr>
@@ -1288,23 +1448,229 @@ Tank3
 Tank4
 </td>
 <td style="text-align:right;">
-0.1694588
+0.1769629
 </td>
 <td style="text-align:right;">
-0.1932987
+0.1942223
 </td>
 <td style="text-align:right;">
-0.8766679
+0.9111355
 </td>
 <td style="text-align:right;">
-0.3806671
+0.3622240
+</td>
+</tr>
+</tbody>
+</table>
+<p>However, when we include an effect of how fish behave over the hour, some siginifcant effects are obserrved.</p>
+<pre class="r"><code>final_data %&gt;%
+  glm.nb(total_turns ~ (bin + Genotype)^2 + Sex + Tank,
+         data = .) %&gt;%
+  summary %&gt;%
+  .$coef %&gt;%
+  kable(caption = &quot;Negative binomial GLM model coefficients.\ntotal_turns ~ (bin + Genotype)^2 + Sex + Tank&quot; ) %&gt;%
+  kable_styling() %&gt;% 
+  row_spec(row = c(3, 4), bold = T, color = &quot;black&quot;, background = &quot;lightblue&quot;)</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Negative binomial GLM model coefficients. total_turns ~ (bin + Genotype)^2 + Sex + Tank
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+z value
+</th>
+<th style="text-align:right;">
+Pr(&gt;|z|)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+5.1998194
+</td>
+<td style="text-align:right;">
+0.1342573
+</td>
+<td style="text-align:right;">
+38.7302487
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+bin
+</td>
+<td style="text-align:right;">
+-0.1391369
+</td>
+<td style="text-align:right;">
+0.0310828
+</td>
+<td style="text-align:right;">
+-4.4763235
+</td>
+<td style="text-align:right;">
+0.0000076
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehet
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.2919516
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.1441920
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-2.0247428
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0428938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehom
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.3293298
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.1777995
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-1.8522539
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0639894
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SexM
+</td>
+<td style="text-align:right;">
+0.1377813
+</td>
+<td style="text-align:right;">
+0.0548013
+</td>
+<td style="text-align:right;">
+2.5141957
+</td>
+<td style="text-align:right;">
+0.0119304
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank2
+</td>
+<td style="text-align:right;">
+-0.0602507
+</td>
+<td style="text-align:right;">
+0.0728101
+</td>
+<td style="text-align:right;">
+-0.8275047
+</td>
+<td style="text-align:right;">
+0.4079511
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank3
+</td>
+<td style="text-align:right;">
+-0.1039264
+</td>
+<td style="text-align:right;">
+0.0623446
+</td>
+<td style="text-align:right;">
+-1.6669667
+</td>
+<td style="text-align:right;">
+0.0955210
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank4
+</td>
+<td style="text-align:right;">
+0.1897067
+</td>
+<td style="text-align:right;">
+0.0990043
+</td>
+<td style="text-align:right;">
+1.9161453
+</td>
+<td style="text-align:right;">
+0.0553466
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+bin:Genotypehet
+</td>
+<td style="text-align:right;">
+0.0490336
+</td>
+<td style="text-align:right;">
+0.0367976
+</td>
+<td style="text-align:right;">
+1.3325207
+</td>
+<td style="text-align:right;">
+0.1826892
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+bin:Genotypehom
+</td>
+<td style="text-align:right;">
+0.0676106
+</td>
+<td style="text-align:right;">
+0.0455366
+</td>
+<td style="text-align:right;">
+1.4847509
+</td>
+<td style="text-align:right;">
+0.1376098
 </td>
 </tr>
 </tbody>
 </table>
 <div id="time-spent-in-each-zone-of-the-y-maze" class="section level3">
 <h3>time spent in each zone of the Y-maze</h3>
+<p>I next will look at whether the fish spend more or less time in each arm of the maze. No obvious differences are observed between genotypes, and this is consistent with the linear model coefs.</p>
 <pre class="r"><code>read_csv(&quot;data/processed_data/naglu/6m/time_in_zone.csv&quot;) %&gt;%
+  dplyr::filter(fish_id != 33) %&gt;% 
   mutate(fish_id = as.character(fish_id)) %&gt;%
   dplyr::select(fish_id, bin, zone, time_in_zone) %&gt;%
   left_join(meta) %&gt;%
@@ -1323,13 +1689,13 @@ Tank4
   ylab(&quot;Total time spent in each zone (mins, log scale)&quot;) +
   scale_fill_viridis_d() +
   ggtitle(&quot;Total time spent in each zone&quot;) </code></pre>
-<p><img src="figure/naglu6m.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-8-1">
-Past versions of unnamed-chunk-8-1.png
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-1">
+Past versions of unnamed-chunk-12-1.png
 </button>
 </p>
-<div id="fig-unnamed-chunk-8-1" class="collapse">
+<div id="fig-unnamed-chunk-12-1" class="collapse">
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
 <thead>
@@ -1348,13 +1714,13 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-8-1.png" target="_blank">273d442</a>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/6a747db05a40d065e5dc54a0b4e3f07d8272c7da/docs/figure/naglu6m.Rmd/unnamed-chunk-12-1.png" target="_blank">6a747db</a>
 </td>
 <td>
 Karissa Barthelson
 </td>
 <td>
-2021-10-26
+2021-10-27
 </td>
 </tr>
 </tbody>
@@ -1362,6 +1728,7 @@ Karissa Barthelson
 </div>
 </div>
 <pre class="r"><code>read_csv(&quot;data/processed_data/naglu/6m/time_in_zone.csv&quot;) %&gt;%
+  dplyr::filter(fish_id != 33) %&gt;% 
   mutate(fish_id = as.character(fish_id)) %&gt;%
   dplyr::select(fish_id, bin, zone, time_in_zone) %&gt;%
   left_join(meta) %&gt;%
@@ -1380,45 +1747,9 @@ Karissa Barthelson
   scale_y_log10() +
   ylab(&quot;Average time spent in each zone (seconds, log scale&quot;) +
   ggtitle(&quot;Average time spent in each zone&quot;)</code></pre>
-<p><img src="figure/naglu6m.Rmd/unnamed-chunk-8-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-8-2">
-Past versions of unnamed-chunk-8-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-8-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-8-2.png" target="_blank">273d442</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-26
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-12-2.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>read_csv(&quot;data/processed_data/naglu/6m/time_in_zone.csv&quot;) %&gt;%
+  dplyr::filter(fish_id != 33) %&gt;% 
   mutate(fish_id = as.character(fish_id)) %&gt;%
   dplyr::select(fish_id, bin, zone, time_in_zone) %&gt;%
   left_join(meta) %&gt;%
@@ -1460,13 +1791,13 @@ Pr(&gt;|t|)
 (Intercept)
 </td>
 <td style="text-align:right;">
-2.7025531
+2.7051817
 </td>
 <td style="text-align:right;">
-0.2477768
+0.2485348
 </td>
 <td style="text-align:right;">
-10.9072091
+10.8845181
 </td>
 <td style="text-align:right;">
 0.0000000
@@ -1477,16 +1808,16 @@ Pr(&gt;|t|)
 Genotypehet
 </td>
 <td style="text-align:right;">
--0.2199439
+-0.1993520
 </td>
 <td style="text-align:right;">
-0.2864288
+0.2882775
 </td>
 <td style="text-align:right;">
--0.7678831
+-0.6915280
 </td>
 <td style="text-align:right;">
-0.4432014
+0.4898130
 </td>
 </tr>
 <tr>
@@ -1494,16 +1825,16 @@ Genotypehet
 Genotypehom
 </td>
 <td style="text-align:right;">
--0.1522319
+-0.1519879
 </td>
 <td style="text-align:right;">
-0.3582876
+0.3593109
 </td>
 <td style="text-align:right;">
--0.4248876
+-0.4229981
 </td>
 <td style="text-align:right;">
-0.6712438
+0.6726248
 </td>
 </tr>
 <tr>
@@ -1514,10 +1845,10 @@ zone
 -0.5984710
 </td>
 <td style="text-align:right;">
-0.0879092
+0.0881602
 </td>
 <td style="text-align:right;">
--6.8078335
+-6.7884495
 </td>
 <td style="text-align:right;">
 0.0000000
@@ -1528,16 +1859,16 @@ zone
 SexM
 </td>
 <td style="text-align:right;">
--0.3454524
+-0.3499210
 </td>
 <td style="text-align:right;">
-0.0996083
+0.1002554
 </td>
 <td style="text-align:right;">
--3.4681070
+-3.4902964
 </td>
 <td style="text-align:right;">
-0.0006063
+0.0005612
 </td>
 </tr>
 <tr>
@@ -1545,16 +1876,16 @@ SexM
 Genotypehet:zone
 </td>
 <td style="text-align:right;">
-0.0640805
+0.0538562
 </td>
 <td style="text-align:right;">
-0.1045578
+0.1052398
 </td>
 <td style="text-align:right;">
-0.6128714
+0.5117474
 </td>
 <td style="text-align:right;">
-0.5404570
+0.6092355
 </td>
 </tr>
 <tr>
@@ -1565,13 +1896,13 @@ Genotypehom:zone
 0.0910417
 </td>
 <td style="text-align:right;">
-0.1308130
+0.1311866
 </td>
 <td style="text-align:right;">
-0.6959679
+0.6939863
 </td>
 <td style="text-align:right;">
-0.4870241
+0.4882724
 </td>
 </tr>
 </tbody>
@@ -1581,7 +1912,7 @@ Genotypehom:zone
 </div>
 <div id="check-for-handedness" class="section level1">
 <h1>check for handedness</h1>
-<p><a href="https://doi.org/10.1007/s10071-019-01296-9">Fontana et al. 2019</a> showed that fish sometimes show a behavioral lateralisation (i.e. handedness). If fish show this, then they would perform less alternation tetragrams not due to working memory. Here, we defne zebrafish as showing a laterality if they perform left or right turns more than 60% of the total turns. Indeed, some zebrafish show a preference for L or R turns. However, it does not appear to be related to genotype.</p>
+<p><a href="https://doi.org/10.1007/s10071-019-01296-9">Fontana et al. 2019</a> showed that fish sometimes show a behavioral lateralisation (i.e. handedness). If fish show this, then they would perform less alternation tetragrams not due to working memory. Here, we defne zebrafish as showing a laterality if they perform left or right turns more than 60% of the total turns. Indeed, some zebrafish show a preference for L or R turns. However, it is significnatly unrelated to genotype as supported by a chi square test.</p>
 <pre class="r"><code># make the LR bias object
 LR_Bias &lt;- final_data %&gt;%
   dplyr::select(L, R, total_turns, fish_id) %&gt;%
@@ -1614,13 +1945,13 @@ final_data %&gt;%
   scale_color_manual(values = c(viridis_pal(end=0.75)(3), 
                                rep(&quot;black&quot;, 3))
   )</code></pre>
-<p><img src="figure/naglu6m.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
-Past versions of unnamed-chunk-9-1.png
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-13-1">
+Past versions of unnamed-chunk-13-1.png
 </button>
 </p>
-<div id="fig-unnamed-chunk-9-1" class="collapse">
+<div id="fig-unnamed-chunk-13-1" class="collapse">
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
 <thead>
@@ -1639,26 +1970,78 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-9-1.png" target="_blank">273d442</a>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/6a747db05a40d065e5dc54a0b4e3f07d8272c7da/docs/figure/naglu6m.Rmd/unnamed-chunk-13-1.png" target="_blank">6a747db</a>
 </td>
 <td>
 Karissa Barthelson
 </td>
 <td>
-2021-10-26
+2021-10-27
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+<pre class="r"><code>LR_Bias %&gt;% 
+  left_join(meta) %&gt;% 
+  ungroup() %&gt;% 
+  group_by(Genotype, L_R_bias) %&gt;% 
+  dplyr::select(L_R_bias, Genotype) %&gt;% 
+  summarise(n = n()) %&gt;% 
+  spread(key = &quot;Genotype&quot;, value = &quot;n&quot;) %&gt;% 
+  mutate_all(~replace(., is.na(.), 0)) %&gt;% # change the NA value to 0. 
+  column_to_rownames(&quot;L_R_bias&quot;) %&gt;% 
+  chisq.test() %&gt;% 
+  tidy() %&gt;% 
+  mutate(p.value = signif(p.value, 2),
+         statistic = signif(statistic, 2)
+         ) %&gt;% 
+  kable(caption = &quot;Chi-square test of Genotype ~ LR Bias&quot;) %&gt;% 
+  kable_styling(full_width = F)</code></pre>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Chi-square test of Genotype ~ LR Bias
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+<th style="text-align:right;">
+parameter
+</th>
+<th style="text-align:left;">
+method
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5.3
+</td>
+<td style="text-align:right;">
+0.26
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Pearson’s Chi-squared test
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="test-for-changes-to-alternation" class="section level1">
 <h1>test for changes to alternation</h1>
 <p>Finally, I will now test for alternation changes using a generlatised linear mixed effect model (beta-binomial distribution). We use this because it is count data which is over-dispersed, and fixed and random effects are included. The link function is logit.</p>
 <pre class="r"><code>glm &lt;-
   final_data %&gt;%
-  dplyr::filter(Keep == &quot;Y&quot;) %&gt;%
   left_join(LR_Bias) %&gt;%
   mutate(
     dayTime = interaction(Day, Time, drop = T),
@@ -1700,13 +2083,13 @@ pval
 bin
 </td>
 <td style="text-align:right;">
-10.3357048
+15.4143605
 </td>
 <td style="text-align:right;">
 5
 </td>
 <td style="text-align:right;">
-0.0662632
+0.0087311
 </td>
 </tr>
 <tr>
@@ -1714,13 +2097,13 @@ bin
 Genotype
 </td>
 <td style="text-align:right;">
-5.1911963
+5.0032423
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-0.0746012
+0.0819520
 </td>
 </tr>
 <tr>
@@ -1728,13 +2111,13 @@ Genotype
 Time
 </td>
 <td style="text-align:right;">
-20.0221172
+19.9264808
 </td>
 <td style="text-align:right;">
 12
 </td>
 <td style="text-align:right;">
-0.0666687
+0.0684895
 </td>
 </tr>
 <tr>
@@ -1742,13 +2125,13 @@ Time
 Tank
 </td>
 <td style="text-align:right;">
-7.7824723
+9.3230243
 </td>
 <td style="text-align:right;">
 3
 </td>
 <td style="text-align:right;">
-0.0507279
+0.0252906
 </td>
 </tr>
 <tr>
@@ -1756,13 +2139,13 @@ Tank
 Sex
 </td>
 <td style="text-align:right;">
-0.0840523
+0.2891776
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-0.7718792
+0.5907480
 </td>
 </tr>
 <tr>
@@ -1770,13 +2153,13 @@ Sex
 L_R_bias
 </td>
 <td style="text-align:right;">
-5.9175369
+8.0643926
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-0.0518828
+0.0177353
 </td>
 </tr>
 <tr>
@@ -1784,13 +2167,13 @@ L_R_bias
 bin:Genotype
 </td>
 <td style="text-align:right;">
-20.1467322
+21.6589948
 </td>
 <td style="text-align:right;">
 10
 </td>
 <td style="text-align:right;">
-0.0278950
+0.0169392
 </td>
 </tr>
 </tbody>
@@ -1801,7 +2184,7 @@ bin:Genotype
 <div id="genotype" class="section level2">
 <h2>Genotype</h2>
 <p>Below shows the GLM-predicted probability of zebrafish performing an alternation tetragram overall in 1 hour in a Y-maze according to genotype (and controlling for Day, Time of day, Tank of origin, whether fish show a left or right turn bias). The homozygous fish show similar probability of perform an alternation tetragram as the WT siblings. However, at 3 months of age, these fish showed <em>increased</em> probability of performing an alternation. So it appears that the spatial working memory of these fish is on the way down.</p>
-<pre class="r"><code>print(emmeans(glm, specs = &quot;Genotype&quot;), type = &quot;response&quot;) %&gt;%
+<pre class="r"><code>summary(emmeans(glm, specs = &quot;Genotype&quot;), type = &quot;response&quot;) %&gt;%
   as_tibble() %&gt;%
   mutate(Genotype = case_when(Genotype == &quot;wt&quot; ~ &quot;+/+&quot;,
                               Genotype == &quot;het&quot; ~ &quot;A603fs/+&quot;,
@@ -1825,62 +2208,26 @@ bin:Genotype
                             signif(an[&quot;Genotype&quot;,&quot;pval&quot;], digits = 2)
           )
   )</code></pre>
-<pre><code> Genotype  prob     SE  df lower.CL upper.CL
- wt       0.195 0.0300 386    0.142    0.261
- het      0.242 0.0313 386    0.186    0.309
- hom      0.186 0.0281 386    0.137    0.248
-
-Results are averaged over the levels of: bin, Time, Tank, Sex, L_R_bias 
-Confidence level used: 0.95 
-Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/naglu6m.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-11-1">
-Past versions of unnamed-chunk-11-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-11-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/6a747db05a40d065e5dc54a0b4e3f07d8272c7da/docs/figure/naglu6m.Rmd/unnamed-chunk-11-1.png" target="_blank">6a747db</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-27
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="time-interval-by-genotype-interaction" class="section level2">
 <h2>Time interval by genotype (interaction)</h2>
 <p>This effect was found to be significant in the GLM. So the homozygous <em>naglu</em> mutants show mostly the same probability of performing an alternation. However, how they get there is different to the WTs.</p>
 <p>In the plot below, the time intervals is shown on the x-axis. Where the hour the fish spent in the maze is dividied up into 6 x 10 minute intervals.</p>
-<pre class="r"><code>print(emmeans(glm, specs = &quot;bin&quot;, by = &quot;Genotype&quot;), type = &quot;response&quot;) %&gt;%
+<pre class="r"><code>summary(emmeans(glm, specs = &quot;bin&quot;, by = &quot;Genotype&quot;), type = &quot;response&quot;) %&gt;%
   as_tibble() %&gt;%
-  ggplot(aes(bin, prob, colour = Genotype)) +
+  mutate(timeinterval = case_when(
+    bin == 1 ~ &quot;0 - 10 mins&quot;, 
+    bin == 2 ~ &quot;10 - 20 mins&quot;, 
+    bin == 3 ~ &quot;20 - 30 mins&quot;, 
+    bin == 4 ~ &quot;30 - 40 mins&quot;, 
+    bin == 5 ~ &quot;40 - 50 mins&quot;, 
+    bin == 6 ~ &quot;50 - 60 mins&quot;
+  )) %&gt;% 
+  ggplot(aes(timeinterval, prob, colour = Genotype, group = Genotype)) +
   geom_point(size = 2,
              position = position_dodge(width = 0.5)) +
+  geom_line(position = position_dodge(width = 0.5)) +
   geom_errorbar(
     aes(ymin = lower.CL, ymax = upper.CL),
     width = 0.5,
@@ -1900,79 +2247,12 @@ Karissa Barthelson
                             signif(an[&quot;bin:Genotype&quot;,&quot;pval&quot;], digits = 2)
           )
   )</code></pre>
-<pre><code>Genotype = wt:
- bin  prob     SE  df lower.CL upper.CL
- 1   0.174 0.0365 386   0.1136    0.258
- 2   0.129 0.0293 386   0.0813    0.198
- 3   0.158 0.0338 386   0.1026    0.237
- 4   0.226 0.0426 386   0.1529    0.320
- 5   0.283 0.0488 386   0.1978    0.388
- 6   0.228 0.0432 386   0.1542    0.324
-
-Genotype = het:
- bin  prob     SE  df lower.CL upper.CL
- 1   0.197 0.0320 386   0.1411    0.267
- 2   0.255 0.0372 386   0.1893    0.335
- 3   0.260 0.0373 386   0.1931    0.339
- 4   0.263 0.0375 386   0.1962    0.343
- 5   0.249 0.0365 386   0.1838    0.327
- 6   0.233 0.0356 386   0.1703    0.310
-
-Genotype = hom:
- bin  prob     SE  df lower.CL upper.CL
- 1   0.174 0.0365 386   0.1135    0.258
- 2   0.200 0.0401 386   0.1325    0.290
- 3   0.191 0.0386 386   0.1265    0.279
- 4   0.158 0.0346 386   0.1008    0.238
- 5   0.213 0.0419 386   0.1417    0.306
- 6   0.184 0.0385 386   0.1198    0.272
-
-Results are averaged over the levels of: Time, Tank, Sex, L_R_bias 
-Confidence level used: 0.95 
-Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/naglu6m.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-1">
-Past versions of unnamed-chunk-12-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-12-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/6a747db05a40d065e5dc54a0b4e3f07d8272c7da/docs/figure/naglu6m.Rmd/unnamed-chunk-12-1.png" target="_blank">6a747db</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-27
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="lr-bias" class="section level2">
 <h2>LR Bias</h2>
 <p>If zebrafish have a preference for L or R turns, they will likely perform less alternations without the use of spatial working memory. This indeed is what is obserevd. Fish who were classified as showing a turn bias do have a lesser probability of performing an alternation.</p>
-<pre class="r"><code>print(emmeans(glm, specs = &quot;L_R_bias&quot;), type = &quot;response&quot;) %&gt;%
+<pre class="r"><code>summary(emmeans(glm, specs = &quot;L_R_bias&quot;), type = &quot;response&quot;) %&gt;%
   as_tibble() %&gt;%
   ggplot(aes(L_R_bias, prob, colour = L_R_bias)) +
   geom_point(size = 5,
@@ -1997,57 +2277,12 @@ Karissa Barthelson
                             signif(an[&quot;L_R_bias&quot;,&quot;pval&quot;], digits = 2)
           )
   )</code></pre>
-<pre><code> L_R_bias  prob     SE  df lower.CL upper.CL
- Neither  0.267 0.0216 386   0.2266    0.312
- Left     0.170 0.0444 386   0.0996    0.276
- Right    0.191 0.0336 386   0.1334    0.266
-
-Results are averaged over the levels of: bin, Genotype, Time, Tank, Sex 
-Confidence level used: 0.95 
-Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/naglu6m.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-13-1">
-Past versions of unnamed-chunk-13-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-13-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/6a747db05a40d065e5dc54a0b4e3f07d8272c7da/docs/figure/naglu6m.Rmd/unnamed-chunk-13-1.png" target="_blank">6a747db</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-27
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="tank" class="section level2">
 <h2>Tank</h2>
-<p>We also need to control for which tank the zebrafish were raised in. The fish analysed are all siblings. However, they came from four mating events, and are approx. 1 week of age apart. In the plot below, we can see that fish in Tank 4 appear to show slightly more alternations. However, the effect of Tank only just reaches statistical significance. This supports our inclusion of the effect of tank in the GLM.</p>
-<pre class="r"><code>print(emmeans(glm, specs = &quot;Tank&quot;), type = &quot;response&quot;) %&gt;%
+<p>We also need to control for which tank the zebrafish were raised in. The fish analysed are all siblings. However, they came from four mating events, and are approx. 1 week of age apart. In the plot below, we can see that fish in Tank 4 appear to show slightly more alternations. This supports our inclusion of the effect of tank in the GLM.</p>
+<pre class="r"><code>summary(emmeans(glm, specs = &quot;Tank&quot;), type = &quot;response&quot;) %&gt;%
   as_tibble() %&gt;%
   ggplot(aes(Tank, prob, colour = Tank)) +
   geom_point(size  = 5,
@@ -2068,58 +2303,14 @@ Karissa Barthelson
                             signif(an[&quot;Tank&quot;,&quot;pval&quot;], digits = 2)
           )
   )</code></pre>
-<pre><code> Tank  prob     SE  df lower.CL upper.CL
- 1    0.158 0.0237 386    0.117    0.211
- 2    0.226 0.0334 386    0.167    0.298
- 3    0.190 0.0272 386    0.142    0.249
- 4    0.263 0.0523 386    0.173    0.377
-
-Results are averaged over the levels of: bin, Genotype, Time, Sex, L_R_bias 
-Confidence level used: 0.95 
-Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/naglu6m.Rmd/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-14-1">
-Past versions of unnamed-chunk-14-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-14-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/6a747db05a40d065e5dc54a0b4e3f07d8272c7da/docs/figure/naglu6m.Rmd/unnamed-chunk-14-1.png" target="_blank">6a747db</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-27
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/naglu6m.Rmd/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
-<p>6 month old zebrafish homozygous for the <em>naglu</em> <sup>A603fs</sup> mutation appear to perform the same amount of alternations to their wild type siblings. This is indicative of decreasing spatial working memory compared the to 3 month old analysis. We will repeat the analysis at 9 months of age to determine whether the spatial working memory is decreased.</p>
+<p>6 month old zebrafish homozygous for the <em>naglu</em> <sup>A603fs</sup> mutation appear to perform overall the same amount of alternations to their wild type siblings. This is indicative of decreasing spatial working memory compared the to 3 month old analysis. However, they appear to behave differently thorughout the hour they spend in the maze (i.e. their search strategy is different). We will repeat the analysis at 9 months of age to determine whether the spatial working memory is decreased.</p>
+<pre class="r"><code># export data
+saveRDS(glm, &quot;data/R objects/naglu6m.rds&quot;)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -2146,11 +2337,11 @@ other attached packages:
  [1] MASS_7.3-54       glmmTMB_1.1.1     emmeans_1.6.1     car_3.0-11       
  [5] carData_3.0-4     performance_0.7.2 lme4_1.1-27.1     Matrix_1.3-4     
  [9] broom_0.7.8       kableExtra_1.3.4  ggforce_0.3.3     ggbeeswarm_0.6.0 
-[13] ggfortify_0.4.12  ggeasy_0.1.3      ggpubr_0.4.0      scales_1.1.1     
-[17] here_1.0.1        readxl_1.3.1      magrittr_2.0.1    forcats_0.5.1    
-[21] stringr_1.4.0     dplyr_1.0.7       purrr_0.3.4       readr_1.4.0      
-[25] tidyr_1.1.3       tibble_3.1.2      ggplot2_3.3.5     tidyverse_1.3.1  
-[29] workflowr_1.6.2  
+[13] ggfortify_0.4.12  ggeasy_0.1.3      ggrepel_0.9.1     ggpubr_0.4.0     
+[17] scales_1.1.1      here_1.0.1        readxl_1.3.1      magrittr_2.0.1   
+[21] forcats_0.5.1     stringr_1.4.0     dplyr_1.0.7       purrr_0.3.4      
+[25] readr_1.4.0       tidyr_1.1.3       tibble_3.1.2      ggplot2_3.3.5    
+[29] tidyverse_1.3.1   workflowr_1.6.2  
 
 loaded via a namespace (and not attached):
  [1] TH.data_1.0-10      minqa_1.2.4         colorspace_2.0-2   
@@ -2174,17 +2365,18 @@ loaded via a namespace (and not attached):
 [55] sass_0.4.0          stringi_1.6.2       highr_0.9          
 [58] boot_1.3-28         zip_2.2.0           rlang_0.4.11       
 [61] pkgconfig_2.0.3     systemfonts_1.0.2   evaluate_0.14      
-[64] lattice_0.20-44     labeling_0.4.2      tidyselect_1.1.1   
-[67] plyr_1.8.6          R6_2.5.0            generics_0.1.0     
-[70] multcomp_1.4-17     DBI_1.1.1           pillar_1.6.1       
-[73] haven_2.4.1         whisker_0.4         foreign_0.8-81     
-[76] withr_2.4.2         survival_3.2-11     abind_1.4-5        
-[79] modelr_0.1.8        crayon_1.4.1        utf8_1.2.1         
-[82] rmarkdown_2.9       grid_4.0.2          data.table_1.14.0  
-[85] git2r_0.28.0        reprex_2.0.0        digest_0.6.27      
-[88] webshot_0.5.2       xtable_1.8-4        numDeriv_2016.8-1.1
-[91] httpuv_1.6.1        munsell_0.5.0       beeswarm_0.4.0     
-[94] viridisLite_0.4.0   vipor_0.4.5         bslib_0.2.5.1      </code></pre>
+[64] lattice_0.20-44     labeling_0.4.2      cowplot_1.1.1      
+[67] tidyselect_1.1.1    plyr_1.8.6          R6_2.5.0           
+[70] generics_0.1.0      multcomp_1.4-17     DBI_1.1.1          
+[73] pillar_1.6.1        haven_2.4.1         whisker_0.4        
+[76] foreign_0.8-81      withr_2.4.2         survival_3.2-11    
+[79] abind_1.4-5         modelr_0.1.8        crayon_1.4.1       
+[82] utf8_1.2.1          rmarkdown_2.9       grid_4.0.2         
+[85] data.table_1.14.0   git2r_0.28.0        reprex_2.0.0       
+[88] digest_0.6.27       webshot_0.5.2       xtable_1.8-4       
+[91] numDeriv_2016.8-1.1 httpuv_1.6.1        munsell_0.5.0      
+[94] beeswarm_0.4.0      viridisLite_0.4.0   vipor_0.4.5        
+[97] bslib_0.2.5.1      </code></pre>
 </div>
 </div>
 

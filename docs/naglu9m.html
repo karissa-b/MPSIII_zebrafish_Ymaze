@@ -1,0 +1,2948 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Karissa Barthelson" />
+
+<meta name="date" content="2021-10-26" />
+
+<title>naglu 9 month behaviour</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MPSIII_zebrafish_Ymaze</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="sgsh3m.html">sgsh_3m</a>
+</li>
+<li>
+  <a href="naglu3m.html">naglu_3m</a>
+</li>
+<li>
+  <a href="naglu6m.html">naglu_6m</a>
+</li>
+<li>
+  <a href="sgsh6m.html">sgsh_6m</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">naglu 9 month behaviour</h1>
+<h4 class="author">Karissa Barthelson</h4>
+<h4 class="date">2021-10-26</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2022-01-31
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>MPSIII_zebrafish_Ymaze/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20211026code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20211026)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20211026code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20211026)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree77460cd871927ac9225b7aa20cbcba36b7d88cebtargetblank77460cda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/77460cd871927ac9225b7aa20cbcba36b7d88ceb" target="_blank">77460cd</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree77460cd871927ac9225b7aa20cbcba36b7d88cebtargetblank77460cda" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/77460cd871927ac9225b7aa20cbcba36b7d88ceb" target="_blank">77460cd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rapp.history
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+    Ignored:    data/.DS_Store
+    Ignored:    data/metadata/.DS_Store
+    Ignored:    data/processed_data/.DS_Store
+    Ignored:    data/processed_data/naglu/.DS_Store
+    Ignored:    data/raw_data/.DS_Store
+    Ignored:    data/raw_data/naglu/.DS_Store
+    Ignored:    data/raw_data/sgsh/.DS_Store
+    Ignored:    data/raw_data/sgsh/6m/.DS_Store
+
+Untracked files:
+    Untracked:  analysis/hgsnat3m.Rmd
+    Untracked:  analysis/naglu9m.Rmd
+    Untracked:  code/hgsnat_3m_BatchProcess.R
+    Untracked:  code/naglu_9m_BatchProcess.R
+    Untracked:  data/R objects/
+    Untracked:  data/metadata/hgsnat 3-month behavioural metadata.xlsx
+    Untracked:  data/metadata/naglu 9 month behavioural metadata.xlsx
+    Untracked:  data/processed_data/hgsnat/
+    Untracked:  data/processed_data/naglu/9m/
+    Untracked:  data/raw_data/hgsnat/
+    Untracked:  data/raw_data/naglu/9m/
+
+Unstaged changes:
+    Modified:   analysis/naglu3m.Rmd
+    Modified:   analysis/naglu6m.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+</p>
+<hr>
+</div>
+</div>
+</div>
+<div id="setup" class="section level2">
+<h2>setup</h2>
+<pre class="r"><code>library(tidyverse)
+library(magrittr)
+library(readxl)
+library(here)
+library(scales)
+library(ggpubr)
+library(ggeasy)
+library(ggrepel)
+library(ggfortify)
+library(ggbeeswarm)
+library(ggforce)
+library(kableExtra)
+
+# stat analysis
+library(broom)
+library(lme4)
+library(performance)
+library(car)
+library(emmeans)
+library(glmmTMB)
+library(MASS)
+
+# set the default theme for ggplot as theme_bw
+theme_set(theme_bw())
+
+# read in Ewans metadata speadsheet. make all the metadata as factors as well
+meta &lt;- 
+  read_excel(&quot;data/metadata/naglu 9 month behavioural metadata.xlsx&quot;) %&gt;% 
+  mutate(
+    fish_id = as.factor(fish_id), 
+    Day = as.factor(Day), 
+    Time = as.factor(Time), 
+    Tank = as.factor(Tank), 
+    Sex = as.factor(Sex), 
+    Genotype = factor(Genotype, levels = c(&quot;wt&quot;, &quot;het&quot;, &quot;hom&quot;))
+  )
+# prepare the final data object which contains genotype
+final_data &lt;- read_csv(&quot;data/processed_data/naglu/9m/final_output.csv&quot;) %&gt;% 
+  dplyr::select(-1) %&gt;% 
+  mutate(fish_id = factor(fish_id)) %&gt;% 
+  left_join(meta) %&gt;% 
+  dplyr::filter(Keep == &quot;Y&quot;) 
+
+# make an object which converts the final data to long format. for easier plotting in ggplot
+final_data_long &lt;- final_data %&gt;%
+  gather(key = &quot;tetras&quot;, value = &quot;Count&quot;, # convert to long format
+         grep(&quot;[L|R]{4}&quot;, 
+              colnames(.))
+         )
+
+# also make an object which sums the tetragrams over the hour
+final_data_summedoverbins &lt;- 
+  final_data %&gt;%
+  gather(key = &quot;tetras&quot;, value = &quot;Count&quot;, # convert to long format
+         grep(&quot;[L|R]{4}&quot;, # select the columns which contain a L or a R four times
+              colnames(.))
+  ) %&gt;% 
+  group_by(fish_id, tetras) %&gt;% 
+  mutate(x = sum(Count)) %&gt;% # sum the tetragram counts per fish_id
+  dplyr::select(colnames(meta), tetras, x) %&gt;% 
+  ungroup() %&gt;% 
+  dplyr::distinct(fish_id, tetras, .keep_all = T)</code></pre>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>In this analysis, I will analyse Ewans raw data generated for zebrafish arising from a lay from the same <em>naglu</em> A603fs het x het parents in the Zantiks Y-maze.</p>
+<p>Briefly, zebrafish are raised from this cross together in the same tank, across 4 lays. Each lay has come from the same parents are approx. 1 week apart in age. Each tank contained fish either WT, heterozygous or homozgous for the mutation in a 1:2:1 ratio.</p>
+<p>Fish were isolated for 30 mins two at a time, then placed in the maze for 1 hour. Raw data was collected, and metadata was recorded (i.e. sex, time, day). These raw data spreadsheets were batch processed in the naglu 3, BatchProcess R script to produce the <code>final_data</code> object. This object contains the tetragram frequencies (see below). Note that fish were genotyped after data collection so that we are blinded from any observer bias until after raw data collection. Addiotianlly, the videos were manually observed to ensure proper tracking. Any fish where the tracking was not perfect was omitted.</p>
+<pre class="r"><code>list.files(path = &quot;data/raw_data/naglu/9m/&quot;, 
+           pattern = &quot;*.csv&quot;, 
+           recursive = TRUE, full.names = TRUE) %&gt;% 
+  .[1] %&gt;% 
+  read_csv(skip =4, col_names = F) %&gt;% 
+  head %&gt;% 
+  dplyr::select(-X2, -X3) %&gt;% 
+  set_colnames(c(&quot;Time&quot;, &quot;fish&quot;,&#39;enter or exit&#39;, &quot;zone&quot;)) %&gt;% 
+  kable(caption = &quot;example of raw data&quot;) %&gt;% 
+  kable_styling(full_width = F)</code></pre>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+example of raw data
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Time
+</th>
+<th style="text-align:right;">
+fish
+</th>
+<th style="text-align:left;">
+enter or exit
+</th>
+<th style="text-align:right;">
+zone
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+000:00:30.491
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Enter_Zone
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+000:00:30.491
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Enter_Zone
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+000:00:31.091
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Exit_Zone
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+000:00:31.091
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Enter_Zone
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+000:00:34.057
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Exit_Zone
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+000:00:34.057
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Enter_Zone
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>final_data %&gt;% 
+  head %&gt;% 
+  kable(caption = &quot;Example of the processed data&quot;) %&gt;% 
+  kable_styling() </code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Example of the processed data
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+fish_id
+</th>
+<th style="text-align:right;">
+bin
+</th>
+<th style="text-align:right;">
+LLLL
+</th>
+<th style="text-align:right;">
+LLLR
+</th>
+<th style="text-align:right;">
+LLRL
+</th>
+<th style="text-align:right;">
+LLRR
+</th>
+<th style="text-align:right;">
+LRLL
+</th>
+<th style="text-align:right;">
+LRLR
+</th>
+<th style="text-align:right;">
+LRRL
+</th>
+<th style="text-align:right;">
+LRRR
+</th>
+<th style="text-align:right;">
+RLLL
+</th>
+<th style="text-align:right;">
+RLLR
+</th>
+<th style="text-align:right;">
+RLRL
+</th>
+<th style="text-align:right;">
+RLRR
+</th>
+<th style="text-align:right;">
+RRLL
+</th>
+<th style="text-align:right;">
+RRLR
+</th>
+<th style="text-align:right;">
+RRRL
+</th>
+<th style="text-align:right;">
+RRRR
+</th>
+<th style="text-align:right;">
+L
+</th>
+<th style="text-align:right;">
+R
+</th>
+<th style="text-align:right;">
+total_turns
+</th>
+<th style="text-align:right;">
+reps
+</th>
+<th style="text-align:right;">
+alts
+</th>
+<th style="text-align:right;">
+rel_reps
+</th>
+<th style="text-align:right;">
+rel_alts
+</th>
+<th style="text-align:right;">
+rel_R
+</th>
+<th style="text-align:right;">
+rel_L
+</th>
+<th style="text-align:left;">
+Day
+</th>
+<th style="text-align:left;">
+Time
+</th>
+<th style="text-align:left;">
+Sex
+</th>
+<th style="text-align:left;">
+Tank
+</th>
+<th style="text-align:left;">
+Genotype
+</th>
+<th style="text-align:left;">
+Keep
+</th>
+<th style="text-align:left;">
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+91
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+144
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+17.361111
+</td>
+<td style="text-align:right;">
+24.30556
+</td>
+<td style="text-align:right;">
+36.80556
+</td>
+<td style="text-align:right;">
+63.19444
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+11.3
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+het
+</td>
+<td style="text-align:left;">
+Y
+</td>
+<td style="text-align:left;">
+2.1.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+20.512821
+</td>
+<td style="text-align:right;">
+11.53846
+</td>
+<td style="text-align:right;">
+33.33333
+</td>
+<td style="text-align:right;">
+66.66667
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+11.3
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+het
+</td>
+<td style="text-align:left;">
+Y
+</td>
+<td style="text-align:left;">
+2.1.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5.882353
+</td>
+<td style="text-align:right;">
+17.64706
+</td>
+<td style="text-align:right;">
+52.94118
+</td>
+<td style="text-align:right;">
+47.05882
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+11.3
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+het
+</td>
+<td style="text-align:left;">
+Y
+</td>
+<td style="text-align:left;">
+2.1.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+5.000000
+</td>
+<td style="text-align:right;">
+35.00000
+</td>
+<td style="text-align:right;">
+40.00000
+</td>
+<td style="text-align:right;">
+60.00000
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+11.3
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+het
+</td>
+<td style="text-align:left;">
+Y
+</td>
+<td style="text-align:left;">
+2.1.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+12.500000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+12.50000
+</td>
+<td style="text-align:right;">
+87.50000
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+11.3
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+het
+</td>
+<td style="text-align:left;">
+Y
+</td>
+<td style="text-align:left;">
+2.1.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.000000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+100.00000
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+11.3
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+het
+</td>
+<td style="text-align:left;">
+Y
+</td>
+<td style="text-align:left;">
+2.1.22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="check-genotype-proportions" class="section level1">
+<h1>check genotype proportions</h1>
+<p>First, I will check that genotype proportions are as expected. A few less homozygous fish are observed than expected. However, this is partly due to that they were omitted because the software did not track properly.</p>
+<pre class="r"><code>meta %&gt;% 
+  ggplot(aes(Genotype)) +
+  geom_bar(colour = &quot;black&quot;, 
+           aes(fill = Tank)) +
+  scale_fill_viridis_d() +
+  ggtitle(&quot;Total number of fish per genotype in the study&quot;) </code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="visualisation-of-raw-data" class="section level1">
+<h1>Visualisation of raw data</h1>
+<p>Cleal et al. showed that zebrafish naturally perform more of the alternation tetragrams (LRLR and RLRL) in a Y-maze. This is also obsevred in our data here. A few fish may possibly be outliers.</p>
+<pre class="r"><code>final_data_summedoverbins %&gt;%
+  ggplot(aes(x = tetras, y = x)) +
+  geom_jitter(aes(colour = tetras,
+                  shape = Sex)) +
+  geom_boxplot(outlier.shape = NA,
+               # aes(fill = Genotype)
+               fill = NA
+  ) +
+  geom_label_repel(aes(label = fish_id), # only label the points if the number of tetragrams was over 200
+                   data = . %&gt;% 
+                     dplyr::filter(x &gt; 200)) +
+scale_fill_viridis_d() +
+  labs(y = &quot;Number of tetragrams&quot;, 
+       colour = &quot;Tetragram&quot;,
+       x = &quot;Tetragram&quot;)+
+  theme(legend.position = &quot;bottom&quot;)  +
+  ggtitle(&quot;Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period&quot;) </code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We can also overlay the genotype boxplots as shown below. Looks like the heterozyous and homozygous fish perform more alternations than the WT fish. I will look into this more later in the analysis</p>
+<pre class="r"><code>final_data_summedoverbins %&gt;%
+  ggplot(aes(x = tetras, y = x)) +
+  geom_jitter(aes(colour = tetras,
+                  shape = Sex)) +
+  geom_boxplot(outlier.shape = NA,
+               aes(fill = Genotype) # fill the boxplots by genotype
+  ) +
+  geom_label_repel(aes(label = fish_id), # only label the points if the number of tetragrams was over 200
+                   data = . %&gt;% 
+                     dplyr::filter(x &gt; 200)) +
+  scale_fill_viridis_d() +
+  labs(y = &quot;Number of tetragrams&quot;,
+       colour = &quot;Tetragram&quot;,
+       x = &quot;Tetragram&quot;)+
+  theme(legend.position = &quot;bottom&quot;)  +
+  ggtitle(&quot;Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period&quot;) </code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The alternation tetragrams are the tetragram of interest (the measure of working memory). Below indicates the number of tetragrams performed by zebrafish across the 6 x 10 min blocks of the hour they spent in the maze.</p>
+<pre class="r"><code>final_data_long %&gt;%
+  dplyr::distinct(fish_id, bin, .keep_all = T) %&gt;% 
+  ggplot(aes(x = Genotype, y = alts, fill = Genotype)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(aes(shape = Sex)) +
+  geom_label_repel(aes(label = fish_id), # only label the points if the number of alts was over 100
+                   fill = NA, 
+                   data = . %&gt;%
+                     dplyr::filter(alts &gt; 100)) +
+  facet_wrap(~bin, nrow = 1) +
+  theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  ylab(&quot;Frequency of alternation tetragrams (LRLR + RLRL)&quot;) +
+  scale_fill_viridis_d()</code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We can also display this as the <em>relative</em> amount of alternation tetragrams performed by zebrafish in a 1 hour search period. This will control for how active each fish is.</p>
+<pre class="r"><code>final_data_long %&gt;%
+  dplyr::distinct(fish_id, bin, .keep_all = T) %&gt;% 
+  ggplot(aes(x = Genotype, y = rel_alts, fill = Genotype)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(aes(shape = Sex)) +
+  facet_wrap(~bin, nrow = 1) +
+  ylab(&quot;Relative alteration frequency (LRLR + RLRL)&quot;) +
+  theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1))  +
+  scale_fill_viridis_d()</code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="locomotor-defect" class="section level1">
+<h1>Locomotor defect</h1>
+<p>Alteration to locomotor activity could be a confounding effect with genotype to alternation (LRLR + RLRL) frequency. If the mutant fish had some form of locomotor change, they could be performing more or less alternation tetragrams not due to impairment of spatial working memory. To account for this, I will test whether the genotype of the fish had a significant effect on 1) the total number of turns the fish performed in the hour spent in the maze or 2) the average time spent in each zone of the maze.</p>
+<div id="total-number-of-turns" class="section level2">
+<h2>total number of turns</h2>
+<pre class="r"><code>final_data_summedoverbins %&gt;%
+  group_by(fish_id) %&gt;%
+  mutate(total_turns = sum(x)) %&gt;%
+  dplyr::select(colnames(meta), total_turns) %&gt;%
+  unique %&gt;% 
+  ggplot(aes(x = Genotype,y = total_turns)) +
+  geom_violin(aes(fill = Genotype),
+               alpha = 0.5) +
+  geom_boxplot(aes(colour = Genotype),
+               fill = NA, outlier.shape = NA,
+               width = 0.25,
+               colour= &quot;black&quot;) +
+  geom_quasirandom(aes(shape = Sex)) +
+  scale_fill_viridis_d(option = &quot;viridis&quot;) +
+  scale_colour_viridis_d(option = &quot;viridis&quot;) +
+  ylab(&quot;Total number of turns&quot;) +
+  ggtitle(&quot;Total number of turns performed by fish in the Y-maze in 1 hour&quot;)</code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>final_data %&gt;% 
+  ggplot(aes(x = Genotype, y = total_turns)) +
+  geom_violin(aes(fill = Genotype),
+              alpha = 0.5) +
+  geom_boxplot(aes(colour = Genotype),
+               fill = NA,
+               width = 0.25,
+               outlier.shape = NA,
+               colour= &quot;black&quot;) +
+  geom_quasirandom(aes(shape = Sex)) +
+  geom_label_repel(aes(label = fish_id), 
+                   data = . %&gt;% 
+                     dplyr::filter(total_turns &gt; 300)) +
+  facet_wrap(~bin, nrow = 1) +
+  scale_fill_viridis_d(option = &quot;viridis&quot;) +
+  scale_colour_viridis_d(option = &quot;viridis&quot;) +
+  ylab(&quot;Total number of turns&quot;) +
+  ggtitle(&quot;Total number of turns performed by fish in the Y-maze in 1 hour&quot;)</code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-9-2.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>final_data %&gt;% 
+  ggplot(aes(x = Sex, y = total_turns)) +
+  geom_violin(aes(fill = Sex),
+              alpha = 0.5) +
+  geom_boxplot(aes(colour = Sex),
+               fill = NA,
+               width = 0.25,
+               outlier.shape = NA,
+               colour= &quot;black&quot;) +
+  geom_quasirandom(aes(shape = Sex)) +
+  geom_label_repel(aes(label = fish_id), 
+                   data = . %&gt;% 
+                     dplyr::filter(total_turns &gt; 300)) +
+  facet_wrap(~bin, nrow = 1) +
+  scale_fill_viridis_d(option = &quot;viridis&quot;) +
+  scale_colour_viridis_d(option = &quot;viridis&quot;) +
+  ylab(&quot;Total number of turns&quot;) +
+  ggtitle(&quot;Total number of turns performed by fish in the Y-maze in 1 houur&quot;)</code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-9-3.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>final_data_summedoverbins %&gt;% 
+  group_by(fish_id) %&gt;%
+  mutate(total_turns = sum(x)) %&gt;%
+  dplyr::select(colnames(meta), total_turns) %&gt;%
+  unique %&gt;% 
+  glm.nb(total_turns ~ Genotype + Sex + Tank,
+         data = .) %&gt;%
+  summary %&gt;%
+  .$coef %&gt;%
+  kable(caption = &quot;Negative binomial GLM model coefficients overall in one hour&quot; ) %&gt;%
+  kable_styling() %&gt;% 
+  row_spec(row = c(2,3), bold = T, color = &quot;black&quot;, background = &quot;lightblue&quot;)</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Negative binomial GLM model coefficients overall in one hour
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+z value
+</th>
+<th style="text-align:right;">
+Pr(&gt;|z|)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+6.4846595
+</td>
+<td style="text-align:right;">
+0.1056248
+</td>
+<td style="text-align:right;">
+61.3933623
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehet
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0196871
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0883876
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.2227366
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.8237405
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehom
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.0655958
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.1189239
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.5515776
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.5812378
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SexM
+</td>
+<td style="text-align:right;">
+0.1953691
+</td>
+<td style="text-align:right;">
+0.0793160
+</td>
+<td style="text-align:right;">
+2.4631743
+</td>
+<td style="text-align:right;">
+0.0137713
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank2
+</td>
+<td style="text-align:right;">
+-0.0346590
+</td>
+<td style="text-align:right;">
+0.1067763
+</td>
+<td style="text-align:right;">
+-0.3245943
+</td>
+<td style="text-align:right;">
+0.7454881
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank3
+</td>
+<td style="text-align:right;">
+-0.0874454
+</td>
+<td style="text-align:right;">
+0.0889645
+</td>
+<td style="text-align:right;">
+-0.9829247
+</td>
+<td style="text-align:right;">
+0.3256445
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank4
+</td>
+<td style="text-align:right;">
+0.1575833
+</td>
+<td style="text-align:right;">
+0.1304003
+</td>
+<td style="text-align:right;">
+1.2084577
+</td>
+<td style="text-align:right;">
+0.2268713
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>final_data %&gt;% 
+  glm.nb(total_turns ~ (bin + Genotype)^2 + Sex + Tank,
+         data = .) %&gt;%
+  summary %&gt;%
+  .$coef %&gt;%
+  kable(caption = &quot;Negative binomial GLM model coefficients. accounting for differences across the hour&quot; ) %&gt;%
+  kable_styling() %&gt;% 
+  row_spec(row = c(3,4,9,10), bold = T, color = &quot;black&quot;, background = &quot;lightblue&quot;)</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Negative binomial GLM model coefficients. accounting for differences across the hour
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+z value
+</th>
+<th style="text-align:right;">
+Pr(&gt;|z|)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+5.0672533
+</td>
+<td style="text-align:right;">
+0.0845753
+</td>
+<td style="text-align:right;">
+59.9141298
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+bin
+</td>
+<td style="text-align:right;">
+-0.1064245
+</td>
+<td style="text-align:right;">
+0.0197757
+</td>
+<td style="text-align:right;">
+-5.3815697
+</td>
+<td style="text-align:right;">
+0.0000001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehet
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.0531432
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0921892
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.5764583
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.5643055
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehom
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.1646263
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.1241313
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-1.3262264
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.1847647
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SexM
+</td>
+<td style="text-align:right;">
+0.2035389
+</td>
+<td style="text-align:right;">
+0.0368576
+</td>
+<td style="text-align:right;">
+5.5223029
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank2
+</td>
+<td style="text-align:right;">
+-0.0318393
+</td>
+<td style="text-align:right;">
+0.0495314
+</td>
+<td style="text-align:right;">
+-0.6428105
+</td>
+<td style="text-align:right;">
+0.5203471
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank3
+</td>
+<td style="text-align:right;">
+-0.0834328
+</td>
+<td style="text-align:right;">
+0.0412981
+</td>
+<td style="text-align:right;">
+-2.0202599
+</td>
+<td style="text-align:right;">
+0.0433564
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank4
+</td>
+<td style="text-align:right;">
+0.1577432
+</td>
+<td style="text-align:right;">
+0.0603683
+</td>
+<td style="text-align:right;">
+2.6130122
+</td>
+<td style="text-align:right;">
+0.0089748
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+bin:Genotypehet
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0219362
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0236872
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.9260770
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.3544059
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+bin:Genotypehom
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0304691
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0318833
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.9556456
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.3392513
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="time-spent-in-each-zone-of-the-y-maze" class="section level2">
+<h2>time spent in each zone of the Y-maze</h2>
+<p>From inspection of the <strong>total</strong> and <strong>average</strong> time spent in each zone, something may have gone wrong with fish 56, or it is a non-responder. I therefore tried to inspect the video to have a look at what is going on. But it seems the video is corrupted and cant be viewed. It appears that this fish may have spent a bit of time sitting in one of the arms of the maze.</p>
+<pre class="r"><code>read_csv(&quot;data/processed_data/naglu/9m/time_in_zone.csv&quot;) %&gt;%
+  mutate(fish_id = as.character(fish_id)) %&gt;%
+  dplyr::select(fish_id, bin, zone, time_in_zone) %&gt;%
+  left_join(meta) %&gt;%
+  dplyr::filter(Keep == &quot;Y&quot;) %&gt;%
+  group_by(fish_id, zone) %&gt;%
+  mutate(total_timeInZone = sum(time_in_zone)) %&gt;%
+  dplyr::distinct(total_timeInZone, .keep_all = TRUE) %&gt;%
+  ggplot(aes(x = Genotype, y = total_timeInZone/60)) +
+  geom_quasirandom(aes(shape=Sex)
+                  ) +
+  geom_boxplot(aes(fill = Genotype),
+               outlier.shape = NA,
+               alpha = 0.5) +
+  geom_label_repel(aes(label = fish_id), 
+                   fill = NA, 
+                   data = . %&gt;% 
+                     dplyr::filter(total_timeInZone/60 &lt; 3)) +
+  facet_wrap(~zone, nrow = 1) +
+  scale_y_log10() +
+  ylab(&quot;Total time spent in each zone (mins, log scale)&quot;) +
+  scale_fill_viridis_d() +
+  ggtitle(&quot;Total time spent in each zone&quot;) </code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>read_csv(&quot;data/processed_data/naglu/9m/time_in_zone.csv&quot;) %&gt;%
+  mutate(fish_id = as.character(fish_id)) %&gt;%
+  dplyr::select(fish_id, bin, zone, time_in_zone) %&gt;%
+  left_join(meta) %&gt;%
+  dplyr::filter(Keep == &quot;Y&quot;) %&gt;%
+  group_by(fish_id, zone) %&gt;%
+  mutate(aveTimeInZone = mean(time_in_zone)) %&gt;%
+  dplyr::distinct(aveTimeInZone, .keep_all = TRUE) %&gt;%
+  ggplot(aes(x = Genotype, y = aveTimeInZone)) +
+  geom_quasirandom(aes(shape=Sex)
+                  ) +
+  geom_boxplot(aes(fill = Genotype),
+               outlier.shape = NA,
+                alpha = 0.5) +
+  geom_label_repel(aes(label = fish_id), 
+                   fill = NA, 
+                   data = . %&gt;% 
+                     dplyr::filter(aveTimeInZone &gt; 20)) +
+  facet_wrap(~zone, nrow = 1) +
+  scale_fill_viridis_d() +
+  scale_y_log10() +
+  ylab(&quot;Average time spent in each zone (seconds, log scale&quot;) +
+  ggtitle(&quot;Average time spent in each zone&quot;)</code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-10-2.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="model-fits" class="section level3">
+<h3>model fits</h3>
+<p>There is no significant effect of genotype on the total or average time spent in each zone.</p>
+<pre class="r"><code>read_csv(&quot;data/processed_data/naglu/9m/time_in_zone.csv&quot;) %&gt;%
+  mutate(fish_id = as.character(fish_id)) %&gt;%
+  dplyr::select(fish_id, bin, zone, time_in_zone) %&gt;%
+  left_join(meta) %&gt;%
+  dplyr::filter(Keep == &quot;Y&quot;) %&gt;%
+  group_by(fish_id, zone) %&gt;%
+  mutate(total = mean(time_in_zone)) %&gt;%
+  dplyr::distinct(total, .keep_all = TRUE) %&gt;%
+  lm(log(total) ~ (Genotype + zone)^2 + Sex + Tank,
+    data = .) %&gt;%
+  summary %&gt;%
+  .$coef %&gt;%
+  kable(caption = &quot;linear model: log(total) ~ (Genotype + zone)^2 + Sex&quot;) %&gt;%
+  kable_styling() %&gt;% 
+  row_spec(row = c(2,3,9,10), bold = T, color = &quot;black&quot;, background = &quot;lightblue&quot;)</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+linear model: log(total) ~ (Genotype + zone)^2 + Sex
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+t value
+</th>
+<th style="text-align:right;">
+Pr(&gt;|t|)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+2.4416541
+</td>
+<td style="text-align:right;">
+0.1761389
+</td>
+<td style="text-align:right;">
+13.8620923
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehet
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.1620085
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.1943811
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.8334580
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.4051301
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehom
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.0311081
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.2615186
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.1189517
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.9053789
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zone
+</td>
+<td style="text-align:right;">
+-0.5820540
+</td>
+<td style="text-align:right;">
+0.0590772
+</td>
+<td style="text-align:right;">
+-9.8524265
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SexM
+</td>
+<td style="text-align:right;">
+-0.2109197
+</td>
+<td style="text-align:right;">
+0.0720624
+</td>
+<td style="text-align:right;">
+-2.9269050
+</td>
+<td style="text-align:right;">
+0.0036374
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank2
+</td>
+<td style="text-align:right;">
+0.0040622
+</td>
+<td style="text-align:right;">
+0.0970562
+</td>
+<td style="text-align:right;">
+0.0418544
+</td>
+<td style="text-align:right;">
+0.9666376
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank3
+</td>
+<td style="text-align:right;">
+0.0307581
+</td>
+<td style="text-align:right;">
+0.0808500
+</td>
+<td style="text-align:right;">
+0.3804342
+</td>
+<td style="text-align:right;">
+0.7038438
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank4
+</td>
+<td style="text-align:right;">
+-0.2036796
+</td>
+<td style="text-align:right;">
+0.1185963
+</td>
+<td style="text-align:right;">
+-1.7174203
+</td>
+<td style="text-align:right;">
+0.0867483
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehet:zone
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0634077
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0708031
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.8955499
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.3710818
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehom:zone
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0536404
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0952592
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.5630998
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.5737117
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>read_csv(&quot;data/processed_data/naglu/9m/time_in_zone.csv&quot;) %&gt;%
+  mutate(fish_id = as.character(fish_id)) %&gt;%
+  dplyr::select(fish_id, bin, zone, time_in_zone) %&gt;%
+  left_join(meta) %&gt;%
+  dplyr::filter(Keep == &quot;Y&quot;) %&gt;%
+  group_by(fish_id, zone) %&gt;%
+  mutate(aveTimeInZone = mean(time_in_zone)) %&gt;%
+  dplyr::distinct(aveTimeInZone, .keep_all = TRUE) %&gt;%
+  lm(log(aveTimeInZone) ~ (Genotype + zone)^2 + Sex + Tank,
+    data = .) %&gt;%
+  summary %&gt;%
+  .$coef %&gt;%
+  kable(caption = &quot;linear model: log(aveTimeInZone) ~ (Genotype + zone)^2 + Sex&quot;) %&gt;%
+  kable_styling() %&gt;% 
+  row_spec(row = c(2,3,9,10), bold = T, color = &quot;black&quot;, background = &quot;lightblue&quot;)</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+linear model: log(aveTimeInZone) ~ (Genotype + zone)^2 + Sex
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+t value
+</th>
+<th style="text-align:right;">
+Pr(&gt;|t|)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+2.4416541
+</td>
+<td style="text-align:right;">
+0.1761389
+</td>
+<td style="text-align:right;">
+13.8620923
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehet
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.1620085
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.1943811
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.8334580
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.4051301
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehom
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.0311081
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.2615186
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+-0.1189517
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.9053789
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zone
+</td>
+<td style="text-align:right;">
+-0.5820540
+</td>
+<td style="text-align:right;">
+0.0590772
+</td>
+<td style="text-align:right;">
+-9.8524265
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SexM
+</td>
+<td style="text-align:right;">
+-0.2109197
+</td>
+<td style="text-align:right;">
+0.0720624
+</td>
+<td style="text-align:right;">
+-2.9269050
+</td>
+<td style="text-align:right;">
+0.0036374
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank2
+</td>
+<td style="text-align:right;">
+0.0040622
+</td>
+<td style="text-align:right;">
+0.0970562
+</td>
+<td style="text-align:right;">
+0.0418544
+</td>
+<td style="text-align:right;">
+0.9666376
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank3
+</td>
+<td style="text-align:right;">
+0.0307581
+</td>
+<td style="text-align:right;">
+0.0808500
+</td>
+<td style="text-align:right;">
+0.3804342
+</td>
+<td style="text-align:right;">
+0.7038438
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank4
+</td>
+<td style="text-align:right;">
+-0.2036796
+</td>
+<td style="text-align:right;">
+0.1185963
+</td>
+<td style="text-align:right;">
+-1.7174203
+</td>
+<td style="text-align:right;">
+0.0867483
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehet:zone
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0634077
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0708031
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.8955499
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.3710818
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightblue !important;">
+Genotypehom:zone
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0536404
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.0952592
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.5630998
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightblue !important;">
+0.5737117
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="check-for-handedness" class="section level1">
+<h1>check for handedness</h1>
+<p><a href="https://doi.org/10.1007/s10071-019-01296-9">Fontana et al. 2019</a> showed that fish sometimes show a behavioral lateralisation (i.e. handedness). If fish show this, then they would perform less alternation tetragrams not due to working memory. Here, we defne zebrafish as showing a laterality if they perform left or right turns more than 60% of the total turns. Indeed, some zebrafish show a preference for L or R turns. However, it is not significantly to be related to genotype.</p>
+<pre class="r"><code># make the LR bias object
+LR_Bias &lt;- final_data %&gt;%
+  dplyr::select(L, R, total_turns, fish_id) %&gt;%
+  group_by(fish_id) %&gt;%
+  mutate(L = sum(L),
+         R = sum(R),
+         total_turns = sum(total_turns),
+         L_R_bias = case_when( #consider more than 60% of the time performing a left or right turn to be a bias
+           L/total_turns &gt; 0.6 ~ &quot;Left&quot;,
+           R/total_turns &gt; 0.6 ~ &quot;Right&quot;,
+           TRUE ~ &quot;Neither&quot;
+         )) %&gt;%
+  dplyr::select(fish_id, L_R_bias) %&gt;%
+  unique() %&gt;%
+  mutate(L_R_bias = factor(L_R_bias,
+                           levels = c(&quot;Neither&quot;, &quot;Left&quot;, &quot;Right&quot;))
+  )
+
+final_data %&gt;%
+  left_join(LR_Bias) %&gt;%
+  group_by(fish_id) %&gt;%
+  mutate(L = sum(L),
+         R = sum(R),
+         total_turns = sum(total_turns)
+  ) %&gt;%
+  ggplot(aes(L, R, shape = Genotype)) +
+  geom_point(aes(colour = L_R_bias),
+             size = 3) +
+  geom_abline(slope = 1) +
+  scale_color_manual(values = c(viridis_pal(end=0.75)(3), 
+                               rep(&quot;black&quot;, 3))
+  )</code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>LR_Bias %&gt;% 
+  left_join(meta) %&gt;%
+  dplyr::select(Genotype, L_R_bias) %&gt;% 
+  group_by(Genotype, L_R_bias) %&gt;% 
+  summarise(n = n()) %&gt;% 
+  spread(key = &quot;L_R_bias&quot;, value = &quot;n&quot;) %&gt;% 
+  column_to_rownames(&quot;Genotype&quot;) %&gt;% 
+  chisq.test() %&gt;% 
+  tidy() %&gt;% 
+  mutate(p.value = signif(p.value, 2),
+         statistic = signif(statistic, 2)
+         ) %&gt;% 
+  kable(caption = &quot;Chi-square test of Genotype ~ LR Bias&quot;) %&gt;% 
+  kable_styling(full_width = F)</code></pre>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Chi-square test of Genotype ~ LR Bias
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+<th style="text-align:right;">
+parameter
+</th>
+<th style="text-align:left;">
+method
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:right;">
+0.77
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Pearson’s Chi-squared test
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="test-for-changes-to-alternation" class="section level1">
+<h1>test for changes to alternation</h1>
+<p>Finally, I will now test for alternation changes using a generlatised linear mixed effect model (beta-binomial distribution). We use this because it is count data which is over-dispersed, and fixed and random effects are included. The link function is logit.</p>
+<pre class="r"><code>glm &lt;-
+  final_data %&gt;%
+  left_join(LR_Bias) %&gt;%
+  mutate(
+    dayTime = interaction(Day, Time, drop = T),
+    non_alts = total_turns - alts,
+    bin = as.factor(bin)
+  ) %&gt;%
+  glmmTMB(
+    cbind(alts, non_alts) ~ (bin + Genotype)^2 + Time + Sex + Tank + L_R_bias + (1|Day) + (1|fish_id) + (1|dayTime),  
+    family = betabinomial(),
+    data = .
+  )
+
+an &lt;- Anova(glm) %&gt;%
+  as.data.frame() 
+
+an %&gt;%   
+  dplyr::rename(pval = `Pr(&gt;Chisq)`) %&gt;%
+  kable() %&gt;%
+  kable_styling()</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Chisq
+</th>
+<th style="text-align:right;">
+Df
+</th>
+<th style="text-align:right;">
+pval
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+bin
+</td>
+<td style="text-align:right;">
+1.158380
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.9488074
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Genotype
+</td>
+<td style="text-align:right;">
+3.861153
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.1450645
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Time
+</td>
+<td style="text-align:right;">
+5.362161
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+0.7182589
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sex
+</td>
+<td style="text-align:right;">
+3.275851
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.0703065
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tank
+</td>
+<td style="text-align:right;">
+12.381250
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0.0061850
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+L_R_bias
+</td>
+<td style="text-align:right;">
+7.215407
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.0271140
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+bin:Genotype
+</td>
+<td style="text-align:right;">
+26.368222
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+0.0032753
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="visualisation-of-effects" class="section level1">
+<h1>Visualisation of effects</h1>
+<div id="genotype" class="section level2">
+<h2>Genotype</h2>
+<p>A trend towards improved spatial working memory is observed in the 9m homozygous fish. This is unexpected.</p>
+<pre class="r"><code>summary(emmeans(glm, specs = &quot;Genotype&quot;), type = &quot;response&quot;) %&gt;%
+  as_tibble() %&gt;%
+  mutate(Genotype = case_when(Genotype == &quot;wt&quot; ~ &quot;+/+&quot;,
+                              Genotype == &quot;het&quot; ~ &quot;A603fs/+&quot;,
+                              Genotype == &quot;hom&quot; ~ &quot;A603fs/A603fs&quot;)) %&gt;%
+  ggplot(aes(Genotype, prob, colour = Genotype)) +
+  geom_point(size  = 5,
+             position = position_dodge(width = 0.5)) +
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL),
+                width = 0.25,
+                size = 1,
+                position = position_dodge(width = 0.5)) +
+  labs(y = &quot;Estimated probability of alternation&quot;,
+       x = &quot;Time interval&quot;) +
+  theme(axis.text.x = element_text(hjust = 1,
+                               vjust = 1,
+                               angle = 45)) +
+  scale_y_continuous(limits = c(0,0.35)) +
+  scale_color_viridis_d(end = 0.8, option = &quot;inferno&quot;) +
+  ggtitle(&quot;GLM predicted probability of zebrafish performing an alternation\ntetragram at 9 months of age&quot;,
+          subtitle = paste0(&quot;Effect of Genotype from GLM: &quot;,
+                            signif(an[&quot;Genotype&quot;,&quot;Pr(&gt;Chisq)&quot;], digits = 2)
+          )
+  )</code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /> ## Time interval by genotype (interaction)</p>
+<pre class="r"><code>summary(emmeans(glm, specs = &quot;bin&quot;, by = &quot;Genotype&quot;), type = &quot;response&quot;) %&gt;%
+  as_tibble() %&gt;%
+  mutate(timeinterval = case_when(
+    bin == 1 ~ &quot;0 - 10 mins&quot;, 
+    bin == 2 ~ &quot;10 - 20 mins&quot;, 
+    bin == 3 ~ &quot;20 - 30 mins&quot;, 
+    bin == 4 ~ &quot;30 - 40 mins&quot;, 
+    bin == 5 ~ &quot;40 - 50 mins&quot;, 
+    bin == 6 ~ &quot;50 - 60 mins&quot;
+  )) %&gt;% 
+  ggplot(aes(timeinterval, prob, colour = Genotype, group = Genotype)) +
+  geom_point(size = 2,
+             position = position_dodge(width = 0.5)) +
+  geom_line(position = position_dodge(width = 0.5)) +
+  geom_errorbar(
+    aes(ymin = lower.CL, ymax = upper.CL),
+    width = 0.5,
+    position = position_dodge(width = 0.5)
+  ) +
+  scale_y_continuous(limits = c(0, 0.4)) +
+  ylab(&quot;Estimated probability of \nalternation&quot;) +
+  xlab(&quot;Time interval&quot;) +
+  theme(
+    axis.text.x = element_text(hjust = 1,
+                               vjust = 1,
+                               angle = 45)
+  ) + 
+  scale_color_viridis_d(end = 0.8, option = &quot;inferno&quot;) +
+  ggtitle(&quot;GLM predicted probability of zebrafish performing an alternation\ntetragram across the 6x10 min bins&quot;,
+          subtitle = paste0(&quot;Effect of bin:Genotype from GLM: &quot;,
+                            signif(an[&quot;bin:Genotype&quot;,&quot;Pr(&gt;Chisq)&quot;], digits = 2)
+          )
+  )</code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="leftright-bias" class="section level2">
+<h2>Left/right bias</h2>
+<p>As previously observed, the effect of fish having a left or right turn bias significantly affects how many alts it does.</p>
+<pre class="r"><code>summary(emmeans(glm, specs = &quot;L_R_bias&quot;), type = &quot;response&quot;) %&gt;%
+  as_tibble() %&gt;%
+  ggplot(aes(L_R_bias, prob, colour = L_R_bias)) +
+  geom_point(size = 5,
+             position = position_dodge(width = 0.5)) +
+  geom_errorbar(
+    aes(ymin = lower.CL, ymax = upper.CL),
+    width = 0.25,
+    size = 1,
+    position = position_dodge(width = 0.25)
+    ) +
+  ylab(&quot;Estimated probability of alternation&quot;) +
+  xlab(&quot;Time interval&quot;) +
+  theme(
+    axis.text.x = element_text(hjust = 1,
+                               vjust = 1,
+                               angle = 45)
+    ) +
+  scale_y_continuous(limits = c(0,0.35)) +
+  scale_color_viridis_d(end = 0.8, option = &quot;viridis&quot;) +
+  ggtitle(&quot;GLM predicted probability of zebrafish performing an alternation\ntetragram due to having a left or right turn bias&quot;,
+          subtitle = paste0(&quot;Effect of L_R_bias from GLM: &quot;,
+                            signif(an[&quot;L_R_bias&quot;,&quot;Pr(&gt;Chisq)&quot;], digits = 2)
+          )
+  )</code></pre>
+<p><img src="figure/naglu9m.Rmd/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>9 month old zebrafish homozygous for the <em>naglu</em> <sup>A603fs</sup> mutation perform more alternations than their wild type siblings. This is indicative of improved spatial working memory. Perhaps we are picking up a hyperactivity phenotype consistent with the observed behaviour of human children living with this disease.</p>
+<pre class="r"><code># export data
+saveRDS(glm, &quot;data/R objects/naglu9m.rds&quot;)</code></pre>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.0.2 (2020-06-22)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Mojave 10.14.3
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] MASS_7.3-54       glmmTMB_1.1.1     emmeans_1.6.1     car_3.0-11       
+ [5] carData_3.0-4     performance_0.7.2 lme4_1.1-27.1     Matrix_1.3-4     
+ [9] broom_0.7.8       kableExtra_1.3.4  ggforce_0.3.3     ggbeeswarm_0.6.0 
+[13] ggfortify_0.4.12  ggrepel_0.9.1     ggeasy_0.1.3      ggpubr_0.4.0     
+[17] scales_1.1.1      here_1.0.1        readxl_1.3.1      magrittr_2.0.1   
+[21] forcats_0.5.1     stringr_1.4.0     dplyr_1.0.7       purrr_0.3.4      
+[25] readr_1.4.0       tidyr_1.1.3       tibble_3.1.2      ggplot2_3.3.5    
+[29] tidyverse_1.3.1   workflowr_1.6.2  
+
+loaded via a namespace (and not attached):
+ [1] TH.data_1.0-10      minqa_1.2.4         colorspace_2.0-2   
+ [4] ggsignif_0.6.2      ellipsis_0.3.2      rio_0.5.27         
+ [7] rprojroot_2.0.2     estimability_1.3    fs_1.5.0           
+[10] rstudioapi_0.13     farver_2.1.0        fansi_0.5.0        
+[13] mvtnorm_1.1-2       lubridate_1.7.10    xml2_1.3.2         
+[16] codetools_0.2-18    splines_4.0.2       knitr_1.33         
+[19] polyclip_1.10-0     jsonlite_1.7.2      nloptr_1.2.2.2     
+[22] dbplyr_2.1.1        compiler_4.0.2      httr_1.4.2         
+[25] backports_1.2.1     assertthat_0.2.1    cli_3.0.0          
+[28] later_1.2.0         tweenr_1.0.2        htmltools_0.5.1.1  
+[31] tools_4.0.2         coda_0.19-4         gtable_0.3.0       
+[34] glue_1.4.2          Rcpp_1.0.7          cellranger_1.1.0   
+[37] jquerylib_0.1.4     vctrs_0.3.8         svglite_2.0.0      
+[40] nlme_3.1-152        insight_0.14.2      xfun_0.24          
+[43] openxlsx_4.2.4      rvest_1.0.0         lifecycle_1.0.0    
+[46] rstatix_0.7.0       zoo_1.8-9           hms_1.1.0          
+[49] promises_1.2.0.1    sandwich_3.0-1      TMB_1.7.20         
+[52] yaml_2.2.1          curl_4.3.2          gridExtra_2.3      
+[55] sass_0.4.0          stringi_1.6.2       highr_0.9          
+[58] boot_1.3-28         zip_2.2.0           rlang_0.4.11       
+[61] pkgconfig_2.0.3     systemfonts_1.0.2   evaluate_0.14      
+[64] lattice_0.20-44     labeling_0.4.2      tidyselect_1.1.1   
+[67] plyr_1.8.6          R6_2.5.0            generics_0.1.0     
+[70] multcomp_1.4-17     DBI_1.1.1           pillar_1.6.1       
+[73] haven_2.4.1         foreign_0.8-81      withr_2.4.2        
+[76] survival_3.2-11     abind_1.4-5         modelr_0.1.8       
+[79] crayon_1.4.1        utf8_1.2.1          rmarkdown_2.9      
+[82] grid_4.0.2          data.table_1.14.0   git2r_0.28.0       
+[85] reprex_2.0.0        digest_0.6.27       webshot_0.5.2      
+[88] xtable_1.8-4        numDeriv_2016.8-1.1 httpuv_1.6.1       
+[91] munsell_0.5.0       beeswarm_0.4.0      viridisLite_0.4.0  
+[94] vipor_0.4.5         bslib_0.2.5.1      </code></pre>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
