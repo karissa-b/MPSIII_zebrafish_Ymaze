@@ -18,9 +18,30 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
 ```{r}
-library(pander)
-library(magrittr)
 library(tidyverse)
+library(magrittr)
+library(readxl)
+library(here)
+library(scales)
+library(ggpubr)
+library(ggeasy)
+library(ggrepel)
+library(ggfortify)
+library(ggbeeswarm)
+library(ggforce)
+library(kableExtra)
+library(pander)
+
+# stat analysis
+library(broom)
+library(lme4)
+library(performance)
+library(car)
+library(emmeans)
+library(glmmTMB)
+library(MASS)
+
+theme_set(theme_bw())
 tibble(
   `MPS-III subtype` = c("A", "B", "C"),
   Gene = c("sgsh", "naglu", "hgsnat"), 
@@ -32,3 +53,85 @@ tibble(
 In this analysis, we will test whether fish homozygous for the mutations listed above show changes to spatial working memory. To test this, we will use the free-movement pattern Y-Maze task ([Cleal et al. 2021](https://link.springer.com/article/10.3758/s13428-020-01452-x)). It involves the assessment of movement patterns of zebrafish freely exploring a Y-maze in a 1 hour time period. A series of frequencies of “tetragrams” (four consecutive arm entries ranging from LLLL to RRRR) are calculated, and differences in frequencies of the alternation tetragrams (LRLR and RLRL, the dominant search strategy used in vertebrates) are indicative of changes to spatial working memory. We will analyse our zebrafish in families generated from in-crossess of heterozygous mutants, across three ages (3, 6 and 9 months of age). 
 
 For each analysis (mutation and age) the raw data was processed using a batch script obtained from https://github.com/clay-j/ZANTIKS_YMaze_Analysis_Script. This script converts the raw data into a series of frequencies of tetragrams. Then, I performed the statistical analysis. 
+
+# Summary of the entire analysis
+## naglu 
+```{r}
+naglu3m <- readRDS("data/R objects/naglu3m.rds")
+naglu6m <- readRDS("data/R objects/naglu6m.rds")
+naglu9m <- readRDS("data/R objects/naglu9m.rds")
+
+genotypeggplotFun <- function(glm, title) {
+    summary(emmeans(glm, specs = "Genotype"), type = "response") %>% 
+    as_tibble() %>%
+    mutate(Genotype = case_when(Genotype == "wt" ~ "+/+",
+                                Genotype == "het" ~ "A603fs/+",
+                                Genotype == "hom" ~ "A603fs/A603fs")) %>%
+    ggplot(aes(Genotype, prob, colour = Genotype)) +
+    geom_point(size  = 5,
+               position = position_dodge(width = 0.5)) +
+    geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL),
+                  width = 0.25,
+                  size = 1,
+                  position = position_dodge(width = 0.5)) +
+    labs(y = "Estimated probability of alternation",
+         x = "Time interval") +
+    scale_y_continuous(limits = c(0, 0.3)) +
+    theme(axis.text.x = element_text(hjust = 1,
+                                     vjust = 1,
+                                     angle = 45)) +
+    scale_color_viridis_d(end = 0.8, option = "inferno") +
+    ggtitle(label = paste(title))
+}
+
+ggarrange(
+  genotypeggplotFun(glm = naglu3m, title = "3m: p = 0.06"),
+  genotypeggplotFun(glm = naglu6m, title = "6m: p = 0.08"),
+  genotypeggplotFun(glm = naglu9m, title = "9m: p = 0.1"),       
+  common.legend = T,
+  nrow = 1
+)
+```
+
+## Genotype across time intervals 
+```{r}
+binxgenoggplotFun <- function(glm, title) {
+  summary(emmeans(glm, specs = "bin", by = "Genotype"), type = "response") %>%
+    as_tibble() %>%
+    mutate(
+      timeinterval = case_when(
+        bin == 1 ~ "0 - 10 mins", 
+        bin == 2 ~ "10 - 20 mins", 
+        bin == 3 ~ "20 - 30 mins", 
+        bin == 4 ~ "30 - 40 mins", 
+        bin == 5 ~ "40 - 50 mins", 
+        bin == 6 ~ "50 - 60 mins"),
+      Genotype = case_when(Genotype == "wt" ~ "+/+",
+                           Genotype == "het" ~ "A603fs/+",
+                           Genotype == "hom" ~ "A603fs/A603fs")) %>%
+    ggplot(aes(timeinterval, prob, colour = Genotype, group = Genotype)) +
+    geom_point(size = 2,
+               position = position_dodge(width = 0.5)) +
+    geom_line(position = position_dodge(width = 0.5)) +
+    geom_errorbar(
+      aes(ymin = lower.CL, ymax = upper.CL),
+      width = 0.5,
+      position = position_dodge(width = 0.5)
+    ) +
+    scale_y_continuous(limits = c(0, 0.4)) +
+    ylab("Estimated probability of \nalternation") +
+    xlab("Time interval") +
+    theme(
+      axis.text.x = element_text(hjust = 1,
+                                 vjust = 1,
+                                 angle = 45)
+    ) + 
+    scale_color_viridis_d(end = 0.8, option = "inferno") +
+    ggtitle(label = paste(title))
+}
+
+binxgenoggplotFun(glm = naglu3m, title = "3m: p = 0.8")
+binxgenoggplotFun(glm = naglu6m, title = "6m: p = 0.02")
+binxgenoggplotFun(glm = naglu9m, title = "9m: p = 0.003")
+```
+

@@ -547,7 +547,7 @@ an %>%
 The effect of genotype does not quite reach the threshold for statistcial significance (p < 0.05). However, there is a clear trend of increasing lternations in the heterozygous and homozygous genotypes. 
 
 ```{r}
-print(emmeans(glm, specs = "Genotype"), type = "response") %>%
+summary(emmeans(glm, specs = "Genotype"), type = "response") %>%
   as_tibble() %>%
   mutate(Genotype = case_when(Genotype == "wt" ~ "+/+",
                               Genotype == "het" ~ "A603fs/+",
@@ -617,7 +617,7 @@ summary(emmeans(glm, specs = "bin", by = "Genotype"), type = "response") %>%
 The time of day that the fish went into the maze has a variable effect on the number of alternations, and is not statistically significant. 
 
 ```{r}
-print(emmeans(glm, specs = "Time"), type = "response") %>%
+summary(emmeans(glm, specs = "Time"), type = "response") %>%
   as_tibble() %>% 
   ggplot(aes(Time, prob, colour = Time)) +
   geom_point(size = 5,
@@ -649,7 +649,7 @@ print(emmeans(glm, specs = "Time"), type = "response") %>%
 There is a clear effect of whether the fish have a left or right turn bias on the number of alternations it performs. 
 
 ```{r}
-print(emmeans(glm, specs = "L_R_bias"), type = "response") %>%
+summary(emmeans(glm, specs = "L_R_bias"), type = "response") %>%
   as_tibble() %>% 
   ggplot(aes(L_R_bias, prob, colour = L_R_bias)) +
   geom_point(size = 5,
@@ -681,7 +681,7 @@ print(emmeans(glm, specs = "L_R_bias"), type = "response") %>%
 Sex does not have an effect on how many alternations the fish perform. 
 
 ```{r}
-print(emmeans(glm, specs = "Sex"), type = "response") %>%
+summary(emmeans(glm, specs = "Sex"), type = "response") %>%
   as_tibble() %>% 
   ggplot(aes(Sex, prob, colour = Sex)) +
   geom_point(size = 5,

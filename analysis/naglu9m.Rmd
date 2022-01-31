@@ -525,6 +525,33 @@ summary(emmeans(glm, specs = "bin", by = "Genotype"), type = "response") %>%
           )
   )
 ```
+## Sex
+
+A trend towards improved spatial working memory is observed in the 9m homozygous fish. This is unexpected. 
+
+```{r}
+summary(emmeans(glm, specs = "Sex"), type = "response") %>%
+  as_tibble() %>%
+  ggplot(aes(Sex, prob, colour = Sex)) +
+  geom_point(size  = 5,
+             position = position_dodge(width = 0.5)) +
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL),
+                width = 0.25,
+                size = 1,
+                position = position_dodge(width = 0.5)) +
+  labs(y = "Estimated probability of alternation",
+       x = "Time interval") +
+  theme(axis.text.x = element_text(hjust = 1,
+                               vjust = 1,
+                               angle = 45)) +
+  scale_y_continuous(limits = c(0,0.35)) +
+  scale_color_viridis_d(end = 0.8, option = "inferno") +
+  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram at 9 months of age",
+          subtitle = paste0("Effect of Sex from GLM: ",
+                            signif(an["Sex","Pr(>Chisq)"], digits = 2)
+          )
+  )
+```
 
 ## Left/right bias
 
