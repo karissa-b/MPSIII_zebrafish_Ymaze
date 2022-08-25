@@ -345,6 +345,9 @@ div.tocify {
   <a href="naglu6m.html">naglu_6m</a>
 </li>
 <li>
+  <a href="naglu9m.html">naglu_9m</a>
+</li>
+<li>
   <a href="sgsh6m.html">sgsh_6m</a>
 </li>
       </ul>
@@ -376,7 +379,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -385,7 +388,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -394,10 +397,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-01-31
+<strong>Last updated:</strong> 2022-08-25
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>MPSIII_zebrafish_Ymaze/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -413,12 +416,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -485,50 +488,52 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree77460cd871927ac9225b7aa20cbcba36b7d88cebtargetblank77460cda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/77460cd871927ac9225b7aa20cbcba36b7d88ceb" target="_blank">77460cd</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree53de94817d3a92fabc9bb0657aa66c392d90d4a0targetblank53de948a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/53de94817d3a92fabc9bb0657aa66c392d90d4a0" target="_blank">53de948</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree77460cd871927ac9225b7aa20cbcba36b7d88cebtargetblank77460cda" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree53de94817d3a92fabc9bb0657aa66c392d90d4a0targetblank53de948a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/77460cd871927ac9225b7aa20cbcba36b7d88ceb" target="_blank">77460cd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/53de94817d3a92fabc9bb0657aa66c392d90d4a0" target="_blank">53de948</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .DS_Store
     Ignored:    .Rapp.history
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
     Ignored:    data/.DS_Store
     Ignored:    data/metadata/.DS_Store
     Ignored:    data/processed_data/.DS_Store
+    Ignored:    data/processed_data/hgsnat/.DS_Store
     Ignored:    data/processed_data/naglu/.DS_Store
     Ignored:    data/raw_data/.DS_Store
+    Ignored:    data/raw_data/hgsnat/.DS_Store
+    Ignored:    data/raw_data/hgsnat/3m/.DS_Store
     Ignored:    data/raw_data/naglu/.DS_Store
     Ignored:    data/raw_data/sgsh/.DS_Store
     Ignored:    data/raw_data/sgsh/6m/.DS_Store
 
 Untracked files:
-    Untracked:  analysis/hgsnat3m.Rmd
-    Untracked:  analysis/naglu9m.Rmd
-    Untracked:  code/hgsnat_3m_BatchProcess.R
-    Untracked:  code/naglu_9m_BatchProcess.R
-    Untracked:  data/R objects/
-    Untracked:  data/metadata/hgsnat 3-month behavioural metadata.xlsx
-    Untracked:  data/metadata/naglu 9 month behavioural metadata.xlsx
-    Untracked:  data/processed_data/hgsnat/
-    Untracked:  data/processed_data/naglu/9m/
-    Untracked:  data/raw_data/hgsnat/
-    Untracked:  data/raw_data/naglu/9m/
+    Untracked:  analysis/naglu5mLT.Rmd
+    Untracked:  code/naglu_5m_LT_batchProcess.R
+    Untracked:  data/metadata/naglu 5m hom x het in LT metadata.xlsx
+    Untracked:  data/processed_data/naglu/5m_LT/
+    Untracked:  data/raw_data/naglu/5m_LT/
 
 Unstaged changes:
-    Modified:   analysis/naglu3m.Rmd
     Modified:   analysis/naglu6m.Rmd
+    Modified:   analysis/naglu9m.Rmd
+    Modified:   analysis/sgsh3m.Rmd
+    Modified:   data/R objects/naglu3m.rds
+    Deleted:    tidy_data.csv
+    Deleted:    time_in_zone.csv
 
 </code></pre>
 <p>
@@ -567,6 +572,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/karissa-b/MPSIII_zebrafish_Ymaze/b31b4df7f0f712550a8cf40daeea14e14e45b650/docs/sgsh3m.html" target="_blank">b31b4df</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -703,6 +725,7 @@ library(scales)
 library(readxl)
 library(ggpubr)
 library(ggeasy)
+library(ggrepel)
 library(ggfortify)
 library(ggbeeswarm)
 library(ggforce)
@@ -741,7 +764,6 @@ final_data &lt;- read_csv(&quot;data/processed_data/sgsh/3m/final_output.csv&quo
 
 # make an object which converts the final data to long format. for easier plotting in ggplot
 final_data_long &lt;- final_data %&gt;%
-  dplyr::filter(Keep == &quot;Y&quot;) %&gt;%
   gather(key = &quot;tetras&quot;, value = &quot;Count&quot;, # convert to long format
          grep(&quot;[L|R]{4}&quot;,
               colnames(.))
@@ -749,7 +771,6 @@ final_data_long &lt;- final_data %&gt;%
 
 # also make an object which sums the tetragrams over the hour
 final_data_summedoverbins &lt;- final_data %&gt;%
-  dplyr::filter(Keep == &quot;Y&quot;) %&gt;%
   gather(key = &quot;tetras&quot;, value = &quot;Count&quot;, # convert to long format
          grep(&quot;[L|R]{4}&quot;, # select the columns which contain a L or a R four times
               colnames(.))
@@ -757,62 +778,16 @@ final_data_summedoverbins &lt;- final_data %&gt;%
   group_by(fish_id, tetras) %&gt;%
   mutate(sum_tetras = sum(Count)) %&gt;% # sum the tetragram counts per fish_id
   dplyr::select(colnames(meta), tetras, sum_tetras) %&gt;%
-  unique</code></pre>
+  dplyr::distinct(fish_id, .keep_all = TRUE)</code></pre>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>In this analysis, I will analyse Ewans raw data generated for zebrafish arising from a lay from the same <em>sgsh</em> I388* het x het parents in the Zantiks Y-maze.</p>
-<p>Briefly, zebrafish are raised from this cross together in the same tank, across 3 lays. Each lay has come from the same parents are approx. 1 week apart in age. Each tank contained fish either WT, heterozygous or homozgous for the mutation in a 1:2:1 ratio. A summary of the fish used in this experiment can be found in the plot below.</p>
-<pre class="r"><code>meta %&gt;%
-  group_by(Tank, Genotype) %&gt;%
-  summarise(n = n()) %&gt;%
-  ggplot(aes(x = Genotype, y = n, fill = Genotype)) +
-  geom_col(colour = &quot;black&quot;) +
-  facet_wrap(~Tank) +
-  scale_fill_viridis_d() +
-  labs(y = &quot;Number of fish&quot;) +
-  ggtitle(&quot;Number of fish per genotype per tank (3 tanks total)&quot;)</code></pre>
-<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-1">
-Past versions of unnamed-chunk-3-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-3-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/sgsh3m.Rmd/unnamed-chunk-3-1.png" target="_blank">273d442</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-26
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p>Briefly, zebrafish are raised from this cross together in the same tank, across 3 lays. Each lay has come from the same parents are approx. 1 week apart in age. Each tank contained fish either WT, heterozygous or homozgous for the mutation in a 1:2:1 ratio.</p>
 <p>Fish were isolated for 30 mins two at a time, then placed in the maze for 1 hour. Raw data was collected, and metadata was recorded (i.e. sex, time, day). These raw data spreadsheets were batch processed in the sgsh 3m, BatchProcess R script to produce the <code>final_data</code> object. This object contains the tetragram frequencies (see below). Note that fish were genotyped after data collection so that we are blinded from any observer bias until after raw data collection. Addiotianlly, the videos were manually observed to ensure proper tracking. Any fish where the tracking was not perfect was omitted.</p>
 <pre class="r"><code>final_data %&gt;%
-  head %&gt;%
+  head(12) %&gt;% 
+  dplyr::select(-colnames(meta)[-1]) %&gt;% 
   kable(caption = &quot;Example of the processed data&quot;) %&gt;%
   kable_styling()</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -902,27 +877,6 @@ rel_R
 <th style="text-align:right;">
 rel_L
 </th>
-<th style="text-align:left;">
-Day
-</th>
-<th style="text-align:left;">
-Time
-</th>
-<th style="text-align:left;">
-Sex
-</th>
-<th style="text-align:left;">
-Tank
-</th>
-<th style="text-align:left;">
-Genotype
-</th>
-<th style="text-align:left;">
-Keep
-</th>
-<th style="text-align:left;">
-Date
-</th>
 </tr>
 </thead>
 <tbody>
@@ -1008,27 +962,6 @@ Date
 <td style="text-align:right;">
 36.36364
 </td>
-<td style="text-align:left;">
-10
-</td>
-<td style="text-align:left;">
-11.45
-</td>
-<td style="text-align:left;">
-F
-</td>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:left;">
-wt
-</td>
-<td style="text-align:left;">
-Y
-</td>
-<td style="text-align:left;">
-27.7.21
-</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -1111,27 +1044,6 @@ Y
 </td>
 <td style="text-align:right;">
 62.50000
-</td>
-<td style="text-align:left;">
-10
-</td>
-<td style="text-align:left;">
-11.45
-</td>
-<td style="text-align:left;">
-F
-</td>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:left;">
-wt
-</td>
-<td style="text-align:left;">
-Y
-</td>
-<td style="text-align:left;">
-27.7.21
 </td>
 </tr>
 <tr>
@@ -1216,27 +1128,6 @@ Y
 <td style="text-align:right;">
 53.33333
 </td>
-<td style="text-align:left;">
-10
-</td>
-<td style="text-align:left;">
-11.45
-</td>
-<td style="text-align:left;">
-F
-</td>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:left;">
-wt
-</td>
-<td style="text-align:left;">
-Y
-</td>
-<td style="text-align:left;">
-27.7.21
-</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -1319,27 +1210,6 @@ Y
 </td>
 <td style="text-align:right;">
 52.77778
-</td>
-<td style="text-align:left;">
-10
-</td>
-<td style="text-align:left;">
-11.45
-</td>
-<td style="text-align:left;">
-F
-</td>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:left;">
-wt
-</td>
-<td style="text-align:left;">
-Y
-</td>
-<td style="text-align:left;">
-27.7.21
 </td>
 </tr>
 <tr>
@@ -1424,27 +1294,6 @@ Y
 <td style="text-align:right;">
 47.05882
 </td>
-<td style="text-align:left;">
-10
-</td>
-<td style="text-align:left;">
-11.45
-</td>
-<td style="text-align:left;">
-F
-</td>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:left;">
-wt
-</td>
-<td style="text-align:left;">
-Y
-</td>
-<td style="text-align:left;">
-27.7.21
-</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -1528,26 +1377,503 @@ Y
 <td style="text-align:right;">
 51.35135
 </td>
+</tr>
+<tr>
 <td style="text-align:left;">
+101
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
 10
 </td>
-<td style="text-align:left;">
-11.45
+<td style="text-align:right;">
+10
 </td>
-<td style="text-align:left;">
-F
-</td>
-<td style="text-align:left;">
+<td style="text-align:right;">
 3
 </td>
-<td style="text-align:left;">
-wt
+<td style="text-align:right;">
+4
 </td>
-<td style="text-align:left;">
-Y
+<td style="text-align:right;">
+9
 </td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+69
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+118
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+19.491525
+</td>
+<td style="text-align:right;">
+13.559322
+</td>
+<td style="text-align:right;">
+41.52542
+</td>
+<td style="text-align:right;">
+58.47458
+</td>
+</tr>
+<tr>
 <td style="text-align:left;">
-27.7.21
+101
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+75
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+5.333333
+</td>
+<td style="text-align:right;">
+25.333333
+</td>
+<td style="text-align:right;">
+54.66667
+</td>
+<td style="text-align:right;">
+45.33333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+101
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+6.493506
+</td>
+<td style="text-align:right;">
+38.961039
+</td>
+<td style="text-align:right;">
+48.05195
+</td>
+<td style="text-align:right;">
+51.94805
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+101
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+2.985075
+</td>
+<td style="text-align:right;">
+47.761194
+</td>
+<td style="text-align:right;">
+44.77612
+</td>
+<td style="text-align:right;">
+55.22388
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+101
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+5.172414
+</td>
+<td style="text-align:right;">
+17.241379
+</td>
+<td style="text-align:right;">
+48.27586
+</td>
+<td style="text-align:right;">
+51.72414
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+101
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+9.090909
+</td>
+<td style="text-align:right;">
+33.333333
+</td>
+<td style="text-align:right;">
+54.54545
+</td>
+<td style="text-align:right;">
+45.45455
 </td>
 </tr>
 </tbody>
@@ -1556,12 +1882,29 @@ Y
 <div id="check-genotype-proportions" class="section level1">
 <h1>check genotype proportions</h1>
 <p>First, I will check that genotype proportions are as expected. A few less homozygous fish are observed than expected. However, this is partly due to that they were omitted because the software did not track properly.</p>
-<pre class="r"><code>meta %&gt;%
-  ggplot(aes(Genotype, fill = Genotype)) +
-  geom_bar(colour = &quot;black&quot;) +
+<pre class="r"><code>meta %&gt;% 
+  ggplot(aes(Genotype)) +
+  geom_bar(colour = &quot;black&quot;, 
+           aes(fill = Tank)) +
   scale_fill_viridis_d() +
-  ggtitle(&quot;Number of fish per genotype in the study&quot;)</code></pre>
-<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+  labs(y = &#39;Number of fish&#39;) +
+  ggtitle(&quot;Total number of fish per genotype in the study&quot;) </code></pre>
+<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="visualisation-of-raw-data" class="section level1">
+<h1>Visualisation of raw data</h1>
+<p>The plots below show the raw counts of each of the possible tetragrams. We can see some fish were quite inactive, wih low total number of tetragrams. The plot below show fish 1-10 for vis purposes. To see all fish, remove the <code>dplyr::filter</code> line of code.</p>
+<pre class="r"><code>final_data_summedoverbins %&gt;%
+  dplyr::filter(fish_id %in% c(seq(10,15))) %&gt;%
+  ggplot(aes(x = tetras, y = sum_tetras, fill = tetras)) +
+  geom_col() +
+  facet_wrap(~fish_id, ncol = 1) +
+  labs(y = &quot;Counts of each tetragram&quot;,
+       fill = &quot;Tetragram&quot;) +
+  theme(axis.text.x = element_blank(),
+        legend.position = &quot;bottom&quot;) +
+  ggtitle(&quot;Distribution of memory patterns per fish&quot;)</code></pre>
+<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-5-1.png" width="1920" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-5-1">
 Past versions of unnamed-chunk-5-1.png
@@ -1599,21 +1942,25 @@ Karissa Barthelson
 </table>
 </div>
 </div>
-</div>
-<div id="visualisation-of-raw-data" class="section level1">
-<h1>Visualisation of raw data</h1>
-<p>The plots below show the raw counts of each of the possible tetragrams. We can see some fish were quite inactive, wih low total number of tetragrams. The plot below show fish 1-10 for vis purposes. To see all fish, remove the <code>dplyr::filter</code> line of code.</p>
+<p>Cleal et al. showed that zebrafish naturally perform more of the alternation tetragrams (LRLR and RLRL) in a Y-maze. This is also obsevred in our data here. A few fish may be outliers, as they have performed abnormally high number of tetragrams (labelled plots below).</p>
 <pre class="r"><code>final_data_summedoverbins %&gt;%
-  dplyr::filter(fish_id %in% c(seq(10,20))) %&gt;%
-  ggplot(aes(x = tetras, y = sum_tetras, fill = tetras)) +
-  geom_col() +
-  facet_wrap(~fish_id, ncol = 1) +
-  labs(y = &quot;Counts of each tetragram&quot;,
-       fill = &quot;Tetragram&quot;) +
-  theme(axis.text.x = element_blank(),
-        legend.position = &quot;bottom&quot;) +
-  ggtitle(&quot;Distribution of memory patterns per fish&quot;)</code></pre>
-<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-6-1.png" width="1920" style="display: block; margin: auto;" /></p>
+  ggplot(aes(x = tetras, y = sum_tetras)) +
+  geom_jitter(aes(colour = tetras,
+                  shape = Sex)) +
+  geom_boxplot(outlier.shape = NA,
+               # aes(fill = Genotype)
+               fill = NA
+               ) +
+  geom_label_repel(aes(label = fish_id), # only label the points if the number of tetragrams was over 200
+                   data = . %&gt;% 
+                     dplyr::filter(sum_tetras &gt; 200)) +
+  scale_fill_viridis_d() +
+  labs(y = &quot;Number of tetragrams&quot;,
+       colour = &quot;Tetragram&quot;,
+       x = &quot;Tetragram&quot;)+
+  theme(legend.position = &quot;bottom&quot;)  +
+  ggtitle(&quot;Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period&quot;) </code></pre>
+<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-1">
 Past versions of unnamed-chunk-6-1.png
@@ -1651,18 +1998,15 @@ Karissa Barthelson
 </table>
 </div>
 </div>
-<p>Cleal et al. showed that zebrafish naturally perform more of the alternation tetragrams (LRLR and RLRL) in a Y-maze. This is also obsevred in our data here.</p>
+<p>We can also overlay the genotype boxplots as shown below. Looks like the heterozyous and homozygous fish perform more alternations than the WT fish. I will look into this more later in the analysis.</p>
 <pre class="r"><code>final_data_summedoverbins %&gt;%
-  dplyr::distinct(sum_tetras, .keep_all = T) %&gt;%
   ggplot(aes(x = tetras, y = sum_tetras)) +
   geom_jitter(aes(colour = tetras,
                   shape = Sex)) +
   geom_boxplot(outlier.shape = NA,
-               # aes(fill = Genotype)
-               fill = NA
+               aes(fill = Genotype) # fill the boxplots by genotype
                ) +
   scale_fill_viridis_d() +
-  coord_cartesian(ylim = c(0,200)) + # zoom in
   labs(y = &quot;Number of tetragrams&quot;,
        colour = &quot;Tetragram&quot;,
        x = &quot;Tetragram&quot;)+
@@ -1706,22 +2050,16 @@ Karissa Barthelson
 </table>
 </div>
 </div>
-<p>We can also overlay the genotype boxplots as shown below. Looks like the heterozyous and homozygous fish perform more alternations than the WT fish. I will look into this more later in the analysis.</p>
-<pre class="r"><code>final_data_summedoverbins %&gt;%
-  dplyr::distinct(sum_tetras, .keep_all = T) %&gt;%
-  ggplot(aes(x = tetras, y = sum_tetras)) +
-  geom_jitter(aes(colour = tetras,
-                  shape = Sex)) +
-  geom_boxplot(outlier.shape = NA,
-               aes(fill = Genotype) # fill the boxplots by genotype
-               ) +
-  scale_fill_viridis_d() +
-  coord_cartesian(ylim = c(0,200)) + # zoom in
-  labs(y = &quot;Number of tetragrams&quot;,
-       colour = &quot;Tetragram&quot;,
-       x = &quot;Tetragram&quot;)+
-  theme(legend.position = &quot;bottom&quot;)  +
-  ggtitle(&quot;Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period&quot;)</code></pre>
+<p>The alternation tetragrams are the tetragram of interest (the measure of working memory). Below indicates the number of tetragrams performed by zerbafish across the 6 x 10 min blocks of the hour they spent in the maze.</p>
+<pre class="r"><code>final_data_long %&gt;%
+  dplyr::distinct(fish_id, bin, .keep_all = T) %&gt;%
+  ggplot(aes(x = Genotype, y = alts, fill = Genotype)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(aes(shape = Sex)) +
+  facet_wrap(~bin, nrow = 1) +
+  theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  ylab(&quot;Frequency of alternation tetragrams (LRLR + RLRL)&quot;) +
+  scale_fill_viridis_d()</code></pre>
 <p><img src="figure/sgsh3m.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-8-1">
@@ -1760,16 +2098,15 @@ Karissa Barthelson
 </table>
 </div>
 </div>
-<p>The alternation tetragrams are the tetragram of interest (the measure of working memory). Below indicates the number of tetragrams performed by zerbafish across the 6 x 10 min blocks of the hour they spent in the maze.</p>
+<p>We can also display this as the <strong>relative</strong> amount of alternation tetragrams performed by zebrafish in a 1 hour search period. This will control for how active each fish is.</p>
 <pre class="r"><code>final_data_long %&gt;%
   dplyr::distinct(rel_alts, .keep_all = T) %&gt;%
-  ggplot(aes(x = Genotype, y = alts, fill = Genotype)) +
+  ggplot(aes(x = Genotype, y = rel_alts, fill = Genotype)) +
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(aes(shape = Sex)) +
   facet_wrap(~bin, nrow = 1) +
-  theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1)) +
-  ylab(&quot;Frequency of alternation tetragrams (LRLR + RLRL)&quot;) +
-  coord_cartesian(ylim = c(0, 100)) + # zoom in
+  ylab(&quot;Relative alteration frequency (LRLR + RLRL)&quot;) +
+  theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1))  +
   scale_fill_viridis_d()</code></pre>
 <p><img src="figure/sgsh3m.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
@@ -1809,16 +2146,30 @@ Karissa Barthelson
 </table>
 </div>
 </div>
-<p>We can also display this as the <em>relative</em> amount of alternation tetragrams performed by zebrafish in a 1 hour search period. This will control for how active each fish is.</p>
-<pre class="r"><code>final_data_long %&gt;%
-  dplyr::distinct(rel_alts, .keep_all = T) %&gt;%
-  ggplot(aes(x = Genotype, y = rel_alts, fill = Genotype)) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_jitter(aes(shape = Sex)) +
-  facet_wrap(~bin, nrow = 1) +
-  ylab(&quot;Relative alteration frequency (LRLR + RLRL)&quot;) +
-  theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1))  +
-  scale_fill_viridis_d()</code></pre>
+</div>
+<div id="locomotor-defect" class="section level1">
+<h1>Locomotor defect</h1>
+<p>Alteration to locomotor activity could be a confounding effect with genotype to alternation (LRLR + RLRL) frequency. If the mutant fish had some form of locomotor change, they could be performing more or less alternation tetragrams not due to impairment of spatial working memory. To account for this, I will test whether the genotype of the fish had a significant effect on 1) the total number of turns the fish performed in the hour spent in the maze or 2) the average time spent in each zone of the maze.</p>
+<div id="total-number-of-turns" class="section level2">
+<h2>total number of turns</h2>
+<pre class="r"><code>final_data_summedoverbins %&gt;%
+  ungroup() %&gt;%
+  group_by(fish_id) %&gt;%
+  mutate(total_turns = sum(sum_tetras)) %&gt;%
+  dplyr::select(colnames(meta), total_turns) %&gt;%
+  unique %&gt;%
+  ggplot(aes(x = Genotype,y = total_turns)) +
+  geom_violin(aes(fill = Genotype),
+               alpha = 0.5) +
+  geom_boxplot(aes(colour = Genotype),
+               fill = NA,
+               width = 0.25,
+               colour= &quot;black&quot;) +
+  geom_quasirandom(aes(shape = Sex)) +
+  scale_fill_viridis_d(option = &quot;viridis&quot;) +
+  scale_colour_viridis_d(option = &quot;viridis&quot;) +
+  ylab(&quot;Total number of turns&quot;) +
+  ggtitle(&quot;Total number of turns performed by fish in the Y-maze in 1 hour&quot;)</code></pre>
 <p><img src="figure/sgsh3m.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-1">
@@ -1857,29 +2208,26 @@ Karissa Barthelson
 </table>
 </div>
 </div>
-</div>
-<div id="locomotor-defect" class="section level1">
-<h1>Locomotor defect</h1>
-<p>Alteration to locomotor activity could be a confounding effect with genotype to alternation (LRLR + RLRL) frequency. If the mutant fish had some form of locomotor change, they could be performing more or less alternation tetragrams not due to impairment of spatial working memory. To account for this, I will test whether the genotype of the fish had a significant effect on 1) the total number of turns the fish performed in the hour spent in the maze or 2) the average time spent in each zone of the maze. ## total number of turns</p>
 <pre class="r"><code>final_data_summedoverbins %&gt;%
   ungroup() %&gt;%
   group_by(fish_id) %&gt;%
   mutate(total_turns = sum(sum_tetras)) %&gt;%
   dplyr::select(colnames(meta), total_turns) %&gt;%
   unique %&gt;%
-  dplyr::filter(total_turns &lt; 1000) %&gt;%
-  ggplot(aes(x = Genotype,y = total_turns)) +
-  geom_violin(aes(fill = Genotype),
+  ggplot(aes(x = Tank, y = total_turns)) +
+  geom_violin(aes(fill = Tank),
                alpha = 0.5) +
-  geom_boxplot(aes(colour = Genotype),
+  geom_boxplot(aes(colour = Tank),
                fill = NA,
+               outlier.shape = NA,
                width = 0.25,
                colour= &quot;black&quot;) +
-  geom_quasirandom(aes(shape = Sex)) +
+  geom_quasirandom(aes(shape = Genotype)) +
   scale_fill_viridis_d(option = &quot;viridis&quot;) +
   scale_colour_viridis_d(option = &quot;viridis&quot;) +
   ylab(&quot;Total number of turns&quot;) +
-  ggtitle(&quot;Total number of turns performed by fish in the Y-maze in 1 hour&quot;)</code></pre>
+  ggtitle(&quot;Total number of turns performed by fish in the Y-maze in 1 hour&quot;, 
+          subtitle = &quot;Fish in Tank 3 appear to be more active&quot;)</code></pre>
 <p><img src="figure/sgsh3m.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-11-1">
@@ -1906,6 +2254,64 @@ Date
 <tr>
 <td>
 <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/sgsh3m.Rmd/unnamed-chunk-11-1.png" target="_blank">273d442</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2021-10-26
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>final_data %&gt;% 
+  dplyr::select(colnames(meta), bin, total_turns) %&gt;% 
+  ggplot(aes(x = Genotype, y = total_turns)) +
+  geom_violin(aes(fill = Genotype),
+              alpha = 0.5) +
+  facet_wrap(~bin, nrow = 1) +
+  geom_boxplot(aes(colour = Genotype),
+               fill = NA,
+               outlier.shape = NA,
+               width = 0.25,
+               colour= &quot;black&quot;) +
+  geom_label_repel(aes(label = paste0(&quot;fish &quot; , fish_id)), 
+                   fill = NA,
+                   nudge_x = -0.5, 
+                   data = . %&gt;% dplyr::filter(total_turns &gt; 150)) +
+  geom_quasirandom(aes(shape = Tank)) +
+  scale_fill_viridis_d(option = &quot;viridis&quot;) +
+  ylab(&quot;Number of turns&quot;) +
+  theme(legend.position = &quot;top&quot;) +
+  ggtitle(&quot;Number of turns performed by fish in the Y-maze in 1 hour&quot;)</code></pre>
+<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-1">
+Past versions of unnamed-chunk-12-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/sgsh3m.Rmd/unnamed-chunk-12-1.png" target="_blank">273d442</a>
 </td>
 <td>
 Karissa Barthelson
@@ -2078,13 +2484,13 @@ Tank3
   ylab(&quot;Total time spent in each zone (mins, log scale)&quot;) +
   scale_fill_viridis_d() +
   ggtitle(&quot;Total time spent in each zone&quot;)</code></pre>
-<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-1">
-Past versions of unnamed-chunk-12-1.png
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-14-1">
+Past versions of unnamed-chunk-14-1.png
 </button>
 </p>
-<div id="fig-unnamed-chunk-12-1" class="collapse">
+<div id="fig-unnamed-chunk-14-1" class="collapse">
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
 <thead>
@@ -2103,7 +2509,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/sgsh3m.Rmd/unnamed-chunk-12-1.png" target="_blank">273d442</a>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/sgsh3m.Rmd/unnamed-chunk-14-1.png" target="_blank">273d442</a>
 </td>
 <td>
 Karissa Barthelson
@@ -2135,13 +2541,13 @@ Karissa Barthelson
   scale_y_log10() +
   ylab(&quot;Average time spent in each zone (seconds, log scale&quot;) +
   ggtitle(&quot;Average time spent in each zone&quot;)</code></pre>
-<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-12-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-14-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-2">
-Past versions of unnamed-chunk-12-2.png
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-14-2">
+Past versions of unnamed-chunk-14-2.png
 </button>
 </p>
-<div id="fig-unnamed-chunk-12-2" class="collapse">
+<div id="fig-unnamed-chunk-14-2" class="collapse">
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
 <thead>
@@ -2160,7 +2566,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/sgsh3m.Rmd/unnamed-chunk-12-2.png" target="_blank">273d442</a>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/sgsh3m.Rmd/unnamed-chunk-14-2.png" target="_blank">273d442</a>
 </td>
 <td>
 Karissa Barthelson
@@ -2333,6 +2739,7 @@ Genotypehom:zone
 </table>
 </div>
 </div>
+</div>
 <div id="check-for-handedness" class="section level1">
 <h1>check for handedness</h1>
 <p><a href="https://doi.org/10.1007/s10071-019-01296-9">Fontana et al. 2019</a> showed that fish sometimes show a behavioral lateralisation (i.e. handedness). If fish show this, then they would perform less alternation tetragrams not due to working memory. Here, we defne zebrafish as showing a laterality if they perform left or right turns more than 60% of the total turns. Indeed, some zebrafish show a preference for L or R turns. However, it does not appear to be related to genotype.</p>
@@ -2368,44 +2775,7 @@ final_data %&gt;%
   scale_color_manual(values = c(viridis_pal(end=0.75)(3), 
                                rep(&quot;black&quot;, 3))
   )</code></pre>
-<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-13-1">
-Past versions of unnamed-chunk-13-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-13-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/sgsh3m.Rmd/unnamed-chunk-13-1.png" target="_blank">273d442</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-26
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="test-for-changes-to-alternation" class="section level1">
 <h1>test for changes to alternation</h1>
@@ -2581,44 +2951,7 @@ bin:Genotype
 Results are averaged over the levels of: bin, Time, Tank, Sex, L_R_bias 
 Confidence level used: 0.95 
 Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-14-1">
-Past versions of unnamed-chunk-14-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-14-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/sgsh3m.Rmd/unnamed-chunk-14-1.png" target="_blank">273d442</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-26
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>print(emmeans(glm, specs = &quot;Tank&quot;), type = &quot;response&quot;) %&gt;%
   as_tibble() %&gt;%
   ggplot(aes(Tank, prob, colour = Tank)) +
@@ -2648,44 +2981,7 @@ Karissa Barthelson
 Results are averaged over the levels of: bin, Genotype, Time, Sex, L_R_bias 
 Confidence level used: 0.95 
 Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-14-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-14-2">
-Past versions of unnamed-chunk-14-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-14-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/sgsh3m.Rmd/unnamed-chunk-14-2.png" target="_blank">273d442</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-26
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-16-2.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>print(emmeans(glm, specs = &quot;L_R_bias&quot;), type = &quot;response&quot;) %&gt;%
   as_tibble() %&gt;%
   ggplot(aes(L_R_bias, prob, colour = L_R_bias)) +
@@ -2719,44 +3015,7 @@ Karissa Barthelson
 Results are averaged over the levels of: bin, Genotype, Time, Tank, Sex 
 Confidence level used: 0.95 
 Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-14-3.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-14-3">
-Past versions of unnamed-chunk-14-3.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-14-3" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/sgsh3m.Rmd/unnamed-chunk-14-3.png" target="_blank">273d442</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-26
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-16-3.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>print(emmeans(glm, specs = &quot;bin&quot;, by = &quot;Genotype&quot;), type = &quot;response&quot;) %&gt;%
   as_tibble() %&gt;%
   mutate(Genotype = case_when(Genotype == &quot;wt&quot; ~ &quot;+/+&quot;,
@@ -2814,44 +3073,7 @@ Genotype = hom:
 Results are averaged over the levels of: Time, Tank, Sex, L_R_bias 
 Confidence level used: 0.95 
 Intervals are back-transformed from the logit scale </code></pre>
-<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-14-4.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-14-4">
-Past versions of unnamed-chunk-14-4.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-14-4" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/sgsh3m.Rmd/unnamed-chunk-14-4.png" target="_blank">273d442</a>
-</td>
-<td>
-Karissa Barthelson
-</td>
-<td>
-2021-10-26
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/sgsh3m.Rmd/unnamed-chunk-16-4.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
@@ -2882,11 +3104,11 @@ other attached packages:
  [1] MASS_7.3-54       glmmTMB_1.1.1     emmeans_1.6.1     car_3.0-11       
  [5] carData_3.0-4     performance_0.7.2 lme4_1.1-27.1     Matrix_1.3-4     
  [9] broom_0.7.8       kableExtra_1.3.4  ggforce_0.3.3     ggbeeswarm_0.6.0 
-[13] ggfortify_0.4.12  ggeasy_0.1.3      ggpubr_0.4.0      scales_1.1.1     
-[17] magrittr_2.0.1    here_1.0.1        readxl_1.3.1      forcats_0.5.1    
-[21] stringr_1.4.0     dplyr_1.0.7       purrr_0.3.4       readr_1.4.0      
-[25] tidyr_1.1.3       tibble_3.1.2      ggplot2_3.3.5     tidyverse_1.3.1  
-[29] workflowr_1.6.2  
+[13] ggfortify_0.4.12  ggrepel_0.9.1     ggeasy_0.1.3      ggpubr_0.4.0     
+[17] scales_1.1.1      magrittr_2.0.1    here_1.0.1        readxl_1.3.1     
+[21] forcats_0.5.1     stringr_1.4.0     dplyr_1.0.7       purrr_0.3.4      
+[25] readr_1.4.0       tidyr_1.1.3       tibble_3.1.2      ggplot2_3.3.5    
+[29] tidyverse_1.3.1   workflowr_1.6.2  
 
 loaded via a namespace (and not attached):
  [1] TH.data_1.0-10      minqa_1.2.4         colorspace_2.0-2   

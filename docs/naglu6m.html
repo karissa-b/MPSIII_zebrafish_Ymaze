@@ -345,6 +345,9 @@ div.tocify {
   <a href="naglu6m.html">naglu_6m</a>
 </li>
 <li>
+  <a href="naglu9m.html">naglu_9m</a>
+</li>
+<li>
   <a href="sgsh6m.html">sgsh_6m</a>
 </li>
       </ul>
@@ -394,7 +397,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-01-31
+<strong>Last updated:</strong> 2022-08-25
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -485,50 +488,52 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree77460cd871927ac9225b7aa20cbcba36b7d88cebtargetblank77460cda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/77460cd871927ac9225b7aa20cbcba36b7d88ceb" target="_blank">77460cd</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree53de94817d3a92fabc9bb0657aa66c392d90d4a0targetblank53de948a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/53de94817d3a92fabc9bb0657aa66c392d90d4a0" target="_blank">53de948</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree77460cd871927ac9225b7aa20cbcba36b7d88cebtargetblank77460cda" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree53de94817d3a92fabc9bb0657aa66c392d90d4a0targetblank53de948a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/77460cd871927ac9225b7aa20cbcba36b7d88ceb" target="_blank">77460cd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/53de94817d3a92fabc9bb0657aa66c392d90d4a0" target="_blank">53de948</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .DS_Store
     Ignored:    .Rapp.history
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
     Ignored:    data/.DS_Store
     Ignored:    data/metadata/.DS_Store
     Ignored:    data/processed_data/.DS_Store
+    Ignored:    data/processed_data/hgsnat/.DS_Store
     Ignored:    data/processed_data/naglu/.DS_Store
     Ignored:    data/raw_data/.DS_Store
+    Ignored:    data/raw_data/hgsnat/.DS_Store
+    Ignored:    data/raw_data/hgsnat/3m/.DS_Store
     Ignored:    data/raw_data/naglu/.DS_Store
     Ignored:    data/raw_data/sgsh/.DS_Store
     Ignored:    data/raw_data/sgsh/6m/.DS_Store
 
 Untracked files:
-    Untracked:  analysis/hgsnat3m.Rmd
-    Untracked:  analysis/naglu9m.Rmd
-    Untracked:  code/hgsnat_3m_BatchProcess.R
-    Untracked:  code/naglu_9m_BatchProcess.R
-    Untracked:  data/R objects/
-    Untracked:  data/metadata/hgsnat 3-month behavioural metadata.xlsx
-    Untracked:  data/metadata/naglu 9 month behavioural metadata.xlsx
-    Untracked:  data/processed_data/hgsnat/
-    Untracked:  data/processed_data/naglu/9m/
-    Untracked:  data/raw_data/hgsnat/
-    Untracked:  data/raw_data/naglu/9m/
+    Untracked:  analysis/naglu5mLT.Rmd
+    Untracked:  code/naglu_5m_LT_batchProcess.R
+    Untracked:  data/metadata/naglu 5m hom x het in LT metadata.xlsx
+    Untracked:  data/processed_data/naglu/5m_LT/
+    Untracked:  data/raw_data/naglu/5m_LT/
 
 Unstaged changes:
-    Modified:   analysis/naglu3m.Rmd
     Modified:   analysis/naglu6m.Rmd
+    Modified:   analysis/naglu9m.Rmd
+    Modified:   analysis/sgsh3m.Rmd
+    Modified:   data/R objects/naglu3m.rds
+    Deleted:    tidy_data.csv
+    Deleted:    time_in_zone.csv
 
 </code></pre>
 <p>
@@ -567,6 +572,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/analysis/naglu6m.Rmd" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+<td>
+CLEANUP NAGLU DONE
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/karissa-b/MPSIII_zebrafish_Ymaze/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/naglu6m.html" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+<td>
+CLEANUP NAGLU DONE
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -775,7 +814,7 @@ final_data_summedoverbins &lt;- final_data %&gt;%
 <p>Fish were isolated for 30 mins two at a time, then placed in the maze for 1 hour. Raw data was collected, and metadata was recorded (i.e. sex, time, day). These raw data spreadsheets were batch processed in the naglu 3, BatchProcess R script to produce the <code>final_data</code> object. This object contains the tetragram frequencies (see below). Note that fish were genotyped after data collection so that we are blinded from any observer bias until after raw data collection. Addiotianlly, the videos were manually observed to ensure proper tracking. Any fish where the tracking was not perfect was omitted.</p>
 </div>
 <div id="check-genotype-proportions" class="section level1">
-<h1>check genotype proportions</h1>
+<h1>Check genotype proportions</h1>
 <p>First, I will check that genotype proportions are as expected. A few less homozygous fish are observed than expected. However, this is partly due to that they were omitted because the software did not track properly. The bar chart here is filled by Tank, to show how the fish were distributed over the four tanks.</p>
 <pre class="r"><code>meta %&gt;% 
   ggplot(aes(Genotype)) +
@@ -806,6 +845,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-1-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-1-1.png" target="_blank">273d442</a>
@@ -858,6 +908,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-2-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/4cba25d03ddb9cf2b8155f229ef3442d26682011/docs/figure/naglu6m.Rmd/unnamed-chunk-2-1.png" target="_blank">4cba25d</a>
@@ -927,6 +988,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-3-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-3-1.png" target="_blank">273d442</a>
 </td>
 <td>
@@ -981,6 +1053,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-4-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-4-1.png" target="_blank">273d442</a>
@@ -1055,6 +1138,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-5-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-5-1.png" target="_blank">273d442</a>
 </td>
 <td>
@@ -1117,6 +1211,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-6-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-6-1.png" target="_blank">273d442</a>
@@ -1182,6 +1287,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-7-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-7-1.png" target="_blank">273d442</a>
 </td>
 <td>
@@ -1214,6 +1330,43 @@ Karissa Barthelson
   ylab(&quot;Total number of turns&quot;) +
   ggtitle(&quot;Total number of turns performed by fish in the Y-maze in 1 hour&quot;)</code></pre>
 <p><img src="figure/naglu6m.Rmd/unnamed-chunk-7-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-2">
+Past versions of unnamed-chunk-7-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-7-2.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Fish 33 again appears to be an outlier. I checked the saved video and indeed, the tracking has gone haywire. Therefore, fish 33 is omitted from the rest of the analysis. Replotting these total turns shows</p>
 <pre class="r"><code># omit fish 33 from rest of analysis. 
 final_data %&lt;&gt;% 
@@ -1268,6 +1421,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-9-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/273d4420255f3f4070f68d9cb2065e56522f7fde/docs/figure/naglu6m.Rmd/unnamed-chunk-9-1.png" target="_blank">273d442</a>
 </td>
 <td>
@@ -1300,6 +1464,43 @@ Karissa Barthelson
   ylab(&quot;Total number of turns&quot;) +
   ggtitle(&quot;Total number of turns performed by fish in the Y-maze in 1 hour&quot;)</code></pre>
 <p><img src="figure/naglu6m.Rmd/unnamed-chunk-9-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-2">
+Past versions of unnamed-chunk-9-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-9-2.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="fit-models." class="section level2">
 <h2>fit models.</h2>
@@ -1714,6 +1915,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-12-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/6a747db05a40d065e5dc54a0b4e3f07d8272c7da/docs/figure/naglu6m.Rmd/unnamed-chunk-12-1.png" target="_blank">6a747db</a>
 </td>
 <td>
@@ -1748,6 +1960,43 @@ Karissa Barthelson
   ylab(&quot;Average time spent in each zone (seconds, log scale&quot;) +
   ggtitle(&quot;Average time spent in each zone&quot;)</code></pre>
 <p><img src="figure/naglu6m.Rmd/unnamed-chunk-12-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-2">
+Past versions of unnamed-chunk-12-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-12-2.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>read_csv(&quot;data/processed_data/naglu/6m/time_in_zone.csv&quot;) %&gt;%
   dplyr::filter(fish_id != 33) %&gt;% 
   mutate(fish_id = as.character(fish_id)) %&gt;%
@@ -1968,6 +2217,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-13-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/6a747db05a40d065e5dc54a0b4e3f07d8272c7da/docs/figure/naglu6m.Rmd/unnamed-chunk-13-1.png" target="_blank">6a747db</a>
@@ -2209,6 +2469,43 @@ bin:Genotype
           )
   )</code></pre>
 <p><img src="figure/naglu6m.Rmd/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-16-1">
+Past versions of unnamed-chunk-16-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-16-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-16-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="time-interval-by-genotype-interaction" class="section level2">
 <h2>Time interval by genotype (interaction)</h2>
@@ -2248,6 +2545,43 @@ bin:Genotype
           )
   )</code></pre>
 <p><img src="figure/naglu6m.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-17-1">
+Past versions of unnamed-chunk-17-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-17-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-17-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="lr-bias" class="section level2">
 <h2>LR Bias</h2>
@@ -2278,6 +2612,43 @@ bin:Genotype
           )
   )</code></pre>
 <p><img src="figure/naglu6m.Rmd/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-18-1">
+Past versions of unnamed-chunk-18-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-18-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-18-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="tank" class="section level2">
 <h2>Tank</h2>
@@ -2304,6 +2675,43 @@ bin:Genotype
           )
   )</code></pre>
 <p><img src="figure/naglu6m.Rmd/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-19-1">
+Past versions of unnamed-chunk-19-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-19-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/0d5436b6122e9d013b3f1cec7147f6f30c32b106/docs/figure/naglu6m.Rmd/unnamed-chunk-19-1.png" target="_blank">0d5436b</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-01-31
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="conclusion" class="section level1">

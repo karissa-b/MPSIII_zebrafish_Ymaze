@@ -585,6 +585,37 @@ summary(emmeans(glm, specs = "L_R_bias"), type = "response") %>%
   )
 ```
 
+## Tank
+
+As previously observed, the effect of fish having a left or right turn bias significantly affects how many alts it does. 
+
+```{r}
+summary(emmeans(glm, specs = "Tank"), type = "response") %>%
+  as_tibble() %>%
+  ggplot(aes(Tank, prob, colour = Tank)) +
+  geom_point(size = 5,
+             position = position_dodge(width = 0.5)) +
+  geom_errorbar(
+    aes(ymin = lower.CL, ymax = upper.CL),
+    width = 0.25,
+    size = 1,
+    position = position_dodge(width = 0.25)
+    ) +
+  ylab("Estimated probability of alternation") +
+  xlab("Time interval") +
+  theme(
+    axis.text.x = element_text(hjust = 1,
+                               vjust = 1,
+                               angle = 45)
+    ) +
+  scale_y_continuous(limits = c(0,0.35)) +
+  scale_color_viridis_d(end = 0.8, option = "viridis") +
+  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram due to having a left or right turn bias",
+          subtitle = paste0("Effect of Tank from GLM: ",
+                            signif(an["Tank","Pr(>Chisq)"], digits = 2)
+          )
+  )
+```
 
 # Conclusion
 

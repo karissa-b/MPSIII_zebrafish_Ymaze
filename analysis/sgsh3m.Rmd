@@ -21,6 +21,7 @@ library(scales)
 library(readxl)
 library(ggpubr)
 library(ggeasy)
+library(ggrepel)
 library(ggfortify)
 library(ggbeeswarm)
 library(ggforce)
@@ -63,7 +64,6 @@ final_data <- read_csv("data/processed_data/sgsh/3m/final_output.csv") %>%
 
 # make an object which converts the final data to long format. for easier plotting in ggplot
 final_data_long <- final_data %>%
-  dplyr::filter(Keep == "Y") %>%
   gather(key = "tetras", value = "Count", # convert to long format
          grep("[L|R]{4}",
               colnames(.))
@@ -71,7 +71,6 @@ final_data_long <- final_data %>%
 
 # also make an object which sums the tetragrams over the hour
 final_data_summedoverbins <- final_data %>%
-  dplyr::filter(Keep == "Y") %>%
   gather(key = "tetras", value = "Count", # convert to long format
          grep("[L|R]{4}", # select the columns which contain a L or a R four times
               colnames(.))
@@ -79,32 +78,21 @@ final_data_summedoverbins <- final_data %>%
   group_by(fish_id, tetras) %>%
   mutate(sum_tetras = sum(Count)) %>% # sum the tetragram counts per fish_id
   dplyr::select(colnames(meta), tetras, sum_tetras) %>%
-  unique
+  dplyr::distinct(fish_id, .keep_all = TRUE)
 ```
 
 # Introduction
 
 In this analysis, I will analyse Ewans raw data generated for zebrafish arising from a lay from the same *sgsh* I388* het x het parents in the Zantiks Y-maze.
 
-Briefly, zebrafish are raised from this cross together in the same tank, across `r meta$Tank %>% unique %>% length` lays. Each lay has come from the same parents are approx. 1 week apart in age. Each tank contained fish either WT, heterozygous or homozgous for the mutation in a 1:2:1 ratio. A summary of the fish used in this experiment can be found in the plot below.
-
-```{r}
-meta %>%
-  group_by(Tank, Genotype) %>%
-  summarise(n = n()) %>%
-  ggplot(aes(x = Genotype, y = n, fill = Genotype)) +
-  geom_col(colour = "black") +
-  facet_wrap(~Tank) +
-  scale_fill_viridis_d() +
-  labs(y = "Number of fish") +
-  ggtitle("Number of fish per genotype per tank (3 tanks total)")
-```
+Briefly, zebrafish are raised from this cross together in the same tank, across `r meta$Tank %>% unique %>% length` lays. Each lay has come from the same parents are approx. 1 week apart in age. Each tank contained fish either WT, heterozygous or homozgous for the mutation in a 1:2:1 ratio. 
 
 Fish were isolated for 30 mins two at a time, then placed in the maze for 1 hour. Raw data was collected, and metadata was recorded (i.e. sex, time, day). These raw data spreadsheets were batch processed in the sgsh 3m, BatchProcess R script to produce the `final_data` object. This object contains the tetragram frequencies (see below). Note that fish were genotyped after data collection so that we are blinded from any observer bias until after raw data collection. Addiotianlly, the videos were manually observed to ensure proper tracking. Any fish where the tracking was not perfect was omitted.
 
 ```{r}
 final_data %>%
-  head %>%
+  head(12) %>% 
+  dplyr::select(-colnames(meta)[-1]) %>% 
   kable(caption = "Example of the processed data") %>%
   kable_styling()
 ```
@@ -114,11 +102,13 @@ final_data %>%
 First, I will check that genotype proportions are as expected. A few less homozygous fish are observed than expected. However, this is partly due to that they were omitted because the software did not track properly.
 
 ```{r}
-meta %>%
-  ggplot(aes(Genotype, fill = Genotype)) +
-  geom_bar(colour = "black") +
+meta %>% 
+  ggplot(aes(Genotype)) +
+  geom_bar(colour = "black", 
+           aes(fill = Tank)) +
   scale_fill_viridis_d() +
-  ggtitle("Number of fish per genotype in the study")
+  labs(y = 'Number of fish') +
+  ggtitle("Total number of fish per genotype in the study") 
 ```
 
 # Visualisation of raw data
@@ -127,7 +117,7 @@ The plots below show the raw counts of each of the possible tetragrams. We can s
 
 ```{r fig.height = 40, fig.width = 20}
 final_data_summedoverbins %>%
-  dplyr::filter(fish_id %in% c(seq(10,20))) %>%
+  dplyr::filter(fish_id %in% c(seq(10,15))) %>%
   ggplot(aes(x = tetras, y = sum_tetras, fill = tetras)) +
   geom_col() +
   facet_wrap(~fish_id, ncol = 1) +
@@ -138,11 +128,10 @@ final_data_summedoverbins %>%
   ggtitle("Distribution of memory patterns per fish")
 ```
 
-Cleal et al. showed that zebrafish naturally perform more of the alternation tetragrams (LRLR and RLRL) in a Y-maze. This is also obsevred in our data here.
+Cleal et al. showed that zebrafish naturally perform more of the alternation tetragrams (LRLR and RLRL) in a Y-maze. This is also obsevred in our data here. A few fish may be outliers, as they have performed abnormally high number of tetragrams (labelled plots below). 
 
 ```{r}
 final_data_summedoverbins %>%
-  dplyr::distinct(sum_tetras, .keep_all = T) %>%
   ggplot(aes(x = tetras, y = sum_tetras)) +
   geom_jitter(aes(colour = tetras,
                   shape = Sex)) +
@@ -150,13 +139,15 @@ final_data_summedoverbins %>%
                # aes(fill = Genotype)
                fill = NA
                ) +
+  geom_label_repel(aes(label = fish_id), # only label the points if the number of tetragrams was over 200
+                   data = . %>% 
+                     dplyr::filter(sum_tetras > 200)) +
   scale_fill_viridis_d() +
-  coord_cartesian(ylim = c(0,200)) + # zoom in
   labs(y = "Number of tetragrams",
        colour = "Tetragram",
        x = "Tetragram")+
   theme(legend.position = "bottom")  +
-  ggtitle("Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period")
+  ggtitle("Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period") 
 ```
 
 We can also overlay the genotype boxplots as shown below. Looks like the heterozyous and homozygous fish perform more alternations than the WT fish. I will look into this more later in the analysis.
@@ -164,7 +155,6 @@ We can also overlay the genotype boxplots as shown below. Looks like the heteroz
 
 ```{r}
 final_data_summedoverbins %>%
-  dplyr::distinct(sum_tetras, .keep_all = T) %>%
   ggplot(aes(x = tetras, y = sum_tetras)) +
   geom_jitter(aes(colour = tetras,
                   shape = Sex)) +
@@ -172,7 +162,6 @@ final_data_summedoverbins %>%
                aes(fill = Genotype) # fill the boxplots by genotype
                ) +
   scale_fill_viridis_d() +
-  coord_cartesian(ylim = c(0,200)) + # zoom in
   labs(y = "Number of tetragrams",
        colour = "Tetragram",
        x = "Tetragram")+
@@ -184,18 +173,17 @@ The alternation tetragrams are the tetragram of interest (the measure of working
 
 ```{r}
 final_data_long %>%
-  dplyr::distinct(rel_alts, .keep_all = T) %>%
+  dplyr::distinct(fish_id, bin, .keep_all = T) %>%
   ggplot(aes(x = Genotype, y = alts, fill = Genotype)) +
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(aes(shape = Sex)) +
   facet_wrap(~bin, nrow = 1) +
   theme(axis.text.x  = element_text(angle = 45, hjust = 1, vjust = 1)) +
   ylab("Frequency of alternation tetragrams (LRLR + RLRL)") +
-  coord_cartesian(ylim = c(0, 100)) + # zoom in
   scale_fill_viridis_d()
 ```
 
-We can also display this as the *relative* amount of alternation tetragrams performed by zebrafish in a 1 hour search period. This will control for how active each fish is.
+We can also display this as the **relative** amount of alternation tetragrams performed by zebrafish in a 1 hour search period. This will control for how active each fish is.
 
 ```{r}
 final_data_long %>%
@@ -212,6 +200,7 @@ final_data_long %>%
 # Locomotor defect
 
 Alteration to locomotor activity could be a confounding effect with genotype to alternation (LRLR + RLRL) frequency. If the mutant fish had some form of locomotor change, they could be performing more or less alternation tetragrams not due to impairment of spatial working memory. To account for this, I will test whether the genotype of the fish had a significant effect on 1) the total number of turns the fish performed in the hour spent in the maze or 2) the average time spent in each zone of the maze.
+
 ## total number of turns
 ```{r}
 final_data_summedoverbins %>%
@@ -220,7 +209,6 @@ final_data_summedoverbins %>%
   mutate(total_turns = sum(sum_tetras)) %>%
   dplyr::select(colnames(meta), total_turns) %>%
   unique %>%
-  dplyr::filter(total_turns < 1000) %>%
   ggplot(aes(x = Genotype,y = total_turns)) +
   geom_violin(aes(fill = Genotype),
                alpha = 0.5) +
@@ -233,7 +221,56 @@ final_data_summedoverbins %>%
   scale_colour_viridis_d(option = "viridis") +
   ylab("Total number of turns") +
   ggtitle("Total number of turns performed by fish in the Y-maze in 1 hour")
+```
 
+```{r}
+final_data_summedoverbins %>%
+  ungroup() %>%
+  group_by(fish_id) %>%
+  mutate(total_turns = sum(sum_tetras)) %>%
+  dplyr::select(colnames(meta), total_turns) %>%
+  unique %>%
+  ggplot(aes(x = Tank, y = total_turns)) +
+  geom_violin(aes(fill = Tank),
+               alpha = 0.5) +
+  geom_boxplot(aes(colour = Tank),
+               fill = NA,
+               outlier.shape = NA,
+               width = 0.25,
+               colour= "black") +
+  geom_quasirandom(aes(shape = Genotype)) +
+  scale_fill_viridis_d(option = "viridis") +
+  scale_colour_viridis_d(option = "viridis") +
+  ylab("Total number of turns") +
+  ggtitle("Total number of turns performed by fish in the Y-maze in 1 hour", 
+          subtitle = "Fish in Tank 3 appear to be more active")
+```
+
+```{r}
+final_data %>% 
+  dplyr::select(colnames(meta), bin, total_turns) %>% 
+  ggplot(aes(x = Genotype, y = total_turns)) +
+  geom_violin(aes(fill = Genotype),
+              alpha = 0.5) +
+  facet_wrap(~bin, nrow = 1) +
+  geom_boxplot(aes(colour = Genotype),
+               fill = NA,
+               outlier.shape = NA,
+               width = 0.25,
+               colour= "black") +
+  geom_label_repel(aes(label = paste0("fish " , fish_id)), 
+                   fill = NA,
+                   nudge_x = -0.5, 
+                   data = . %>% dplyr::filter(total_turns > 150)) +
+  geom_quasirandom(aes(shape = Tank)) +
+  scale_fill_viridis_d(option = "viridis") +
+  ylab("Number of turns") +
+  theme(legend.position = "top") +
+  ggtitle("Number of turns performed by fish in the Y-maze in 1 hour")
+```
+
+
+```{r}
 final_data_summedoverbins %>%
   ungroup() %>%
   group_by(fish_id) %>%

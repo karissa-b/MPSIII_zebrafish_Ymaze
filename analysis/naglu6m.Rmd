@@ -99,8 +99,7 @@ Briefly, zebrafish are raised from this cross together in the same tank, across 
 
 Fish were isolated for 30 mins two at a time, then placed in the maze for 1 hour. Raw data was collected, and metadata was recorded (i.e. sex, time, day). These raw data spreadsheets were batch processed in the naglu 3, BatchProcess R script to produce the `final_data` object. This object contains the tetragram frequencies (see below). Note that fish were genotyped after data collection so that we are blinded from any observer bias until after raw data collection. Addiotianlly, the videos were manually observed to ensure proper tracking. Any fish where the tracking was not perfect was omitted. 
 
-# check genotype proportions
-
+# Check genotype proportions
 First, I will check that genotype proportions are as expected. A few less homozygous fish are observed than expected. However, this is partly due to that they were omitted because the software did not track properly. The bar chart here is filled by Tank, to show how the fish were distributed over the four tanks. 
 
 ```{r}
