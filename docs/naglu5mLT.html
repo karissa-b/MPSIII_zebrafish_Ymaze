@@ -350,6 +350,9 @@ div.tocify {
 <li>
   <a href="sgsh6m.html">sgsh_6m</a>
 </li>
+<li>
+  <a href="naglu5mLT.html">naglu_5m_LT</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -397,7 +400,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-08-25
+<strong>Last updated:</strong> 2022-08-26
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -421,7 +424,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -488,16 +491,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree53de94817d3a92fabc9bb0657aa66c392d90d4a0targetblank53de948a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/53de94817d3a92fabc9bb0657aa66c392d90d4a0" target="_blank">53de948</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree6bbc8a106e7e68e653c42338059c52403b6ab96etargetblank6bbc8a1a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/6bbc8a106e7e68e653c42338059c52403b6ab96e" target="_blank">6bbc8a1</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree53de94817d3a92fabc9bb0657aa66c392d90d4a0targetblank53de948a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomkarissabMPSIIIzebrafishYmazetree6bbc8a106e7e68e653c42338059c52403b6ab96etargetblank6bbc8a1a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/53de94817d3a92fabc9bb0657aa66c392d90d4a0" target="_blank">53de948</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/tree/6bbc8a106e7e68e653c42338059c52403b6ab96e" target="_blank">6bbc8a1</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -520,19 +523,8 @@ Ignored files:
     Ignored:    data/raw_data/sgsh/.DS_Store
     Ignored:    data/raw_data/sgsh/6m/.DS_Store
 
-Untracked files:
-    Untracked:  analysis/naglu5mLT.Rmd
-    Untracked:  code/naglu_5m_LT_batchProcess.R
-    Untracked:  data/metadata/naglu 5m hom x het in LT metadata.xlsx
-    Untracked:  data/processed_data/naglu/5m_LT/
-    Untracked:  data/raw_data/naglu/5m_LT/
-
 Unstaged changes:
-    Modified:   analysis/naglu6m.Rmd
-    Modified:   analysis/naglu9m.Rmd
-    Modified:   analysis/sgsh3m.Rmd
-    Deleted:    tidy_data.csv
-    Deleted:    time_in_zone.csv
+    Modified:   analysis/naglu5mLT.Rmd
 
 </code></pre>
 <p>
@@ -545,91 +537,99 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/naglu5mLT.Rmd</code>) and HTML (<code>docs/naglu5mLT.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/analysis/naglu5mLT.Rmd" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+<td>
+added naglu in lt analsysi
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/karissa-b/MPSIII_zebrafish_Ymaze/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/naglu5mLT.html" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+<td>
+added naglu in lt analsysi
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
 </div>
 <div id="setup" class="section level2">
 <h2>setup</h2>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-<pre><code>✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-✓ tibble  3.1.2     ✓ dplyr   1.0.7
-✓ tidyr   1.1.3     ✓ stringr 1.4.0
-✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
-<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(magrittr)</code></pre>
-<pre><code>
-Attaching package: &#39;magrittr&#39;</code></pre>
-<pre><code>The following object is masked from &#39;package:purrr&#39;:
-
-    set_names</code></pre>
-<pre><code>The following object is masked from &#39;package:tidyr&#39;:
-
-    extract</code></pre>
-<pre class="r"><code>library(readxl)
-library(here)</code></pre>
-<pre><code>here() starts at /Users/karissabarthelson/Documents/MPSIII_zebrafish_Ymaze</code></pre>
-<pre class="r"><code>library(scales)</code></pre>
-<pre><code>
-Attaching package: &#39;scales&#39;</code></pre>
-<pre><code>The following object is masked from &#39;package:purrr&#39;:
-
-    discard</code></pre>
-<pre><code>The following object is masked from &#39;package:readr&#39;:
-
-    col_factor</code></pre>
-<pre class="r"><code>library(readxl)
+<pre class="r"><code>library(tidyverse)
+library(magrittr)
+library(readxl)
+library(here)
+library(scales)
+library(readxl)
 library(ggpubr)
 library(ggeasy)
 library(ggfortify)
 library(ggbeeswarm)
 library(ggforce)
 library(ggrepel)
-library(kableExtra)</code></pre>
-<pre><code>
-Attaching package: &#39;kableExtra&#39;</code></pre>
-<pre><code>The following object is masked from &#39;package:dplyr&#39;:
+library(kableExtra)
 
-    group_rows</code></pre>
-<pre class="r"><code># stat analysis
+# stat analysis
 library(broom)
-library(lme4)</code></pre>
-<pre><code>Loading required package: Matrix</code></pre>
-<pre><code>
-Attaching package: &#39;Matrix&#39;</code></pre>
-<pre><code>The following objects are masked from &#39;package:tidyr&#39;:
+library(lme4)
+library(performance)
+library(car)
+library(emmeans)
+library(glmmTMB)
+library(MASS)
 
-    expand, pack, unpack</code></pre>
-<pre class="r"><code>library(performance)
-library(car)</code></pre>
-<pre><code>Loading required package: carData</code></pre>
-<pre><code>
-Attaching package: &#39;car&#39;</code></pre>
-<pre><code>The following object is masked from &#39;package:dplyr&#39;:
-
-    recode</code></pre>
-<pre><code>The following object is masked from &#39;package:purrr&#39;:
-
-    some</code></pre>
-<pre class="r"><code>library(emmeans)
-library(glmmTMB)</code></pre>
-<pre><code>Warning in checkMatrixPackageVersion(): Package version inconsistency detected.
-TMB was built with Matrix version 1.3.2
-Current Matrix version is 1.3.4
-Please re-install &#39;TMB&#39; from source using install.packages(&#39;TMB&#39;, type = &#39;source&#39;) or ask CRAN for a binary version of &#39;TMB&#39; matching CRAN&#39;s &#39;Matrix&#39; package</code></pre>
-<pre class="r"><code>library(MASS)</code></pre>
-<pre><code>
-Attaching package: &#39;MASS&#39;</code></pre>
-<pre><code>The following object is masked from &#39;package:dplyr&#39;:
-
-    select</code></pre>
-<pre class="r"><code># set the default theme for ggplot as theme_bw
+# set the default theme for ggplot as theme_bw
 theme_set(theme_bw())
 
 # read in  metadata speadsheet. make all the metadata as factors as well
@@ -649,16 +649,9 @@ final_data &lt;-
   dplyr::select(-1) %&gt;% 
   mutate(fish_id = factor(fish_id)) %&gt;% 
   left_join(meta) %&gt;% 
-  dplyr::filter(Genotype != &quot;NA&quot;)</code></pre>
-<pre><code>Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
-<pre><code>
-── Column specification ────────────────────────────────────────────────────────
-cols(
-  .default = col_double()
-)
-ℹ Use `spec()` for the full column specifications.</code></pre>
-<pre><code>Joining, by = &quot;fish_id&quot;</code></pre>
-<pre class="r"><code># make an object which converts the final data to long format. for easier plotting in ggplot
+  dplyr::filter(Genotype != &quot;NA&quot;)
+
+# make an object which converts the final data to long format. for easier plotting in ggplot
 final_data_long &lt;- final_data %&gt;%
   gather(key = &quot;tetras&quot;, value = &quot;Count&quot;, # convert to long format
          grep(&quot;[L|R]{4}&quot;, 
@@ -688,8 +681,44 @@ final_data_summedoverbins &lt;- final_data %&gt;%
   facet_wrap(~Tank) +
   scale_fill_viridis_d() +
   labs(y = &quot;Number of fish&quot;)</code></pre>
-<pre><code>`summarise()` has grouped output by &#39;Tank&#39;. You can override using the `.groups` argument.</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
+Past versions of unnamed-chunk-2-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-2-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Fish were isolated for 60 mins before being placed in the mazes for 1 hour. Raw data was collected, and metadata was recorded (i.e. sex, time of day). These raw data spreadsheets were batch processed in the naglu 5m LT BatchProcess R script to produce the <code>final_data</code> object. This object contains the tetragram frequencies (see below). Note that fish were genotyped after data collection so that we are blinded from any observer bias until after raw data collection. This time, I did not save the videos as it was a bit of a pilot experiment using the LT units. In future, the vids will be recorded.</p>
 <pre class="r"><code>read_csv(&quot;data/raw_data/naglu/5m_LT/ymaze_inLT-20220821T025833.csv&quot;,
          skip =4, col_names = F) %&gt;%
@@ -698,20 +727,6 @@ final_data_summedoverbins &lt;- final_data %&gt;%
   set_colnames(c(&quot;Time&quot;, &quot;fish&quot;,&#39;enter or exit&#39;, &quot;zone&quot;)) %&gt;%
   kable(caption = &quot;example of raw data&quot;) %&gt;%
   kable_styling(full_width = F)</code></pre>
-<pre><code>
-── Column specification ────────────────────────────────────────────────────────
-cols(
-  X1 = col_double(),
-  X2 = col_character(),
-  X3 = col_character(),
-  X4 = col_double(),
-  X5 = col_character(),
-  X6 = col_double()
-)</code></pre>
-<pre><code>Warning: 2 parsing failures.
-  row col  expected                                                                  actual                                                       file
-16559  X4 a double  Service &#39;ymaze_inLT&#39; : Execution end (frame times: avg 32ms, max 132ms) &#39;data/raw_data/naglu/5m_LT/ymaze_inLT-20220821T025833.csv&#39;
-16559  -- 6 columns 4 columns                                                               &#39;data/raw_data/naglu/5m_LT/ymaze_inLT-20220821T025833.csv&#39;</code></pre>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 example of raw data
@@ -1675,6 +1690,43 @@ NA
   scale_fill_viridis_d() +
   ggtitle(&quot;Total number of fish per genotype in the study&quot;) </code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-5-1">
+Past versions of unnamed-chunk-5-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-5-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-5-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="visualisation-of-raw-data" class="section level1">
 <h1>Visualisation of raw data</h1>
@@ -1690,6 +1742,43 @@ NA
         legend.position = &quot;none&quot;) +
   ggtitle(&quot;Distribution of memory patterns per fish&quot;)</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-1">
+Past versions of unnamed-chunk-6-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-6-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-6-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Cleal et al. showed that zebrafish naturally perform more of the alternation tetragrams (LRLR and RLRL) in a Y-maze. This is also obsevred in our data here.</p>
 <pre class="r"><code>final_data_summedoverbins %&gt;%
   ggplot(aes(x = tetras, y = x)) +
@@ -1709,6 +1798,43 @@ NA
                      ) +
   ggtitle(&quot;Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period&quot;) </code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
+Past versions of unnamed-chunk-7-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-7-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>It looks like the tracking hasnt worked for fish 43 nicely as it appears to have done a lot more alternation. This is probably an outlier and was omitted. Without this fish, the increased number of tetragrams is more clearly observed.</p>
 <pre class="r"><code>final_data_summedoverbins %&gt;%
   dplyr::filter(!fish_id %in% c(43)) %&gt;% 
@@ -1724,6 +1850,43 @@ NA
   theme(legend.position = &quot;bottom&quot;)  +
   ggtitle(&quot;Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period&quot;) </code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-8-1">
+Past versions of unnamed-chunk-8-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-8-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-8-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code># remove the problematic samples
 final_data_summedoverbins %&lt;&gt;%
   dplyr::filter(!fish_id %in% c(43))
@@ -1748,6 +1911,43 @@ final_data %&lt;&gt;%
   theme(legend.position = &quot;bottom&quot;)  +
   ggtitle(&quot;Total number of 16 possible tetragrams performed by zebrafish in a Y-maze\nduring a 1 hour search period&quot;) </code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-1">
+Past versions of unnamed-chunk-10-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-10-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-10-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>The alternation tetragrams are the tetragram of interest (the measure of working memory). Below indicates the total (countas) and relative (proportion) number of tetragrams performed by zebrafish across the 6 x 10 min blocks of the hour they spent in the maze. The homozygous fish definitely appear to be performing less alternations in the final 10 mins of the test.</p>
 <pre class="r"><code>ggarrange(
 final_data_long %&gt;%
@@ -1774,9 +1974,44 @@ final_data_long %&gt;%
 
 common.legend = TRUE
 )</code></pre>
-<pre><code>Warning: Removed 1 rows containing non-finite values (stat_boxplot).</code></pre>
-<pre><code>Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-11-1">
+Past versions of unnamed-chunk-11-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-11-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-11-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="locomotor-defect" class="section level1">
 <h1>Locomotor defect</h1>
@@ -1807,6 +2042,43 @@ common.legend = TRUE
   labs(y = &quot;Total number of turns&quot;, 
        title = &quot;Total number of turns performed by fish in the Y-maze in 1 hour&quot;)</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-1">
+Past versions of unnamed-chunk-12-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-12-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>I also want to check whether the home tank or sex makes an overall difference to total number of turns. This apparently doesnt.</p>
 <pre class="r"><code>final_data_summedoverbins %&gt;%
   ungroup() %&gt;%
@@ -1828,6 +2100,43 @@ common.legend = TRUE
   ylab(&quot;Total number of turns&quot;) +
   ggtitle(&quot;Total number of turns performed by fish in the Y-maze in 1 hour according to tank&quot;)</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-13-1">
+Past versions of unnamed-chunk-13-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-13-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-13-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>final_data_summedoverbins %&gt;%
   ungroup() %&gt;%
   group_by(fish_id) %&gt;%
@@ -1848,6 +2157,43 @@ common.legend = TRUE
   ylab(&quot;Total number of turns&quot;) +
   ggtitle(&quot;Total number of turns performed by fish in the Y-maze in 1 hour according to Sex&quot;)</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-13-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-13-2">
+Past versions of unnamed-chunk-13-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-13-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-13-2.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>To test whether Genotype, Sex or Tank has a significant effect ont he total number of turns, I used a negative binomial model. The coefficients are found below. Sex also has a significant difference, but this could be because there are much less females. We havent seen the effect of sec before and so I’m not reading into this result too much.</p>
 <pre class="r"><code>final_data_summedoverbins %&gt;%
   ungroup() %&gt;%
@@ -1976,6 +2322,43 @@ Tank2
   theme(legend.position = &quot;top&quot;) +
   ggtitle(&quot;Total number of turns performed by fish in the Y-maze across an hour&quot;)</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-15-1">
+Past versions of unnamed-chunk-15-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-15-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-15-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>final_data_long %&gt;% 
   dplyr::select(colnames(meta), bin, total_turns) %&gt;%
   mutate(bin = as.factor(bin)) %&gt;% 
@@ -2260,24 +2643,44 @@ bin6:Genotypehom
   ylab(&quot;Total time spent in each zone (mins, log scale)&quot;) +
   scale_fill_viridis_d() +
   ggtitle(&quot;Total time spent in each zone&quot;) </code></pre>
-<pre><code>Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
-<pre><code>
-── Column specification ────────────────────────────────────────────────────────
-cols(
-  X1 = col_double(),
-  file_id = col_character(),
-  apparatus = col_character(),
-  unit_id = col_character(),
-  arena = col_double(),
-  fish_id = col_double(),
-  bin = col_double(),
-  zone = col_double(),
-  time_enter = col_double(),
-  time_exit = col_double(),
-  time_in_zone = col_double()
-)</code></pre>
-<pre><code>Joining, by = &quot;fish_id&quot;</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-16-1">
+Past versions of unnamed-chunk-16-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-16-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-16-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>read_csv(&quot;data/processed_data/naglu/5m_LT/time_in_zone.csv&quot;) %&gt;% 
   mutate(fish_id = as.character(fish_id)) %&gt;%
   dplyr::select(fish_id, bin, zone, time_in_zone) %&gt;%
@@ -2298,25 +2701,44 @@ cols(
   scale_y_log10() +
   ylab(&quot;Average time spent in each zone (seconds, log scale&quot;) +
   ggtitle(&quot;Average time spent in each zone&quot;)</code></pre>
-<pre><code>Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
-<pre><code>
-── Column specification ────────────────────────────────────────────────────────
-cols(
-  X1 = col_double(),
-  file_id = col_character(),
-  apparatus = col_character(),
-  unit_id = col_character(),
-  arena = col_double(),
-  fish_id = col_double(),
-  bin = col_double(),
-  zone = col_double(),
-  time_enter = col_double(),
-  time_exit = col_double(),
-  time_in_zone = col_double()
-)
-
-Joining, by = &quot;fish_id&quot;</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-16-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-16-2">
+Past versions of unnamed-chunk-16-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-16-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-16-2.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>read_csv(&quot;data/processed_data/naglu/5m_LT/time_in_zone.csv&quot;) %&gt;% 
   mutate(fish_id = as.character(fish_id)) %&gt;%
   dplyr::select(fish_id, bin, zone, time_in_zone) %&gt;%
@@ -2337,26 +2759,44 @@ Joining, by = &quot;fish_id&quot;</code></pre>
   scale_y_log10() +
   ylab(&quot;Average time spent in each zone (seconds, log scale&quot;) +
   ggtitle(&quot;Average time spent in each zone&quot;)</code></pre>
-<pre><code>Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
-<pre><code>
-── Column specification ────────────────────────────────────────────────────────
-cols(
-  X1 = col_double(),
-  file_id = col_character(),
-  apparatus = col_character(),
-  unit_id = col_character(),
-  arena = col_double(),
-  fish_id = col_double(),
-  bin = col_double(),
-  zone = col_double(),
-  time_enter = col_double(),
-  time_exit = col_double(),
-  time_in_zone = col_double()
-)
-
-Joining, by = &quot;fish_id&quot;</code></pre>
-<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-16-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-16-3">
+Past versions of unnamed-chunk-16-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-16-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-16-3.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>read_csv(&quot;data/processed_data/naglu/5m_LT/time_in_zone.csv&quot;) %&gt;% 
   mutate(fish_id = as.character(fish_id)) %&gt;%
   dplyr::select(fish_id, bin, zone, time_in_zone) %&gt;%
@@ -2374,24 +2814,6 @@ Joining, by = &quot;fish_id&quot;</code></pre>
   kable(caption = &quot;linear model: log(average time in zone) ~ (Genotype + zone)^2 + Sex + Tank&quot;) %&gt;%
   kable_styling() %&gt;% 
   row_spec(row = 3, bold = T, color = &quot;black&quot;, background = &quot;lightblue&quot;)</code></pre>
-<pre><code>Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
-<pre><code>
-── Column specification ────────────────────────────────────────────────────────
-cols(
-  X1 = col_double(),
-  file_id = col_character(),
-  apparatus = col_character(),
-  unit_id = col_character(),
-  arena = col_double(),
-  fish_id = col_double(),
-  bin = col_double(),
-  zone = col_double(),
-  time_enter = col_double(),
-  time_exit = col_double(),
-  time_in_zone = col_double()
-)
-
-Joining, by = &quot;fish_id&quot;</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 linear model: log(average time in zone) ~ (Genotype + zone)^2 + Sex + Tank
@@ -2549,63 +2971,57 @@ final_data %&gt;%
          R = sum(R),
          total_turns = sum(total_turns)
   ) %&gt;%
-  ggplot(aes(L, R, shape = Genotype)) +
-  geom_point(aes(colour = L_R_bias),
-             size = 3)</code></pre>
-<pre><code>Joining, by = &quot;fish_id&quot;</code></pre>
-<p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>  geom_abline(slope = 1) </code></pre>
-<pre><code>mapping: intercept = ~intercept, slope = ~slope 
-geom_abline: na.rm = FALSE
-stat_identity: na.rm = FALSE
-position_identity </code></pre>
-<pre class="r"><code>  scale_color_manual(values = c(viridis_pal(end=0.75)(3), 
+  ggplot(aes(L, R)) +
+  geom_point(aes(colour = L_R_bias,  shape = Genotype),
+             size = 3) +
+  geom_abline(slope = 1, colour = &quot;grey50&quot;) +
+  scale_color_manual(values = c(viridis_pal(end=0.75)(3), 
                                rep(&quot;black&quot;, 3))
-  )</code></pre>
-<pre><code>&lt;ggproto object: Class ScaleDiscrete, Scale, gg&gt;
-    aesthetics: colour
-    axis_order: function
-    break_info: function
-    break_positions: function
-    breaks: waiver
-    call: call
-    clone: function
-    dimension: function
-    drop: TRUE
-    expand: waiver
-    get_breaks: function
-    get_breaks_minor: function
-    get_labels: function
-    get_limits: function
-    guide: legend
-    is_discrete: function
-    is_empty: function
-    labels: waiver
-    limits: NULL
-    make_sec_title: function
-    make_title: function
-    map: function
-    map_df: function
-    n.breaks.cache: NULL
-    na.translate: TRUE
-    na.value: grey50
-    name: waiver
-    palette: function
-    palette.cache: NULL
-    position: left
-    range: &lt;ggproto object: Class RangeDiscrete, Range, gg&gt;
-        range: NULL
-        reset: function
-        train: function
-        super:  &lt;ggproto object: Class RangeDiscrete, Range, gg&gt;
-    rescale: function
-    reset: function
-    scale_name: manual
-    train: function
-    train_df: function
-    transform: function
-    transform_df: function
-    super:  &lt;ggproto object: Class ScaleDiscrete, Scale, gg&gt;</code></pre>
+  ) + 
+  geom_mark_ellipse(aes(colour = L_R_bias, 
+                        label = L_R_bias), 
+                    alpha = 0.5) +
+  scale_x_continuous(limits = c(0,500)) +
+  scale_y_continuous(limits = c(0,500)) +
+  labs(title = &quot;Left vs Right turns performed by zebrafish &quot;)</code></pre>
+<p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-17-1">
+Past versions of unnamed-chunk-17-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-17-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-17-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>LR_Bias %&gt;% 
   left_join(meta) %&gt;% 
   ungroup() %&gt;% 
@@ -2621,9 +3037,6 @@ position_identity </code></pre>
          ) %&gt;% 
   kable(caption = &quot;Chi-square test of Genotype ~ LR Bias&quot;) %&gt;% 
   kable_styling(full_width = F)</code></pre>
-<pre><code>Joining, by = &quot;fish_id&quot;</code></pre>
-<pre><code>`summarise()` has grouped output by &#39;Genotype&#39;. You can override using the `.groups` argument.</code></pre>
-<pre><code>Warning in chisq.test(.): Chi-squared approximation may be incorrect</code></pre>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 Chi-square test of Genotype ~ LR Bias
@@ -2664,7 +3077,18 @@ Pearson’s Chi-squared test
 </div>
 <div id="test-for-changes-to-alternation" class="section level1">
 <h1>test for changes to alternation</h1>
-<p>Finally, I will now test for alternation changes using a generlatised linear mixed effect model (beta-binomial distribution). We use this because it is count data which is over-dispersed, and fixed and random effects are included. The link function is logit.</p>
+<p>Finally, I will now test for alternation changes using a generlatised linear mixed effect model (beta-binomial distribution). We use this because it is count data which is over-dispersed, and fixed and random effects are included. The link function is logit. The fixed effects are:</p>
+<ul>
+<li>Genotype</li>
+<li>bin + genotype interaction<br />
+</li>
+<li>Time of day (start time)</li>
+<li>Sex</li>
+<li>Tank</li>
+<li>L or R bias</li>
+</ul>
+<p>Random effect is fish_id to account for repeated measures in the bin:genotype interaction effect.</p>
+<p>Visualisation of the model predicted effects is found below.</p>
 <pre class="r"><code>glm &lt;-
   final_data %&gt;%
   droplevels() %&gt;% 
@@ -2677,9 +3101,9 @@ Pearson’s Chi-squared test
     cbind(alts, non_alts) ~ (bin + Genotype)^2 + Time + Sex + Tank + L_R_bias + (1|fish_id),  
     family = betabinomial(),
     data = .
-  )</code></pre>
-<pre><code>Joining, by = &quot;fish_id&quot;</code></pre>
-<pre class="r"><code>an &lt;- Anova(glm) %&gt;%
+  )
+
+an &lt;- Anova(glm) %&gt;%
   as.data.frame() 
 
 an %&gt;%   
@@ -2836,8 +3260,44 @@ bin:Genotype
                                angle = 45)) +
   scale_color_viridis_d(end = 0.5, option = &quot;inferno&quot;) +
   scale_fill_viridis_d(end = 0.5, option = &quot;inferno&quot;)</code></pre>
-<pre><code>NOTE: Results may be misleading due to involvement in interactions</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-19-1">
+Past versions of unnamed-chunk-19-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-19-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-19-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="bin-by-genotype" class="section level2">
 <h2>bin by genotype</h2>
@@ -2845,25 +3305,27 @@ bin:Genotype
 <pre class="r"><code>summary(emmeans(glm, specs = &quot;bin&quot;, by = &quot;Genotype&quot;), type = &quot;response&quot;) %&gt;%
   as_tibble() %&gt;%
   mutate(timeinterval = case_when(
-    bin == 1 ~ &quot;0_10&quot;, 
-    bin == 2 ~ &quot;10_20&quot;, 
-    bin == 3 ~ &quot;20_30&quot;, 
-    bin == 4 ~ &quot;30_40&quot;, 
-    bin == 5 ~ &quot;40_50&quot;, 
-    bin == 6 ~ &quot;50_60&quot;
+    bin == 1 ~ &quot;0 - 10 mins&quot;, 
+    bin == 2 ~ &quot;10 - 20 mins&quot;, 
+    bin == 3 ~ &quot;20 - 30 mins&quot;, 
+    bin == 4 ~ &quot;30 - 40 mins&quot;, 
+    bin == 5 ~ &quot;40 - 50 mins&quot;, 
+    bin == 6 ~ &quot;50 - 60 mins&quot;
   )) %&gt;% 
   ggplot(aes(timeinterval, prob, colour = Genotype, group = Genotype)) +
   geom_point(size = 2,
              position = position_dodge(width = 0.5)) +
-  geom_line(position = position_dodge(width = 0.5)) +
+  # geom_line(position = position_dodge(width = 0.5)) +
+  geom_col(aes(fill = Genotype),
+           position = position_dodge(width = 0.5),
+           width = 0.5,
+           alpha = 0.5)+
   geom_errorbar(
     aes(ymin = lower.CL, ymax = upper.CL),
     width = 0.5,
     position = position_dodge(width = 0.5)
   ) +
   scale_y_continuous(limits = c(0, 0.4)) +
-  ylab(&quot;Estimated probability of \nalternation&quot;) +
-  xlab(&quot;Time interval&quot;) +
   theme(
     axis.text.x = element_text(hjust = 1,
                                vjust = 1,
@@ -2871,12 +3333,51 @@ bin:Genotype
   ) + 
    scale_color_viridis_d(end = 0.5, option = &quot;inferno&quot;) +
   scale_fill_viridis_d(end = 0.5, option = &quot;inferno&quot;) +
-  ggtitle(&quot;GLM predicted probability of zebrafish performing an alternation\ntetragram across the 6x10 min bins&quot;,
-          subtitle = paste0(&quot;Effect of bin:Genotype from GLM: &quot;,
-                            signif(an[&quot;bin:Genotype&quot;,&quot;Pr(&gt;Chisq)&quot;], digits = 2)
-          )
+  labs(y = &quot;Estimated probability of \nalternation&quot;, 
+       x = &quot;Time interval&quot;, 
+       title = &quot;GLM predicted probability of zebrafish performing an alternation\ntetragram across the 6x10 min bins&quot;,
+       subtitle = paste0(&quot;Effect of bin:Genotype from GLM: &quot;,
+                         signif(an[&quot;bin:Genotype&quot;,&quot;Pr(&gt;Chisq)&quot;], digits = 2)
+       )
   )</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-20-1">
+Past versions of unnamed-chunk-20-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-20-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-20-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="l_r_bias" class="section level2">
 <h2>L_R_bias</h2>
@@ -2886,27 +3387,67 @@ bin:Genotype
   ggplot(aes(L_R_bias, prob, colour = L_R_bias)) +
   geom_point(size = 5,
              position = position_dodge(width = 0.5)) +
+  geom_col(aes(fill = L_R_bias), 
+           alpha = 0.5) +
   geom_errorbar(
     aes(ymin = lower.CL, ymax = upper.CL),
     width = 0.25,
     size = 1,
     position = position_dodge(width = 0.25)
-    ) +
-  ylab(&quot;Estimated probability of alternation&quot;) +
-  xlab(&quot;Time of day&quot;) +
+  ) +
   theme(
     axis.text.x = element_text(hjust = 1,
                                vjust = 1,
                                angle = 45),
     legend.position = &quot;none&quot;
-    ) +
-  scale_color_viridis_d(end = 0.8, option = &quot;viridis&quot;) +
-  ggtitle(&quot;GLM predicted probability of zebrafish performing an alternation\ntetragram due to having a L or R bias&quot;,
-          subtitle = paste0(&quot;Effect of L_R_bias from GLM: &quot;,
-                            signif(an[&quot;L_R_bias&quot;,&quot;Pr(&gt;Chisq)&quot;], digits = 2)
-          )
+  ) +
+  scale_color_viridis_d(end = 0.7, option = &quot;viridis&quot;) +
+  scale_fill_viridis_d(end = 0.7, option = &quot;viridis&quot;) +
+  labs(title = &quot;GLM predicted probability of zebrafish performing an alternation\ntetragram due to having a L or R bias&quot;,
+       subtitle = paste0(&quot;P-value of effect from GLM: &quot;,
+                         signif(an[&quot;L_R_bias&quot;,&quot;Pr(&gt;Chisq)&quot;], digits = 2)
+       ), 
+       y = &quot;Estimated probability of alternation&quot;, 
+       x = &quot;Left or Right bias&quot;
   )</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-21-1">
+Past versions of unnamed-chunk-21-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-21-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-21-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="sex" class="section level2">
 <h2>Sex</h2>
@@ -2916,6 +3457,8 @@ bin:Genotype
   ggplot(aes(Sex, prob, colour = Sex)) +
   geom_point(size = 5,
              position = position_dodge(width = 0.5)) +
+    geom_col(aes(fill = Sex), 
+           alpha = 0.5) +
   geom_errorbar(
     aes(ymin = lower.CL, ymax = upper.CL),
     width = 0.25,
@@ -2930,20 +3473,58 @@ bin:Genotype
                                angle = 45),
     legend.position = &quot;none&quot;
     ) +
-  scale_color_viridis_d(end = 0.8, option = &quot;viridis&quot;) +
-  ggtitle(&quot;GLM predicted probability of zebrafish performing an alternation\ntetragram due to sex&quot;,
-          subtitle = paste0(&quot;Effect of Sex from GLM: &quot;,
-                            signif(an[&quot;Sex&quot;,&quot;Pr(&gt;Chisq)&quot;], digits = 2)
-          )
-  )</code></pre>
+  scale_color_viridis_d(end = 0.7, option = &quot;mako&quot;) +
+  scale_fill_viridis_d(end = 0.7, option = &quot;mako&quot;) +
+  labs(title = &quot;GLM predicted probability of zebrafish performing an alternation\ntetragram due to sex&quot;,
+       subtitle = paste0(&quot;Effect of Sex from GLM: &quot;,
+                         signif(an[&quot;Sex&quot;,&quot;Pr(&gt;Chisq)&quot;], digits = 2)),
+       y = &quot;Estimated probability of alternation&quot;, 
+       x = &quot;Sex&quot;)</code></pre>
 <p><img src="figure/naglu5mLT.Rmd/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-22-1">
+Past versions of unnamed-chunk-22-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-22-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/karissa-b/MPSIII_zebrafish_Ymaze/blob/922fb69f92a9565a0c07ee0db34f97c358f52f55/docs/figure/naglu5mLT.Rmd/unnamed-chunk-22-1.png" target="_blank">922fb69</a>
+</td>
+<td>
+Karissa Barthelson
+</td>
+<td>
+2022-08-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
-<p>5 month old zebrafish homozygous for the <em>naglu</em> <sup>A603fs</sup> mutation the same number of alternations than their heterozygous type siblings.</p>
+<p>5 month old zebrafish homozygous for the <em>naglu</em> <sup>A603fs</sup> mutation the same number of alternations than their heterozygous type siblings. However, they appear to travel less distance than their het siblings. Is this indicative of a neurodegenerative phenotype?</p>
 <pre class="r"><code># export data
-saveRDS(glm, &quot;data/R objects/naglu3m.rds&quot;)</code></pre>
+saveRDS(glm, &quot;data/R objects/naglu5m.rds&quot;)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -2974,7 +3555,7 @@ other attached packages:
 [17] scales_1.1.1      here_1.0.1        readxl_1.3.1      magrittr_2.0.1   
 [21] forcats_0.5.1     stringr_1.4.0     dplyr_1.0.7       purrr_0.3.4      
 [25] readr_1.4.0       tidyr_1.1.3       tibble_3.1.2      ggplot2_3.3.5    
-[29] tidyverse_1.3.1   workflowr_1.6.2  
+[29] tidyverse_1.3.1  
 
 loaded via a namespace (and not attached):
  [1] TH.data_1.0-10      minqa_1.2.4         colorspace_2.0-2   
@@ -2983,32 +3564,33 @@ loaded via a namespace (and not attached):
 [10] rstudioapi_0.13     farver_2.1.0        fansi_0.5.0        
 [13] mvtnorm_1.1-2       lubridate_1.7.10    xml2_1.3.2         
 [16] codetools_0.2-18    splines_4.0.2       knitr_1.33         
-[19] polyclip_1.10-0     jsonlite_1.7.2      nloptr_1.2.2.2     
-[22] dbplyr_2.1.1        compiler_4.0.2      httr_1.4.2         
-[25] backports_1.2.1     assertthat_0.2.1    cli_3.0.0          
-[28] later_1.2.0         tweenr_1.0.2        htmltools_0.5.1.1  
-[31] tools_4.0.2         coda_0.19-4         gtable_0.3.0       
-[34] glue_1.4.2          Rcpp_1.0.7          cellranger_1.1.0   
-[37] jquerylib_0.1.4     vctrs_0.3.8         svglite_2.0.0      
-[40] nlme_3.1-152        insight_0.14.2      xfun_0.24          
-[43] openxlsx_4.2.4      rvest_1.0.0         lifecycle_1.0.0    
-[46] rstatix_0.7.0       zoo_1.8-9           hms_1.1.0          
-[49] promises_1.2.0.1    sandwich_3.0-1      TMB_1.7.20         
-[52] yaml_2.2.1          curl_4.3.2          gridExtra_2.3      
-[55] sass_0.4.0          stringi_1.6.2       highr_0.9          
-[58] boot_1.3-28         zip_2.2.0           rlang_0.4.11       
-[61] pkgconfig_2.0.3     systemfonts_1.0.2   evaluate_0.14      
-[64] lattice_0.20-44     labeling_0.4.2      cowplot_1.1.1      
-[67] tidyselect_1.1.1    plyr_1.8.6          R6_2.5.0           
-[70] generics_0.1.0      multcomp_1.4-17     DBI_1.1.1          
-[73] pillar_1.6.1        haven_2.4.1         foreign_0.8-81     
-[76] withr_2.4.2         survival_3.2-11     abind_1.4-5        
-[79] modelr_0.1.8        crayon_1.4.1        utf8_1.2.1         
-[82] rmarkdown_2.9       grid_4.0.2          data.table_1.14.0  
-[85] git2r_0.28.0        reprex_2.0.0        digest_0.6.27      
-[88] webshot_0.5.2       xtable_1.8-4        numDeriv_2016.8-1.1
-[91] httpuv_1.6.1        munsell_0.5.0       beeswarm_0.4.0     
-[94] viridisLite_0.4.0   vipor_0.4.5         bslib_0.2.5.1      </code></pre>
+[19] polyclip_1.10-0     jsonlite_1.7.2      workflowr_1.6.2    
+[22] nloptr_1.2.2.2      dbplyr_2.1.1        compiler_4.0.2     
+[25] httr_1.4.2          backports_1.2.1     assertthat_0.2.1   
+[28] cli_3.0.0           later_1.2.0         tweenr_1.0.2       
+[31] htmltools_0.5.1.1   tools_4.0.2         coda_0.19-4        
+[34] gtable_0.3.0        glue_1.4.2          Rcpp_1.0.7         
+[37] cellranger_1.1.0    jquerylib_0.1.4     vctrs_0.3.8        
+[40] svglite_2.0.0       nlme_3.1-152        insight_0.14.2     
+[43] xfun_0.24           openxlsx_4.2.4      rvest_1.0.0        
+[46] lifecycle_1.0.0     rstatix_0.7.0       zoo_1.8-9          
+[49] hms_1.1.0           promises_1.2.0.1    sandwich_3.0-1     
+[52] TMB_1.7.20          yaml_2.2.1          curl_4.3.2         
+[55] gridExtra_2.3       sass_0.4.0          stringi_1.6.2      
+[58] highr_0.9           boot_1.3-28         zip_2.2.0          
+[61] rlang_0.4.11        pkgconfig_2.0.3     systemfonts_1.0.2  
+[64] evaluate_0.14       lattice_0.20-44     labeling_0.4.2     
+[67] cowplot_1.1.1       tidyselect_1.1.1    plyr_1.8.6         
+[70] R6_2.5.0            generics_0.1.0      multcomp_1.4-17    
+[73] DBI_1.1.1           pillar_1.6.1        haven_2.4.1        
+[76] whisker_0.4         foreign_0.8-81      withr_2.4.2        
+[79] survival_3.2-11     abind_1.4-5         modelr_0.1.8       
+[82] crayon_1.4.1        utf8_1.2.1          rmarkdown_2.9      
+[85] grid_4.0.2          data.table_1.14.0   git2r_0.28.0       
+[88] reprex_2.0.0        digest_0.6.27       webshot_0.5.2      
+[91] xtable_1.8-4        numDeriv_2016.8-1.1 httpuv_1.6.1       
+[94] munsell_0.5.0       beeswarm_0.4.0      viridisLite_0.4.0  
+[97] vipor_0.4.5         bslib_0.2.5.1      </code></pre>
 </div>
 </div>
 

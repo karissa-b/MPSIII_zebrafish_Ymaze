@@ -6,6 +6,9 @@ output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
 
 ## setup
 ```{r}
@@ -501,13 +504,19 @@ final_data %>%
          R = sum(R),
          total_turns = sum(total_turns)
   ) %>%
-  ggplot(aes(L, R, shape = Genotype)) +
-  geom_point(aes(colour = L_R_bias),
-             size = 3)
-  geom_abline(slope = 1) 
+  ggplot(aes(L, R)) +
+  geom_point(aes(colour = L_R_bias,  shape = Genotype),
+             size = 3) +
+  geom_abline(slope = 1, colour = "grey50") +
   scale_color_manual(values = c(viridis_pal(end=0.75)(3), 
                                rep("black", 3))
-  )
+  ) + 
+  geom_mark_ellipse(aes(colour = L_R_bias, 
+                        label = L_R_bias), 
+                    alpha = 0.5) +
+  scale_x_continuous(limits = c(0,500)) +
+  scale_y_continuous(limits = c(0,500)) +
+  labs(title = "Left vs Right turns performed by zebrafish ")
 
 LR_Bias %>% 
   left_join(meta) %>% 
@@ -528,7 +537,19 @@ LR_Bias %>%
 
 
 # test for changes to alternation
-Finally, I will now test for alternation changes using a generlatised linear mixed effect model (beta-binomial distribution). We use this because it is count data which is over-dispersed, and fixed and random effects are included. The link function is logit. 
+
+Finally, I will now test for alternation changes using a generlatised linear mixed effect model (beta-binomial distribution). We use this because it is count data which is over-dispersed, and fixed and random effects are included. The link function is logit. The fixed effects are: 
+
+* Genotype
+* bin + genotype interaction  
+* Time of day (start time)
+* Sex
+* Tank
+* L or R bias 
+
+Random effect is fish_id to account for repeated measures in the bin:genotype interaction effect. 
+
+Visualisation of the model predicted effects is found below. 
 
 ```{r}
 glm <-
@@ -595,25 +616,27 @@ While there appears to be a bit of differences between the genotypes. The effect
 summary(emmeans(glm, specs = "bin", by = "Genotype"), type = "response") %>%
   as_tibble() %>%
   mutate(timeinterval = case_when(
-    bin == 1 ~ "0_10", 
-    bin == 2 ~ "10_20", 
-    bin == 3 ~ "20_30", 
-    bin == 4 ~ "30_40", 
-    bin == 5 ~ "40_50", 
-    bin == 6 ~ "50_60"
+    bin == 1 ~ "0 - 10 mins", 
+    bin == 2 ~ "10 - 20 mins", 
+    bin == 3 ~ "20 - 30 mins", 
+    bin == 4 ~ "30 - 40 mins", 
+    bin == 5 ~ "40 - 50 mins", 
+    bin == 6 ~ "50 - 60 mins"
   )) %>% 
   ggplot(aes(timeinterval, prob, colour = Genotype, group = Genotype)) +
   geom_point(size = 2,
              position = position_dodge(width = 0.5)) +
-  geom_line(position = position_dodge(width = 0.5)) +
+  # geom_line(position = position_dodge(width = 0.5)) +
+  geom_col(aes(fill = Genotype),
+           position = position_dodge(width = 0.5),
+           width = 0.5,
+           alpha = 0.5)+
   geom_errorbar(
     aes(ymin = lower.CL, ymax = upper.CL),
     width = 0.5,
     position = position_dodge(width = 0.5)
   ) +
   scale_y_continuous(limits = c(0, 0.4)) +
-  ylab("Estimated probability of \nalternation") +
-  xlab("Time interval") +
   theme(
     axis.text.x = element_text(hjust = 1,
                                vjust = 1,
@@ -621,10 +644,12 @@ summary(emmeans(glm, specs = "bin", by = "Genotype"), type = "response") %>%
   ) + 
    scale_color_viridis_d(end = 0.5, option = "inferno") +
   scale_fill_viridis_d(end = 0.5, option = "inferno") +
-  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram across the 6x10 min bins",
-          subtitle = paste0("Effect of bin:Genotype from GLM: ",
-                            signif(an["bin:Genotype","Pr(>Chisq)"], digits = 2)
-          )
+  labs(y = "Estimated probability of \nalternation", 
+       x = "Time interval", 
+       title = "GLM predicted probability of zebrafish performing an alternation\ntetragram across the 6x10 min bins",
+       subtitle = paste0("Effect of bin:Genotype from GLM: ",
+                         signif(an["bin:Genotype","Pr(>Chisq)"], digits = 2)
+       )
   )
 ```
 
@@ -638,25 +663,28 @@ summary(emmeans(glm, specs = "L_R_bias"), type = "response") %>%
   ggplot(aes(L_R_bias, prob, colour = L_R_bias)) +
   geom_point(size = 5,
              position = position_dodge(width = 0.5)) +
+  geom_col(aes(fill = L_R_bias), 
+           alpha = 0.5) +
   geom_errorbar(
     aes(ymin = lower.CL, ymax = upper.CL),
     width = 0.25,
     size = 1,
     position = position_dodge(width = 0.25)
-    ) +
-  ylab("Estimated probability of alternation") +
-  xlab("Time of day") +
+  ) +
   theme(
     axis.text.x = element_text(hjust = 1,
                                vjust = 1,
                                angle = 45),
     legend.position = "none"
-    ) +
-  scale_color_viridis_d(end = 0.8, option = "viridis") +
-  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram due to having a L or R bias",
-          subtitle = paste0("Effect of L_R_bias from GLM: ",
-                            signif(an["L_R_bias","Pr(>Chisq)"], digits = 2)
-          )
+  ) +
+  scale_color_viridis_d(end = 0.7, option = "viridis") +
+  scale_fill_viridis_d(end = 0.7, option = "viridis") +
+  labs(title = "GLM predicted probability of zebrafish performing an alternation\ntetragram due to having a L or R bias",
+       subtitle = paste0("P-value of effect from GLM: ",
+                         signif(an["L_R_bias","Pr(>Chisq)"], digits = 2)
+       ), 
+       y = "Estimated probability of alternation", 
+       x = "Left or Right bias"
   )
 ```
 
@@ -670,6 +698,8 @@ summary(emmeans(glm, specs = "Sex"), type = "response") %>%
   ggplot(aes(Sex, prob, colour = Sex)) +
   geom_point(size = 5,
              position = position_dodge(width = 0.5)) +
+    geom_col(aes(fill = Sex), 
+           alpha = 0.5) +
   geom_errorbar(
     aes(ymin = lower.CL, ymax = upper.CL),
     width = 0.25,
@@ -684,20 +714,21 @@ summary(emmeans(glm, specs = "Sex"), type = "response") %>%
                                angle = 45),
     legend.position = "none"
     ) +
-  scale_color_viridis_d(end = 0.8, option = "viridis") +
-  ggtitle("GLM predicted probability of zebrafish performing an alternation\ntetragram due to sex",
-          subtitle = paste0("Effect of Sex from GLM: ",
-                            signif(an["Sex","Pr(>Chisq)"], digits = 2)
-          )
-  )
+  scale_color_viridis_d(end = 0.7, option = "mako") +
+  scale_fill_viridis_d(end = 0.7, option = "mako") +
+  labs(title = "GLM predicted probability of zebrafish performing an alternation\ntetragram due to sex",
+       subtitle = paste0("Effect of Sex from GLM: ",
+                         signif(an["Sex","Pr(>Chisq)"], digits = 2)),
+       y = "Estimated probability of alternation", 
+       x = "Sex")
 ```
 
 
 # Conclusion
 
-5 month old zebrafish homozygous for the *naglu* ^A603fs^ mutation the same number of alternations than their heterozygous type siblings. 
+5 month old zebrafish homozygous for the *naglu* ^A603fs^ mutation the same number of alternations than their heterozygous type siblings. However, they appear to travel less distance than their het siblings. Is this indicative of a neurodegenerative phenotype?
 
 ```{r}
 # export data
-saveRDS(glm, "data/R objects/naglu3m.rds")
+saveRDS(glm, "data/R objects/naglu5m.rds")
 ```
