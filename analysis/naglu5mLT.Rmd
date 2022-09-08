@@ -137,9 +137,9 @@ meta %>%
 
 The plots below show the raw counts of each of the possible tetragrams. We can see some fish were quite inactive, wih low total number of tetragrams. The plot below show fish 1-5 for vis purposes.
 
-```{r fig.height = 40}
+```{r}
 final_data_summedoverbins %>% 
-  dplyr::filter(fish_id %in% c(seq(1,5))) %>% 
+  dplyr::filter(fish_id %in% c(9, 10)) %>% 
   ggplot(aes(x = tetras, y = x, fill = tetras)) + 
   geom_col() +
   facet_wrap(~fish_id, ncol = 1) +
